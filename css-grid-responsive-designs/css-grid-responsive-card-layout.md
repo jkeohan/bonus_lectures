@@ -34,7 +34,7 @@ We are also making use of `grid-template-areas` so we can assign each element a 
   grid-template-rows: min-content 1fr min-content;
   grid-gap: 10px;
   grid-template-areas:
-    "photo avatar author author"
+    "photo avatar author date"
     "photo . description description "
     "photo . . like";
 }
