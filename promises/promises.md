@@ -182,7 +182,7 @@ fetch(someurl)
 
 In order to get a better understanding of how a Promise is being used under the hood let's write our own `fetcher` function that makes an XHR request.  
 
-#### Writing Our Own Fetcher()
+### Bonus #1: Writing Our Own Fetcher()
 
 In the example below `fetcher` is making an XHR request and has several helper methods such as `.open()`, `send()` and `onload()`.  This will make the api call and console.log the results .  
 
@@ -276,7 +276,7 @@ fetcher('https://pokeapi.co/api/v2/pokemon')
   .catch(err => console.log('err', err))
 ```
 
-### Resolving Multiple Promises
+### Bonus #2: Resolving Multiple Promises
 
 There are times when there is a need to make multiple API calls and work with the data sets once they have all been retrieved.  In an instance like that we can use the `Promise.all()` method.  Here we can pass in an array of promises and when all of them have been resolved (or one fails), it will run either `.then()` or `.catch()` accordingly. 
 
