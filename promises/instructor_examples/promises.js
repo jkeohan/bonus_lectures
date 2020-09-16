@@ -1,0 +1,73 @@
+// const promisePending = new Promise( (resolve,reject) => {
+  
+// })
+
+// console.log('promisePending - ', promisePending)
+
+// let promiseResolved = new Promise( (resolve, reject) => {
+//   setTimeout(() => resolve({key:'data'}), 3000)
+// })
+// console.log('promiseResolved - ', promiseResolved)
+
+// console.log('this runs before .then')
+// promiseResolved.then( (val) => {
+//   // renderCards(val)
+//   console.log('val is:', val) 
+// })
+// console.log('this runs after .then')
+
+// let promiseRejected = new Promise( (resolve, reject) => {
+//   setTimeout( () => reject('you have been rejected'), 3000)
+// })
+// console.log('promiseRejected - ', promiseRejected)
+
+// promiseRejected
+// // .then only runs if the promise is resolved
+//   .then( val => console.log('val') )
+// // .catch only runs if the promise is rejected
+//   .catch( err => console.log('this is err:', err) )
+// // .finally will run regardless of resolve/reject
+//   .finally( () => console.log('this is finally'))
+
+// let promise = new Promise( (resolve, reject) => {
+//   resolve(1)
+// })
+
+
+// promise.then( (val) => {
+//   console.log('first then:', val)
+//   return val + 2
+// }).then( (val) => {
+//   console.log(('second then:', val))
+// })
+
+// $.ajax(googleUrl)
+  // .then((val => {
+  //   // format the data
+  //   // pass the data to the renderCards function
+  //   // OR return data and call that function in the next then
+  // }).then( val => {
+  //   // pass the data to the renderCards function
+  // })
+
+  // in unit 2 we will be using a new api tool to fetch data called: fetch
+
+  const fetcher = (url) => {
+    return new Promise( (resolve, reject) => { 
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve(JSON.parse(xhr.responseText));
+          // console.log(data)
+        } else {
+          reject('The request failed!');
+        }
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    })
+}
+
+fetcher('https://pokeapi.co/api/v2/pokemon')
+.then(data => data.results.map(d => d.name))
+.then(data => console.log('data', data))
