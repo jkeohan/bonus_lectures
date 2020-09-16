@@ -18,34 +18,54 @@ While the promise is active it is in a `pending` state and at some point will be
 
 ### Creating A Promise
 
-Creating a promise involves instantiating a new instance of the ES6 `Promise class`.  The Promise takes in a callback with 2 arguments: `resolve` and `reject`.  They are both predefined methods which the Promise will use to update it's state.
+Creating a promise involves instantiating a new instance of the ES6 `Promise class`.  The Promise takes in a callback with 2 arguments: 
 
-```
-let promisePending = new Promise((resolve, reject) => {
+- `resolve`
+- `reject`
+
+They are both predefined methods within the Promise object which it will use to update it's state.
+
+Let's create a new Promise in a state of `pending` which includes a console log
+
+```js
+const promisePending = new Promise((resolve, reject) => {
   // either resolve or reject must be called at some point. 
 });
+
+console.log('promisePending - ', promisePending)
 ```
 
-As we can see the `[[PromiseStatus]]` is `pending` and the `[[PromiseValue]]` is `undefined`.  The `PromiseValue` will not change until we call either the `resolve()` or `reject()` methods.
+We should see the following:
 
-<img src="https://i.imgur.com/5LevyPF.png" alt="" width=300>
+<img src="https://i.imgur.com/xJKX2PB.png" alt="" width=300>
+
+As we can see the `[[PromiseStatus]]` is `pending` and the `[[PromiseValue]]` is `undefined`.  
+
+The `PromiseValue` will not change until we call either the `resolve()` or `reject()` methods.
 
 ### A Promise Resolved
 
-Here is an example of a `resolved` promise.  As you can see setTimeout is being used to force the code to wait 1 sec in order to emulate running a task that may take time to complete.  
-
-Once the timeout is reached the `resolve()` method is called which is passed the value of `done`.
+Let's create a Promise that resolves itself.  In order to simulate the asynchronous nature of a Promise let's add a `setTimeout` to force the code to wait 1 sec in order to emulate running a task that may take time to complete.  
 
 ```sh
-let promiseResolved = new Promise((resolve, reject) => {
+const promiseResolved = new Promise((resolve, reject) => {
   // after 1 second signal that the job is done with the result "done"
-  setTimeout(() => resolve("done"), 1000);
+  setTimeout(() => resolve("done"), 3000);
 });
+
+console.log('promiseResolved - ', promiseResolved)
 ```
 
-Here is the resolved promise and now the `[[PromiseStatus]]` is `resolved` and the `[[PromiseValue]]` is set to `done`, which was the value paassed to the the resolve method. 
+<img src="https://i.imgur.com/weNEoQl.png" alt="" width=300>
 
-<img src="https://i.imgur.com/mvx9rZQ.png" alt="" width=300>
+Here is the resolved promise however `[[PromiseStatus]]` is still `pending` and the `[[PromiseValue]]` is `undefined`.  
+
+Let's try outputting the variable once more and see if anything has changed.
+
+<img src="https://i.imgur.com/Lixg2Zj.png" alt="" width=300>
+
+
+It seems that `[[PromiseStatus]]` is `resolved` and the `[[PromiseValue]]` is set to `done`, which was the value passed to the the resolve method. 
 
 ### A Promise Rejected
 
@@ -54,13 +74,21 @@ In the same fashion let's emulate a `rejected` promise.
 ```sh
 let promiseRejected = new Promise((resolve, reject) => {
   // after 1 second signal that the job is done with the result "resolved"
-  setTimeout(() => reject("resolved"), 1000);
+  setTimeout(() => reject("resolved"), 3000);
 });
+
+console.log('promiseRejected - ', promiseRejected)
 ```
 
-Here is the rejected promise and now the `[[PromiseStatus]]` is `rejected` and the `[[PromiseValue]]` is set to `done`, which was the value passed to the the reject method. 
+Of course we should encounter the same issue as before.
 
-<img src="https://i.imgur.com/UCja9KW.png" alt="" width=300>
+<img src="https://i.imgur.com/zh5EWHe.png" width=300/>
+
+If wait 3 seconds and call the variable again we should see:
+
+<img src="https://i.imgur.com/0VshJbf.png" width=300/>
+
+Here is the rejected promise and now the `[[PromiseStatus]]` is `rejected` and the `[[PromiseValue]]` is set to `done`, which was the value passed to the the reject method. 
 
 The Promise will terminate immediately once resolve() or reject() have been called.  Its much like calling the `return` keyword in a function. 
 
