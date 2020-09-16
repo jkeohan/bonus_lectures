@@ -1,3 +1,5 @@
+// LINK TO REPL: https://repl.it/@jkeohan/seair-831-promises-lecture#main.js
+
 //////////////////////////
 // PROMISE PENDING
 //////////////////////////
