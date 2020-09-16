@@ -184,7 +184,9 @@ In order to get a better understanding of how a Promise is being used under the 
 
 ### Bonus #1: Writing Our Own Fetcher()
 
-In the example below `fetcher` is making an XHR request and has several helper methods such as `.open()`, `send()` and `onload()`.  This will make the api call and console.log the results .  
+Up to this point you might have used only $.ajax() to make an API request.  But there are other tools that perform the same functionality.  JavaScript has it's own built-in Fetch API which has become the new standard to make server requests. 
+
+For our example we will recreate the $.ajax()/fetch() functionality by building our own `fetcher` function. It makes use of an XHR request and has several helper methods such as `.open()`, `send()` and `onload()`.  We will not go into any depth on XHR and so for now just copy/paste the code below. 
 
 ```js
 const fetcher= (url) => {
@@ -192,7 +194,7 @@ const fetcher= (url) => {
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
       let data = JSON.parse(xhr.responseText);
-      console.log(data)
+      console.log('request successful', data)
     } else {
       console.log('The request failed!');
     }
@@ -247,7 +249,7 @@ console.log('results', results)
 
 Now you can add a few more returns here and there to test and see if you can force fetcher to return the data but this will be all in vain.  
 
-Instead let's refactor to include a Promise. 
+Instead let's refactor to include a Promise.  Besides instantiating a new instance of a Promise we must also carefully place `resovle` and `reject` so that the Promise returns something. 
 
 ```js
 const fetcher = (url) => {
