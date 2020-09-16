@@ -1,6 +1,8 @@
 # Promises
 
-JavaScript is single threaded. This means that two bits of script cannot run at the same time; they have to run one after another. However, there are times that code needs to run asynchronously.  In order to achieve this ES6 introduced the Promise class which has now become a key underlying feature used in many of the tools we've become accustomed to using to perform everyday tasks such as making API calls or updating database entries. 
+JavaScript is single threaded and code runs synchronously. This means that two bits of script cannot run at the same time; they have to run one after another. 
+
+However, there are times that code needs to run asynchronously.  In order to achieve this ES6 introduced the `Promise class` which has now become a key underlying feature used in many of the tools we've become accustomed to using to perform everyday tasks such as, making `API calls` or updating database entries. 
 
 ### What Is A Promise? 
 
