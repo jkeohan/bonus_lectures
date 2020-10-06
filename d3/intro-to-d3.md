@@ -169,6 +169,8 @@ Let's use D3 to select the `#viz` element and `append` both an svg and a nested 
 
 ```js
 let svg = d3.select("#viz").append("svg").append("g");
+
+render(alphabet);
 ```
 
 If we examine the DOM in Developer Tools we should now see the following:
