@@ -18,13 +18,21 @@ This lecture is designed to introduce the concepts of Redux and apply them to a 
 
 ## Why Redux?
 
-It might be safe to say that if your learning about Redux then you are already familiar with managing state using `useState` and possibly even the `useReducer` hook.  You might even have worked with `useContext` and if so you may recall that it used the `Provide/Consumer` model thereby allowing components to access some form of global state without the need to pass props. 
+It might be safe to say that if your learning about Redux then you are already familiar with managing state using `useState`, `useReducer` and possibly even `useContext`.  
 
-**Q:** The question you might be asking yourself is: **Why should we use Redux at all?**
+If you've worked with `useContext` then you may recall that it used the `Provide/Consumer` model which allowed components to access a `global state` without the need to perform p. 
 
-**A:** Here is the short answer: **To Plug Any Data Into Any Component**
+Redux was created as a state management tool for large applications. Therefore making the decision to use an advanced library like Redux is based on solving problems with managing state in such applications and making that code much more maintainable in the long run. 
 
-Although that is exactly what `useContext` is used for, Redux was created as a state management tool for large applications. Therefor making the decision to use an advanced library like Redux is based on solving problems with managing state in such applications and making that code much more maintainable in the long run. 
+<hr>
+
+#### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 2min
+
+
+
+Let's take a look at the [Redux](https://redux.js.org/) site 
+
+<hr>
 
 <!-- So instead of this nightmare of passing props down and through multiple components: -->
 
@@ -107,7 +115,7 @@ Here are the steps we will follow to configure and use Redux:
 
 - Install redux packages
 - Create a reducer
-- Add redux imports
+- Adding Redux to our App
 - Create a `store`
 - Wrap your app in the redux Provider
 - Dispatch Actions
@@ -181,13 +189,16 @@ export default counterReducer
 
 Since the App is the top level Component in our React hierarchy we will be adding our store there. 
 
-In order to create a store we will first need to import the `createStore` function from `redux`
+### The Store
+A `store` is used to hold one global state object.  The is but one single store for the entire application.  The `store` is responsible for managing state which includes performing state updates based on the `actions` it receives. 
+
+Creating a store requires that we first import the `createStore` function from `redux`.
 
 ```sh
 import { createStore } from 'redux'
 ```
 
-Store will also needs to be passed a reducer so let's import the counterReducer as well. 
+The `store` will also need to be passed a reducer so let's import the counterReducer as well. 
 ```sh
 import counterReducer from './reducers/counterReducer'
 ```
@@ -212,18 +223,20 @@ You will often see the words `state` and `store` used interchangably. Technicall
 
 ### Provide State To The Application
 
-Now in order to use that store throughout our entire React app will need to provide the application access to the store.  This is done via a `Provider` so lets import that from `react-redux`
+Now in order to provide access to the `store` throughout our entire React app will need to do so via `Provider`.  
+
+Lets import the `Provider` from `react-redux`.
 
 ```sh
 import { Provider } from 'react-redux'
 ```
 
-Now we will wrap our component in the redux provider and pass in the store.
+Now we will wrap our component in the redux `Provider` and pass in the store.
 
-```sh
+```html
 <Provider store={store}>
-    <div className="nes-text is-primary">
-    <Counter />
+    <div>
+     <Counter />
     </div>
 </Provider>
 ```
@@ -232,7 +245,11 @@ Let's take a look at React Dev Tools and we should see the provider.
 
 <img src="https://i.imgur.com/535fkbK.png" />
 
-**Q:** Can you think of other applications that you built where you wrapped a component like so and saw a reference to `Provider` in React Dev Tools?
+<hr>
+
+:question: Can you think of other instance where you wrapped a component like so and saw a reference to `Provider` in React Dev Tools?
+
+<hr>
 
 <details>
 <summary>Answer</summary>
@@ -249,7 +266,9 @@ Let's take a look at React Dev Tools and we should see the provider.
 
 ### Dispatch Action
 
-To update our state we need to `dispatch` actions to our store.  For this the `store` object provides a `dispatch()` method which we can test right now.  If we place it between store and the console.log then we can see that the store has been updated. 
+To update state we need to `dispatch` actions to our store.  For this the `store` object provides a `dispatch()` method. 
+
+Let's test calling `dispatch` and increment count by 1. 
 
 ```sh
 const store = createStore(counterReducer);
@@ -264,15 +283,15 @@ Current State: {count: 0}
 Current State: {count: 1}
 ```
 
-### Connect Component To Redux
+### Connect The Component To Redux
 
-We now need to  connect the component to the store.  For that we will import the `connect` method into any Component that needs to access the store, in this case Counter
+We now need to  connect the Component to the store.  For that we will import the `connect` method into the `Counter` Component as it currently needs to access the store. 
 
 ```sh
 import { connect } from 'react-redux';
 ```
 
-Now `connect()` is a higher order function which is a fancy way of saying it returns a function when you call it.  The function it returns will be passed the `Counter` component. 
+The `connect()` method is a higher order function which is a fancy way of saying it returns a function when you call it.  The function it returns will be passed the `Counter` component. 
 
 Essentially this returns an entirely new Component altogether. 
 
@@ -288,7 +307,7 @@ It is however not yet being passed the count value in our global state so let's 
 
 ### mapStateToProps
 
-In order to access the state provide by the store we need to pass `connect()` a function that will provide access to the values we need. It essentially maps the values in state and passes them as props to the Component.  
+In order to access the state in the the store we need to pass `connect()` a function that will provide access to the values we need. It essentially maps the values in state and passes them as props to the Component.  
 
 One thing to note is that the function needs to be created outside of the Counter Component so that it's within the scope of `connect`
 
@@ -309,13 +328,13 @@ Now pass connect the function.
 export default connect(mapStateToProps)(Counter);
 ```
 
-If we take a look at React Dev Tools now we will be able to see that props now contains counnt
+If we take a look at React Dev Tools now we will be able to see that props contains count.
 
 <img src="https://i.imgur.com/bfkAtIk.png" />
 
 ### Update onClick Methods
 
-Since `dispatch()` is being passed down via props we will use that method to pass the `counterReducer` an action.
+Since `dispatch()` is being passed down via props we will use that method to pass the type of action to be performed and value. 
 
 ```sh
 const handleIncrement = () => {
@@ -333,7 +352,7 @@ const handleReset = () => {
 
 ### mapDispatchToProps
 
-We can take this even one step further and replace those supporting handleClick methods and map them directly to dispatch.  You'd probably think this is way cool and it is pretty cool so let's give that a try. 
+We can take this even one step further and replace those supporting handleClick methods and map them directly to dispatch. 
 
 Add a new function called `mapDispatchToProps` outside of the Counter Component.
 
@@ -367,9 +386,11 @@ And lastly update the buttons to reference these new props.
 
 ### Redux Developer Tools
 
-Redux has a great [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)chrome extension. Download and install it first and, if you want to use it with the app you need to pass the following second argument to `createStore`.
+Redux has a great [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)chrome extension. 
 
-```sh
+First we must download and install it and then update `createstore` with the following in order to use it. 
+
+```js
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -386,9 +407,8 @@ In the Redux App tool click the `Action` tab and work with the app for a bit.  A
 
 ### Resources
 
-- [What Does Redux Do?](https://daveceddia.com/what-does-redux-do/)
-- [How Does Redux Work?](https://daveceddia.com/how-does-redux-work/)
-- [React Redux Connect Tutorial](https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013/)
+- [React-Redux Tutorial - Robin Wieruch](https://www.robinwieruch.de/react-redux-tutorial#redux-store)
+- [What Does Redux Do? - david ceddia](https://daveceddia.com/what-does-redux-do/)
+- [How Does Redux Work? - david ceddia](https://daveceddia.com/how-does-redux-work/)
+- [React Redux Connect Tutorial - logrocket](https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013/)
 - [Official Redux Docs](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)
-
-
