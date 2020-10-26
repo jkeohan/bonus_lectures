@@ -58,7 +58,7 @@ So now that you've worked through a few examples of `.reduce` and we will apply 
 
 For this small demo we will be using the following starter code:
 
-[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-class-to-functional-usestate-starter-jdj6f?file=/src/components/Counter.js)
+[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-usereducer-starter-268mx)
 
 So the concept of a `reducer` has been around for sometime in JavaScript above and beyond the application of using it with `Array.reduce`. 
 
