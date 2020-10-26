@@ -194,14 +194,15 @@ This is because `useReducer` will be executing the callback function and it take
 
 ## Our Last Refactor
 
-If choosing to go with `useReducer` there's a good chance your working with a more complicated state object and not a single primitive value like in this example. 
+If choosing to go with `useReducer` there's a good chance your working with a more complicated state and/or your business logic is getting more complex and hard to manage. 
 
-In most cases you will be working with an object so let's start with the buttons.
+Let's assume our application may need to increment or decrement by more than just a single digit. Perhaps we are creating a game that allows the user to perform an action and based on that action they will increase their score by varying amounts. 
 
+For this we need to send more information in our `Action`. 
 
 ### Action
 
-The convention for writing an `Action` is to have both a `type` and a `payload`. While the type is the action to be performed, the payload is the value used to update state. 
+The convention for writing an `Action` is to have both a `type` and a `payload`. While the `type` is the action to be performed, the `payload` is the value used to update state. 
 
 Our first refactor is to send an object as a payload which includes the `type` of action to perform and the `value` by which to update state.  
 
