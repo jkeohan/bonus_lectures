@@ -58,7 +58,7 @@ So now that you've worked through a few examples of `.reduce` and we will apply 
 
 For this small demo we will be using the following starter code:
 
-[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-class-to-functional-usestate-starter-jdj6f?file=/src/components/Counter.js)
+[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-usereducer-starter-268mx)
 
 So the concept of a `reducer` has been around for sometime in JavaScript above and beyond the application of using it with `Array.reduce`. 
 
@@ -194,14 +194,15 @@ This is because `useReducer` will be executing the callback function and it take
 
 ## Our Last Refactor
 
-If choosing to go with `useReducer` there's a good chance your working with a more complicated state object and not a single primitive value like in this example. 
+If choosing to go with `useReducer` there's a good chance your working with a more complicated state and/or your business logic is getting more complex and hard to manage. 
 
-In most cases you will be working with an object so let's start with the buttons.
+Let's assume our application may need to increment or decrement by more than just a single digit. Perhaps we are creating a game that allows the user to perform an action and based on that action they will increase their score by varying amounts. 
 
+For this we need to send more information in our `Action`. 
 
 ### Action
 
-The convention for writing an `Action` is to have both a `type` and a `payload`. While the type is the action to be performed, the payload is the value used to update state. 
+The convention for writing an `Action` is to have both a `type` and a `payload`. While the `type` is the action to be performed, the `payload` is the value used to update state. 
 
 Our first refactor is to send an object as a payload which includes the `type` of action to perform and the `value` by which to update state.  
 
@@ -234,27 +235,15 @@ Here is the final solution code:
 
 [CodeSandbox - Counter Reducer - Solution](https://codesandbox.io/s/counter-class-to-functional-usestate-solution-rlhj9?file=/src/components/Counter.js)
 
-## Why useReducer?
+## Why useReducer over useState?
 
 Whenever there are two things that seem do the same thing, people inevitably ask: "When do I use one over the other?" Since we can manage state with useState, why do we need useReducer at all? 
 
-The React team advises the following:
-
-> useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. useReducer also lets you optimize performance for components that trigger deep updates because you can pass dispatch down instead of callbacks . — React Team
-
-Also Kent C. Dodds wrote up a explanation (article linked in references) of the differences between the two and, while he often reaches for setState, he provides a good use case for using useReducer instead:
+Kent C. Dodds wrote up a explanation (article linked in references) of the differences between the two and, while he often reaches for setState, he provides a good use case for using useReducer instead:
 
 > If one element of your state relies on the value of another element of your state, then it’s almost always best to use useReducer
 
 The example he works through in his article is a bit advanced but the gist of it is that he is implementing a state that includes a `past`, `present` and `future` and is a more complex version of state than we are used to working with. 
-
-## What About Redux?
-
-As we all know React is all about state management and so Redux has became the state management tool of choice, which employs...you guessed it... `reducers`.
-
-Many peoples’ first thought upon seeing the useReducer hook went something like… “well, React has reducers built in now, and it has Context to pass data around, so Redux is dead!” I wanted to give some thoughts on that here, because I bet you might be wondering.
-
-Redux still does more than useContext + useReducer combined – it has the Redux DevTools for great debugging, and middleware for customizability, and a whole ecosystem of helper libraries. Y
 
 
 ### References

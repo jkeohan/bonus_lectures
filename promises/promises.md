@@ -1,4 +1,4 @@
-Title: Intro to State<br>
+Title: Intro to Promises<br>
 Duration: 1 - 1.5 hrs+ <br>
 Creator:  Joe Keohan<br>
 
