@@ -271,13 +271,7 @@ Here is the final solution code:
 
 [CodeSandbox - Counter Reducer - Solution](https://codesandbox.io/s/counter-usereducer-starter-luru8?file=/src/components/Counter.js:487-488) - Provided after the lecture
 
-
-## Why useReducer over useState?
-
-#### :question: How does working with `useReducer` improve the readability and organization of our code?
-
-
-## Bonus Material
+##### :question: How does working with `useReducer` improve the readability and organization of our code?
 
 <!-- ### What About Redux?
 
