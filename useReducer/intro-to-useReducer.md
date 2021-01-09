@@ -9,20 +9,22 @@
 
 ## What is a reducer?
 
-A `reducer` is a fancy word for a function that takes 2 values and returns 1 value back.
+A `reducer` is a fancy word for a function that reduces a given input.  What that reducing entails is dependent on what was passed and expected output. 
 
-In fact you may have already worked with a `reducer` it you have ever used the `Array.reduce()` method.
+In fact you may have already worked with a `reducer` it you have ever used the `Array.reduce()` method.  
 
 ```js
-Array.reduce((acc, val) => {
+Array.reduce((acc, val, index) => {
 	return acc;
 }, init);
 ```
 
+`Array.reduce()` works in a similar fashion to `.forEach()`.`map()` and `.filter()` in that they all look over an array and take in a callback, however `.reduce` takes in an additional `accumulator` argument. 
+
 The parameters that `reduce()` takes in are:
 
-- a callback function that takes in an accumulator (acc) and the current element in the loop (val)
-- an optional starting value (init)
+- a callback function that takes in an accumulator (acc), the current element in the loop (val) and its index position
+- an optional starting value (init) that will be assigned to the accumulator
 
 The `accumulator` will determine if it has been assigned a starting value otherwise it will use the element at the first position in the array.
 
@@ -58,40 +60,43 @@ In both cases we reduced the input of many things to a single thing, be it a num
 
 [reduce-examples-solution repl]() - provided after the codealong
 
-#### :question: In your own words explain why you would use `[].reduce()` vs `[].forEach` or even a `for()` loop?
+ :question: In your own words explain why you would use `[].reduce()` vs `[].forEach` or even a `for()` loop?
+
+  <!-- :question: In your own words explain why you would use `[].reduce()` vs `[].forEach` or even a `for()` loop? -->
 
 ## Creating A Reducer
 
-So now that we have worked through a few examples of `[].reduce()` let's apply this knowledge and create a `reducer`.
+So now that we have worked through a few examples of `[].reduce()` let's apply this knowledge and create an actual `reducer` function of our own. 
 
 For this small demo we will be using the following starter code:
 
+
 <!-- original starter: https://codesandbox.io/s/counter-class-to-functional-usestate-starter-jdj6f?file=/src/components/Counter.js -->
 
-[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-usereducer-starter-luru8?file=/src/components/Counter.js)
+<!-- STARTER -->
+[CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-usereducer-starter-268mx)
 
-So the concept of a `reducer` has been around for sometime in JavaScript long before the introduction of `Array.reduce`.
+<!-- SOLUTION -->
+<!-- [CodeSandbox - Counter Reducer - Starter](https://codesandbox.io/s/counter-usereducer-starter-luru8?file=/src/components/Counter.js) -->
 
-When applied to building an application it becomes a tool which we use to manage both the `state` of an application and the` business logic` as well.
+So the concept of a `reducer` has been around for sometime in JavaScript, long before the introduction of `Array.reduce`.
 
-So the `reducer` is essentially a function that does the followng:
+When applied to building an application it becomes a tool which we use to manage both the `state` of an application and its `business logic` as well.
 
-**takes in the following params**
+So the `reducer` is essentially a function that accepts the following params:
 
-- current state
-- the action to be performed on state
+- an initial starting state
+- an action to be performed on state
 
-**returns**
-
-- a new/updated version of state (old state is never mutated)
+It then `returns` a new version of state
 
 ```js
 (state, action) => returns a new version of state
 ```
 
-This follows one of the rules we learned regarding state which is:
+This follows one of the golden rules when working with React state which is: 
 
-**:oncoming_police_car: Never update the state value directly**
+**:oncoming_police_car: -  Never update the state value directly**
 
 Although we already have a working example of a `Counter` component, lets give the code a once over so were all on the same page.
 
@@ -122,12 +127,14 @@ And of course the buttons that call the supporting functions.
 
 ### Our First Reducer
 
-Let's refactor this a bit to use a `reducer` function. The idea here is to aggregate state and all the logic update state into one single function.
+Let's refactor this a bit to use a `reducer` function. The idea here is to aggregate all the logic needed to update state in single function. 
 
 It will take in the following:
 
-- current state
+- an initial state value
 - an action to perform that will update state
+
+Since some `action` is passed, which determines how state is updated, we will use conditional logic to make that decision. 
 
 ```sh
 function counterReducer(state, action){
@@ -148,7 +155,7 @@ If the `action` doesn't match any condition, we default to return the unchanged 
 
 #### Refactor Buttons
 
-And of course the buttons need a bit of refactoring as well. Once again we are passing in the current state and the action to be performed.
+And of course the buttons need a bit of refactoring as well. We are passing in the current state and the action to be performed.
 
 ```sh
 <button onClick={() => setCount(counterReducer(count, 'INCREMENT'))}>+</button>
@@ -180,6 +187,8 @@ From the looks of it the switch statement does indeed make it easier to read.
 ## useReducer Hook
 
 The two basic hooks that are used for state management in React are: `useState` and `useReducer`, with the addition of `useContext` for managing a more global form of state.
+
+Let's take a moment to look at the [official React Docs on Hooks](https://reactjs.org/docs/hooks-reference.html)
 
 In order to work with the `useReducer` hook we need to first import it and, since it essentially replaces `useState` we can remove that.
 
@@ -218,13 +227,16 @@ This is because `useReducer` will be executing the callback function and it take
 
 ## Working With More Complex State
 
-If choosing to go with `useReducer` there's a good chance your working with a more complicated state object and not a single primitive value like in this example.
 
-In most cases you will be working with an object so let's start with the buttons.
+If choosing to go with `useReducer` there's a good chance your working with a more complicated state and/or your business logic is getting more complex and hard to manage. 
+
+
+Let's assume our application may need to increment or decrement by more than just a single digit. Perhaps we are creating a game that allows the user to perform an action and based on that action they will increase their score by varying amounts. 
+
 
 ### Action
 
-The convention for writing an `Action` is to have both a `type` and a `payload`. While the type is the action to be performed, the payload is the value used to update state.
+The convention for writing an `Action` is to have both a `type` and a `payload`. While the `type` is the action to be performed, the `payload` is the value used to update state. 
 
 Our first refactor is to send an object as a payload which includes the `type` of action to perform and the `value` by which to update state.
 
@@ -259,17 +271,24 @@ Here is the final solution code:
 
 [CodeSandbox - Counter Reducer - Solution](https://codesandbox.io/s/counter-usereducer-starter-luru8?file=/src/components/Counter.js:487-488) - Provided after the lecture
 
+
+## Why useReducer over useState?
+
 #### :question: How does working with `useReducer` improve the readability and organization of our code?
+
 
 ## Bonus Material
 
-### What About Redux?
+<!-- ### What About Redux?
 
 As we all know React is all about state management and so Redux has became the state management tool of choice, which employs...you guessed it... `reducers`.
 
+Kent C. Dodds wrote up a explanation (article linked in references) of the differences between the two and, while he often reaches for setState, he provides a good use case for using useReducer instead:
+
 Many peoples’ first thought upon seeing the useReducer hook went something like… “well, React has reducers built in now, and it has Context to pass data around, so Redux is dead!” I wanted to give some thoughts on that here, because I bet you might be wondering.
 
-Redux still does more than useContext + useReducer combined – it has the Redux DevTools for great debugging, and middleware for customizability, and a whole ecosystem of helper libraries.
+Redux still does more than useContext + useReducer combined – it has the Redux DevTools for great debugging, and middleware for customizability, and a whole ecosystem of helper libraries. -->
+
 
 ### Why useReducer over useState?
 
@@ -285,6 +304,7 @@ Also Kent C. Dodds wrote up a explanation (article linked in references) of the 
 
 The example he works through in his article is a bit advanced but the gist of it is that he is implementing a state that includes a `past`, `present` and `future` and is a more complex version of state than we are used to working with.
 
+
 ### References
 
 - [What is a Reducer in JavaScript/React/Redux - Robin Wieruch](https://www.robinwieruch.de/javascript-reducer)
@@ -292,4 +312,3 @@ The example he works through in his article is a bit advanced but the gist of it
 - [Getting to Know the useReducer React Hook - CSS Tricks](https://css-tricks.com/getting-to-know-the-usereducer-react-hook/)
 - [Should I useState or useReducer? - Kent Dodds](https://kentcdodds.com/blog/should-i-usestate-or-usereducer)
 - [Examples of the useReducer Hook - David Ceddia](https://daveceddia.com/usereducer-hook-examples/)
-

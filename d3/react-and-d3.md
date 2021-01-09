@@ -2,10 +2,26 @@
 
 D3 is a great tool to build out interactive data visualizations and React has become one the defacto front end frameworks.  Together they are quite powerful however they both want to control the DOM.  They both take control of user interface elements and do so in different ways.  
 
+## The React & D3 Ecosystem
+
+There are so many React charting libraries out today that are built on D3.  To name a few there there:
+
+- [Semiotic (Netflix)](https://semiotic.nteract.io/guides/bar-chart)
+- [Visx (AirBnB)](https://airbnb.io/visx/bars)
+- [React VX](https://vx-demo.now.sh/)
+- [Britecharts](https://britecharts.github.io/britecharts/)
+
+Here is a small [CodeSandbox demo](https://codesandbox.io/s/late-tree-ix7eh?file=/src/App.js) of a few of those libraries.
 
 ## What We Are Building
 
-- [Alphabet Solution](https://codesandbox.io/s/alphabet-d3react-d3-within-react-95ueg?file=/src/Components/Letters.js)
+For our demo we will be taking some D3 code and refactor it to work within a React Component. This will involve importing and using:
+
+- useState
+- useEffect
+- useRect
+
+Here is the [Alphabet Solution](https://codesandbox.io/s/alphabet-d3react-d3-within-react-95ueg?file=/src/Components/Letters.js) we will aim to complete. 
 
 ## Approaches
 
