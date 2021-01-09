@@ -202,6 +202,6 @@ npm run deploy
 
 Confirm that your site has been pushed up and is accessible by refreshing the page that contianed the 404 error. 
 
-References
+#### References
 
 - [AWS Global Infrastructure](https://jayendrapatil.com/aws-regions-availability-zones-and-edge-locations/)
