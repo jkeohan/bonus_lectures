@@ -187,7 +187,7 @@ When asked slack your answer in the thread.
 
 ## Bubble Sort Refactor 
 
-Based on the inefficiencies let's see if we can make a few changes that will improve the performance. 
+Based on our brainstorming let's sse if we can improve the code. 
 
 #### Removing Undefined
 We can resolve the issue of having to compare an element past the length of the array by removing one value from `arr.length` of the in the nested loop. 
