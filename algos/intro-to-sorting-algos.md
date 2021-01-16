@@ -108,7 +108,11 @@ This algo starts at the beginning of the array, much like `.sort()` and compares
 
 Let's take look at a visual representation of this on [visualgo](https://visualgo.net/en/sorting)
 
-Now let's try writing out some pseudocode so we have an idea on how to implement the logic.
+##### Pseudocode...Pseudocode...Pseudocode...
+
+Whats that you say? We should start by righting some pseudocode? I couldn't agree more. 
+
+Let's give it a try.
 
 ```js
 // LOOP over the array in ascending order setting i = 0
@@ -151,7 +155,10 @@ function bubbleSort(arr) {
 bubbleSort([3,2,1])
 ```
 
-Although this solution works but a few things stand out. 
+:question: - Based on the output does anything stand out that has you thinking about improving the code? 
+
+#### Things That Stand Out
+Although this solution works there are a few things stand out. 
 
 - it tries to sort an element that isn't there (undefined)
 - it continues to sort all values even though the ones at the end are in the right position
@@ -159,7 +166,7 @@ Although this solution works but a few things stand out.
 
 <hr>
 
-### :alarmclock: Activity
+### :alarm_clock: Activity
 
 Take a moment to think how you might resolve the issue with comparing a value that doesn't exist (undefined)
 
@@ -195,12 +202,22 @@ function bubbleSort(arr) {
 
 #### Stop Sorting Elements At End Of Array
 
-This solution once again requires making one small edit to the second loop.  
+This solution will also require making one small edit to the second loop but it might not be as obvious.  
 
-This solution is a bit more involved and requires that we think outside the box. By that I mean our attention has been focused on looping in ascending order but what if the initial loop was done in descending order. We 
+Keep in mind that we already already removed one value from the length (length-1) that keeps it confined to only the elements in the array.  
 
-- set the first loop to iterate in descending order
-- prevent the second loop from comparing those ending elements
+But what if we could also dynamically decrease the arrays length with each iteration. That would limit the number of elements it needs to compare. 
+
+<hr>
+
+### :alarm_clock: Activity
+
+Take a moment to think how you might dynamically decrease the arrays length with each iteration, but without removing elements.  
+
+When asked slack your answer in the thread. 
+
+<hr>
+
 
 And here is our pseudocode:
 
@@ -232,6 +249,11 @@ function bubbleSort(arr) {
   }
 }
 ```
+
+This solution is a bit more involved and requires that we think outside the box. By that I mean our attention has been focused on looping in ascending order but what if the initial loop was done in descending order. We 
+
+- set the first loop to iterate in descending order
+- prevent the second loop from comparing those ending elements
 
 ### One Last Bubble Sort Refactor
 
