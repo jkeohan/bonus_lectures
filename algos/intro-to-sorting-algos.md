@@ -161,14 +161,15 @@ bubbleSort([3,2,1])
 
 ### :alarm_clock: Activity
 
-Based on the output does anything stand out that has you thinking about improving the code? 
+Based on the console output does anything stand out perhaps has you thinking about improving the code performance or efficiency? 
 
-When asked slack your answer in the thread. 
+When asked slack your answer(s) in the thread. 
 
 <hr>
 
 #### Things That Stand Out
-Although this solution works there are a few things stand out. 
+
+So it seems like the following things stand stand out. 
 
 - it tries to sort an element that isn't there (undefined)
 - it continues to sort all values even though the ones at the end are in the right position
@@ -178,7 +179,7 @@ Although this solution works there are a few things stand out.
 
 ### :alarm_clock: Activity
 
-Take a moment to think how you might resolve the issue with comparing a value that doesn't exist (undefined)
+Take a moment and try to address the first bullet point. Think how you might resolve the issue with comparing a value that doesn't exist (undefined)
 
 When asked slack your answer in the thread. 
 
