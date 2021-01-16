@@ -308,7 +308,7 @@ function bubbleSort(arr) {
 
 <hr>
 
-### :alarm_clock: Activity - Additional Bubble Sort Refactors
+### :alarm_clock: Activity - Additional Bubble Sort Refactor Challenges
 
 With a full working solution try your hand at the following separate refactors:
 
