@@ -217,56 +217,46 @@ bubbleSort([3,2,1])
 
 This solution will also require making one small edit to the second loop but it might not be as obvious.  
 
-Keep in mind that we already already removed one value from the length (length-1) that keeps it confined to only the elements in the array.  
+Keep in mind that we already already removed one value from the length (length-1) which keeps it confined to only the elements in the array.  
 
-But what if we could also dynamically decrease the arrays length with each iteration. That would limit the number of elements it needs to compare. 
+But what if we could also continue to increase that value after a full iteration of the nested loop has completed. That would continue to limit the number of elements it needs to compare. 
 
 <hr>
 
 ### :alarm_clock: Activity
 
-Take a moment to think how you might dynamically decrease the arrays length with each iteration, but without removing elements.  
+Take a moment to think how you might dynamically decrease the arrays length with each iteration, but without actually removing elements from the array 
 
 When asked slack your answer in the thread. 
 
 <hr>
 
 
-And here is our pseudocode:
+With the new pseudocode in place we can now write our code. 
 
 ```js
-// LOOP over the array in descending order (i)
-//  LOOP over the array while j < i - 1
+function bubbleSort(arr) {
+  for(let i = 0; i < arr.length; i += 1) {
+    for(let j = 0; j < arr.length-1-i;; j += 1) {
+      // ...rest of code
+    }
+  }
+  return arr
+}
+```
+
+
+Let' take a moment and update ou pseudocode to reflect the changes we have made. 
+
+```js
+// LOOP over the array in ascending order (i)
+//  LOOP over the array.length-1-i in ascending order (i) 
 //   IF arr[j] is > arr[i]
 //    SWAP the elements
 //   END IF
 //  END LOOP
 // END LOOP
-
 ```
-
-With the new pseudocode in place we can now write our code. 
-
-```js
-function bubbleSort(arr) {
-  for(let i = arr.length; i > 0; i -= 1) {
-    for(let j = 0; j < i - 1; j += 1) {
-      console.log(arr, arr[j], arr[j+1])
-      if(arr[j] > arr[j+1]) {
-        // SWAP
-        let temp = arr[j]
-        arr[j] = arr[j+1]
-        arr[j+1] = temp
-      }
-    }
-  }
-}
-```
-
-This solution is a bit more involved and requires that we think outside the box. By that I mean our attention has been focused on looping in ascending order but what if the initial loop was done in descending order. We 
-
-- set the first loop to iterate in descending order
-- prevent the second loop from comparing those ending elements
 
 ### One Last Bubble Sort Refactor
 
@@ -275,16 +265,17 @@ Although our previous refactor increased the efficiency of our code we can do on
 Let's add a few new lines to our pseudocode in order to keep track of any swaps that might have occurred. 
 
 ```js
-//  CREATE a variable called swapHappened 
-// LOOP over the array in descending order (i)
+// CREATE a variable called swapHappened 
+// LOOP over the array in ascending order (i)
+//  LOOP over the array.length-1-i in ascending order (j) 
 //  SET swapHappened  to true
 //  LOOP over the array while j < i - 1
 //   IF arr[j] is > arr[i]
 //    SWAP the elements
-//    SET swapHappened  to false
+//    SET swapHappened to false
 //   END IF
 //  END LOOP
-//  IF swapHappened  is false
+//  IF swapHappened is false
 //   BREAK
 //  END IF
 // END LOOP
@@ -296,9 +287,9 @@ Here is the code:
 ```js
 function bubbleSort(arr) {
   let noSwap;
-  for(let i = arr.length; i > 0; i -= 1) {
+  for(let i = 0 i < arr.length>; i += 1) {
     noSwap = true
-    for(let j = 0; j < i - 1; j += 1) {
+    for(let j = 0; j < arr.length-1-i; j += 1) {
       console.log(arr, arr[j], arr[j+1])
       if(arr[j] > arr[j+1]) {
         // SWAP
@@ -314,9 +305,54 @@ function bubbleSort(arr) {
 }
 ```
 
-### Bubble Sort - Final Refactor
 
-One last refactor we can perform is to swap out the initial for loop with a while loop. 
+<hr>
+
+### :alarm_clock: Activity - Additional Bubble Sort Refactors
+
+With a full working solution try your hand at the following separate refactors:
+
+**Descending Order**
+
+Refactor the first loop (i) to loop in descending order 
+
+**Do/While Loop**
+
+Replace the initial i loop with a do/while loop 
+
+
+
+
+<hr>
+
+<details>
+<summary>Solutions</summary>
+
+**Descending Order**
+
+```js
+function bubbleSort(arr) {
+  let swapHappened;
+  // for(let i = arr.length; i > 0; i -= 1) {
+  for(let i = arr.length; i > 0; i -= 1) {
+    swapHappened = true
+    for(let j = 0; j < i - 1; j += 1) {
+      console.log(arr, arr[j], arr[j+1], `i-${i} j-${j}`)
+      if(arr[j] > arr[j+1]) {
+        // SWAP
+        let temp = arr[j]
+        arr[j] = arr[j+1]
+        arr[j+1] = temp
+        swapHappened = false
+      }
+    }
+    // if(swapHappened) break;
+  }
+  return arr
+}
+```
+
+**Do/While Loop**
 
 ```js
 function bubbleSort(array) {
@@ -338,6 +374,12 @@ function bubbleSort(array) {
 }
 
 ```
+
+</details>
+
+One last refactor we can perform is to swap out the initial for loop with a while loop. 
+
+
 
 
 
