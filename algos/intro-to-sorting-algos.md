@@ -141,6 +141,8 @@ function bubbleSort(arr) {
   return arr
 }
 
+bubbleSort([3,2,1])
+
 // [ 3, 2, 1 ] 3 2
 // [ 2, 3, 1 ] 3 1
 // [ 2, 1, 3 ] 3 undefined
@@ -152,7 +154,7 @@ function bubbleSort(arr) {
 // [ 1, 2, 3 ] 3 undefined
 // [ 1, 2, 3 ]
 
-bubbleSort([3,2,1])
+
 ```
 
 :question: - Based on the output does anything stand out that has you thinking about improving the code? 
@@ -190,6 +192,8 @@ function bubbleSort(arr) {
   }
   return arr
 }
+
+bubbleSort([3,2,1])
 
 // [ 3, 2, 1 ] 3 2
 // [ 2, 3, 1 ] 3 1
