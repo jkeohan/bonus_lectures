@@ -157,7 +157,15 @@ bubbleSort([3,2,1])
 
 ```
 
-:question: - Based on the output does anything stand out that has you thinking about improving the code? 
+<hr>
+
+### :alarm_clock: Activity
+
+Based on the output does anything stand out that has you thinking about improving the code? 
+
+When asked slack your answer in the thread. 
+
+<hr>
 
 #### Things That Stand Out
 Although this solution works there are a few things stand out. 
