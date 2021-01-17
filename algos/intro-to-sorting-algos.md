@@ -1,15 +1,19 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
+# Intro To Sorting Algos
+
+<img src="https://i.imgur.com/minpkI0.png" />
+
 ## Learning Objectives
 By the end of this lesson, you will be able to:
 - Have a working knowledge of using the the **Array.sort()** method
-- Implement **bubble, insertion and merge** sorting algorithms.
+- Be able to write pseudocode based on sorting requirements
+- Implement **bubble, selection** and **insertion** sorting algorithms.
 
 
 ## Prerequisites
-* Big O Notation
 * Working knowledge of ascending/descending for loops 
-* Working knowledge of while loops 
+* Working knowledge of using multiple conditions in a for loop
 
 ## What is Sorting?
 
@@ -122,6 +126,7 @@ Let's give it a try.
 //   END IF
 //  END LOOP
 // END LOOP
+// RETURN THE ARRAY
 ```
 
 With the pseudocode in place we have enough to get starting writing the actual code. 
@@ -142,6 +147,12 @@ function bubbleSort(arr) {
 }
 
 bubbleSort([3,2,1])
+
+```
+
+Let's take a look at the console logs
+
+```js
 
 // [ 3, 2, 1 ] 3 2
 // [ 2, 3, 1 ] 3 1
@@ -207,7 +218,11 @@ function bubbleSort(arr) {
 }
 
 bubbleSort([3,2,1])
+```
 
+Let's take a look at the console logs
+
+```js
 // [ 3, 2, 1 ] 3 2
 // [ 2, 3, 1 ] 3 1
 // [ 2, 1, 3 ] 2 1
@@ -236,6 +251,21 @@ When asked slack your answer in the thread.
 <hr>
 
 
+
+Let' take a moment and update ou pseudocode to reflect the changes we decided.  
+
+```js
+// LOOP over the array in ascending order (i)
+//  LOOP over the array.length-1-i in ascending order (i) 
+//   IF arr[j] is > arr[i]
+//    SWAP the elements
+//   END IF
+//  END LOOP
+// END LOOP
+// RETURN THE ARRAY
+```
+
+
 With the new pseudocode in place we can now write our code. 
 
 ```js
@@ -247,20 +277,11 @@ function bubbleSort(arr) {
   }
   return arr
 }
+
+bubbleSort([3,2,1])
 ```
 
 
-Let' take a moment and update ou pseudocode to reflect the changes we have made. 
-
-```js
-// LOOP over the array in ascending order (i)
-//  LOOP over the array.length-1-i in ascending order (i) 
-//   IF arr[j] is > arr[i]
-//    SWAP the elements
-//   END IF
-//  END LOOP
-// END LOOP
-```
 
 ### One Last Bubble Sort Refactor
 
@@ -283,7 +304,7 @@ Let's add a few new lines to our pseudocode in order to keep track of any swaps 
 //   BREAK
 //  END IF
 // END LOOP
-
+// RETURN THE ARRAY
 ```
 
 Here is the code:
@@ -307,6 +328,8 @@ function bubbleSort(arr) {
   }
   return arr
 }
+
+bubbleSort([3,2,1])
 ```
 
 
@@ -354,6 +377,8 @@ function bubbleSort(arr) {
   }
   return arr
 }
+
+bubbleSort([3,2,1])
 ```
 
 **Do/While Loop**
@@ -377,6 +402,8 @@ function bubbleSort(array) {
   return array;
 }
 
+bubbleSort([3,2,1])
+
 ```
 
 </details>
@@ -390,13 +417,14 @@ Here is visual that conveys that logic.
 <img src="https://i.imgur.com/W7qQdBV.png" width=300/>
 
 
-##### Pseudocode...Pseudocode...Pseudocode...
+#### Pseudocode...Pseudocode...Pseudocode...
 
 As always let's start by writing some pseudocode to work out our thought process. We can use much of the Bubbke sort logic here but with a few key edits. 
 
 Things to keep in mind when working out the pseudocode are:
 
 - we need to keep track of the lowest value as it is found
+- we should not compare the same element to itself so 2nd loop should be the next element
 - the swap must only happen a single time after each j loop has completed 
 
 ```js
@@ -409,6 +437,7 @@ Things to keep in mind when working out the pseudocode are:
 //   SWAP the elements
 //  END LOOP
 // END LOOP
+// RETURN THE ARRAY
 ```
 
 With our pseudocode in place let's write our code.
@@ -429,6 +458,8 @@ function selectionSort(arr) {
  }
  return arr
 }  
+
+selectionSort([3,2,1])
 ```
 
 Let's add some additional console logs so we can see the changes take place in sequence. 
@@ -438,7 +469,7 @@ Let's add some additional console logs so we can see the changes take place in s
 ```js
 //...rest of code
 console.log(arr, arr[lowest])
-console.log('SWAPPING TO:')
+console.log('SWAPPING HAPPENED:')
 let temp = arr[i]
 arr[i] = arr[lowest]
 arr[lowest] = temp
@@ -447,23 +478,138 @@ console.log('##########################')
 //...rest of code
 ```
 
-Let's take a look at the console logs and see if anything stands out
+Let's take a look at the console logs so we can see the code in action. 
 
 ```js
 [ 3, 1, 2 ] 1
-SWAPPING TO:
+SWAPPING HAPPENED:
 [ 1, 3, 2 ]
 ##########################
 [ 1, 3, 2 ] 2
-SWAPPING TO:
+SWAPPING HAPPENED:
 [ 1, 2, 3 ]
 ##########################
 [ 1, 2, 3 ] 3
-SWAPPING TO:
+SWAPPING HAPPENED:
 [ 1, 2, 3 ]
 ##########################
 [ 1, 2, 3 ]
 ```
+
+<hr>
+
+### :alarm_clock: Activity
+
+Based on the console output does anything stand out that perhaps has you thinking about improving the code performance or efficiency? 
+
+When asked slack your answer(s) in the thread. 
+
+<hr>
+
+
+#### Increase Selction Sort Efficiency 
+
+Let's first update our pseudocode with the changes. 
+
+
+```js
+// LOOP over the array in ascending order setting i = 0
+//  SET a variable called smallest to i
+//  LOOP over the array ascending order setting j = i + 1
+//   IF arr[j] < arr[lowest]
+//    SET lowest to j
+//   END IF
+//   IF(i is not equal to lowest) 
+//    SWAP the elements
+//   END IF
+//  END LOOP
+// END LOOP
+// RETURN THE ARRAY
+```
+
+And then update the code to stay in line with our pseudocode.
+
+```js
+
+function selectionSort(arr) {
+  for(let i = 0; i < arr.length; i += 1) {
+    let lowest = i
+    for(let j = i + 1; j < arr.length; j += 1) {
+      if(arr[j] < arr[lowest]) {
+          lowest = j
+      }
+    }
+    if(i !== lowest) {
+        let temp = arr[i]
+        arr[i] = arr[lowest]
+        arr[lowest] = temp
+    }
+ }
+ return arr
+}  
+
+selectionSort([3,2,1])
+```
+
+## Insertion Sort
+
+Insertion sort is the last of the basic sorting algos we will be covering in this lecture and might be the most challenging to wrap our heads around. 
+
+This algo is unique in that the second loop (j) starts one position before first loop (i) and then works it's way backwards to insert (more like swap) elements into their correct placement. 
+
+It builds up the sort by gradually creating a larger left half which is always sorted. 
+
+In a way it moves elements up creating temporary duplicates in the array until its condition is no longer true and then once it breaks out of the seconday loop (j) it make one final swap.
+
+This takes a minute to process so let's first take a look at it in action in [Visualgo](https://visualgo.net/en/sorting) and then we can try writing some pseudocode.
+
+Here is the visual that conveys the logic
+
+<img src="https://i.imgur.com/FOkttXw.png" width=300/>
+
+
+#### Pseudocode...Pseudocode...Pseudocode...
+
+Before we write the pseudoc let me share some of the requirements:
+
+- the i loop will always be one ahead of j
+- the j loop will iterate down until and stop when j is less than 0
+- the j loop will need to match 2 conditions to continue looping
+- the first condition is that j is greater than or equal to 0
+- the second condition is that the current value of j is > the current value in i
+
+Wow...thats alot and 
+
+```js
+// LOOP over the array in ascending order setting i = 1
+//  SET a variable called currentVal to i
+//  LOOP over the array ascending order setting j = i - 1 
+//   CONTINUE TO LOOP IF j is >= 0 && the value at j is > currentVal
+//   SET arr[j + 1] = arr[j]
+//  END LOOP
+//   SET  arr[j + 1] = currentVal
+// END LOOP
+// RETURN THE ARRAY
+```
+
+With our pseudocode in place let's write our code.
+
+```js
+function insertionSort(arr){
+  for(let i = 1; i < arr.length; i += 1){
+    let currentVal = arr[i]
+    for(var j = i - 1; j >=0 && arr[j] > currentVal; j -= 1) {
+      arr[j + 1] = arr[j]  
+    }
+    arr[j+1] = currentVal
+  }
+  return arr
+}
+
+insertionSort([3,2,1])
+```
+
+
 
 
 ## Additional Resources
