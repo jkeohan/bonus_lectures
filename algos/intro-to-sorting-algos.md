@@ -551,7 +551,7 @@ function selectionSort(arr) {
 selectionSort([3,2,1])
 ```
 
-## Insertion Sort
+## BONUS: Insertion Sort
 
 Insertion sort is the last of the basic sorting algos we will be covering in this lecture and might be the most challenging to wrap our heads around. 
 
