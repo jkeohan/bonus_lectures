@@ -62,7 +62,7 @@ My guess is that were missing some vital piece of info on how to use `.sort()` s
 
 The docs state that the method can take in a optional `compareFunction` but if omitted...
 
-<img src="https://i.imgur.com/9Vc0xNc.png" width=600/>
+<img src="https://i.imgur.com/9Vc0xNc.png" width=700/>
 
 Ok. Now I'm sure most of us don't either know what Unicode is or how to start even using it in order to sort. 
 
