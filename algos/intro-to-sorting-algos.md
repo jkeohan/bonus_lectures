@@ -150,7 +150,8 @@ bubbleSort([3,2,1])
 
 ```
 
-Let's take a look at the console logs
+Let's take a look at the console logs so we can see the code in action.
+
 
 ```js
 
@@ -220,7 +221,8 @@ function bubbleSort(arr) {
 bubbleSort([3,2,1])
 ```
 
-Let's take a look at the console logs
+Let's take a look at the console logs so we can see the code in action.
+
 
 ```js
 // [ 3, 2, 1 ] 3 2
@@ -570,7 +572,7 @@ Here is the visual that conveys the logic
 
 #### Pseudocode...Pseudocode...Pseudocode...
 
-Before we write the pseudoc let me share some of the requirements:
+Before we write the pseudocode let me share some of the requirements:
 
 - the i loop will always be one ahead of j
 - the j loop will iterate down until and stop when j is less than 0
@@ -578,7 +580,7 @@ Before we write the pseudoc let me share some of the requirements:
 - the first condition is that j is greater than or equal to 0
 - the second condition is that the current value of j is > the current value in i
 
-Wow...thats alot and 
+Wow...that seems like it contains much more logic than either of the previous sorting algos. But in reality it's not any more code, only different logic. 
 
 ```js
 // LOOP over the array in ascending order setting i = 1
@@ -609,7 +611,60 @@ function insertionSort(arr){
 insertionSort([3,2,1])
 ```
 
+Let's add some additional console logs so we can see the changes take place in sequence.
 
+
+```js
+function insertionSort(arr){
+  for(let i = 1; i < arr.length; i += 1){
+    let currentVal = arr[i]
+    console.log(arr, 'arr[i] is:', currentVal)
+    for(var j = i - 1; j >=0 && arr[j] > currentVal; j -= 1) {
+     console.log('J is: ', j)
+     console.log('SWAPPING HAPPENED J Loop:', arr[j], currentVal, arr[j] > currentVal)
+      arr[j + 1] = arr[j]
+      console.log(arr)
+     
+    }
+    console.log('J Loop Completed. J is:', j)
+    console.log(arr, currentVal)
+    console.log('SWAPPING HAPPENED:')
+    arr[j+1] = currentVal
+    console.log(arr)
+    console.log('##########################')
+  }
+  return arr
+}
+
+insertionSort([3,2,1])
+```
+
+Let's take a look at the console logs so we can see the code in action.
+
+```js
+[ 3, 2, 1 ] arr[i] is: 2
+J is:  0
+SWAPPING HAPPENED J Loop: 3 2 true
+[ 3, 3, 1 ]
+J Loop Completed. J is: -1
+[ 3, 3, 1 ] 2
+SWAPPING HAPPENED:
+[ 2, 3, 1 ]
+##########################
+[ 2, 3, 1 ] arr[i] is: 1
+J is:  1
+SWAPPING HAPPENED J Loop: 3 1 true
+[ 2, 3, 3 ]
+J is:  0
+SWAPPING HAPPENED J Loop: 2 1 true
+[ 2, 2, 3 ]
+J Loop Completed. J is: -1
+[ 2, 2, 3 ] 1
+SWAPPING HAPPENED:
+[ 1, 2, 3 ]
+##########################
+[ 1, 2, 3 ]
+```
 
 
 ## Additional Resources
