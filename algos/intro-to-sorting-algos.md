@@ -153,9 +153,13 @@ bubbleSort([3,2,1])
 // [ 1, 2, 3 ] 2 3
 // [ 1, 2, 3 ] 3 undefined
 // [ 1, 2, 3 ]
-
-
 ```
+
+Let's take a look at the console logs and see if anything stands out.
+
+```js
+```
+
 
 <hr>
 
@@ -377,12 +381,89 @@ function bubbleSort(array) {
 
 </details>
 
-One last refactor we can perform is to swap out the initial for loop with a while loop. 
+## Selection Sort
+
+Selection sort works in a similar fashion to Bubble sort however its a bit more efficient in that keeps track of the lowest values position as it is discovered and only at the end of the loop does it perform a swap. 
+
+Here is visual that conveys that logic.
+
+<img src="https://i.imgur.com/W7qQdBV.png" width=300/>
+
+
+##### Pseudocode...Pseudocode...Pseudocode...
+
+As always let's start by writing some pseudocode to work out our thought process. We can use much of the Bubbke sort logic here but with a few key edits. 
+
+Things to keep in mind when working out the pseudocode are:
+
+- we need to keep track of the lowest value as it is found
+- the swap must only happen a single time after each j loop has completed 
+
+```js
+// LOOP over the array in ascending order setting i = 0
+//  SET a variable called smallest to i
+//  LOOP over the array ascending order setting j = i + 1
+//   IF arr[j] < arr[lowest]
+//    SET lowest to j
+//   END IF
+//   SWAP the elements
+//  END LOOP
+// END LOOP
+```
+
+With our pseudocode in place let's write our code.
+
+```js
+
+function selectionSort(arr) {
+  for(let i = 0; i < arr.length; i += 1) {
+    let lowest = i
+    for(let j = i + 1; j < arr.length; j += 1) {
+      if(arr[j] < arr[lowest]) {
+          lowest = j
+      }
+    }
+    let temp = arr[i]
+    arr[i] = arr[lowest]
+    arr[lowest] = temp
+ }
+ return arr
+}  
+```
+
+Let's add some additional console logs so we can see the changes take place in sequence. 
 
 
 
+```js
+//...rest of code
+console.log(arr, arr[lowest])
+console.log('SWAPPING TO:')
+let temp = arr[i]
+arr[i] = arr[lowest]
+arr[lowest] = temp
+console.log(arr)
+console.log('##########################') 
+//...rest of code
+```
 
+Let's take a look at the console logs and see if anything stands out
 
+```js
+[ 3, 1, 2 ] 1
+SWAPPING TO:
+[ 1, 3, 2 ]
+##########################
+[ 1, 3, 2 ] 2
+SWAPPING TO:
+[ 1, 2, 3 ]
+##########################
+[ 1, 2, 3 ] 3
+SWAPPING TO:
+[ 1, 2, 3 ]
+##########################
+[ 1, 2, 3 ]
+```
 
 
 ## Additional Resources
