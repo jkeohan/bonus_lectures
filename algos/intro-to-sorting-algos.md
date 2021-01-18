@@ -285,9 +285,11 @@ bubbleSort([3,2,1])
 
 
 
-### One Last Bubble Sort Refactor
+### Stop Sorting Once Array Is Sorted
 
-Although our previous refactor increased the efficiency of our code we can do one better. It would make sense that if the array was already sorted that we should add some logic to terminate the loops since any additional comparisons would not be required.  To do this we need keep track if any elements have been swapped during the loop.  If not then the array is already sorted and we should end the loops and return the sorted array. 
+Our previous refactor increased the efficiency of our code but we can do one better. It makes sense that if the array is already sorted that we should add some logic to terminate the loops since any additional comparisons would redundant.  
+
+To do this we need to keep track to determine if any elements have been swapped during the loop.  If not then the array is already sorted and we should end the loops and return the sorted array. 
 
 Let's add a few new lines to our pseudocode in order to keep track of any swaps that might have occurred. 
 
@@ -333,82 +335,10 @@ function bubbleSort(arr) {
 
 bubbleSort([3,2,1])
 ```
+<br>
 
+Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Bubble-Sort#index.js)
 
-<hr>
-
-### :alarm_clock: Activity - Additional Bubble Sort Refactor Challenges
-
-With a full working solution try your hand at the following separate refactors:
-
-**Descending Order**
-
-Refactor the first loop (i) to loop in descending order 
-
-**Do/While Loop**
-
-Replace the initial i loop with a do/while loop 
-
-
-
-
-<hr>
-
-<details>
-<summary>Solutions</summary>
-
-**Descending Order**
-
-```js
-function bubbleSort(arr) {
-  let swapHappened;
-  // for(let i = arr.length; i > 0; i -= 1) {
-  for(let i = arr.length; i > 0; i -= 1) {
-    swapHappened = true
-    for(let j = 0; j < i - 1; j += 1) {
-      console.log(arr, arr[j], arr[j+1], `i-${i} j-${j}`)
-      if(arr[j] > arr[j+1]) {
-        // SWAP
-        let temp = arr[j]
-        arr[j] = arr[j+1]
-        arr[j+1] = temp
-        swapHappened = false
-      }
-    }
-    // if(swapHappened) break;
-  }
-  return arr
-}
-
-bubbleSort([3,2,1])
-```
-
-**Do/While Loop**
-
-```js
-function bubbleSort(array) {
-  let swapHappened; 
-  do {
-    swapHappened = false;
-    let end = array.length-1
-    for (var i = 0; i < end; i += 1) {
-      if (array[i] > array[i + 1]) {
-        let temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
-        swapHappened = true;
-      }
-    }
-    end -= 1
-  } while (swapHappened)
-  return array;
-}
-
-bubbleSort([3,2,1])
-
-```
-
-</details>
 
 ## Selection Sort
 
@@ -509,7 +439,7 @@ When asked slack your answer(s) in the thread.
 <hr>
 
 
-#### Increase Selction Sort Efficiency 
+#### Increase Selection Sort Efficiency 
 
 Let's first update our pseudocode with the changes. 
 
@@ -552,6 +482,9 @@ function selectionSort(arr) {
 
 selectionSort([3,2,1])
 ```
+
+Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Selection-Sort-Solution#index.js)
+
 
 ## BONUS: Insertion Sort
 
@@ -690,6 +623,79 @@ SWAPPING HAPPENED IN i:
 ```
 
 Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
+
+
+### :alarm_clock: Activity - Additional Bubble Sort Refactor Challenges
+
+With a full working solution try your hand at the following separate refactors:
+
+**Descending Order**
+
+Refactor the initial loop (i) to loop in descending order 
+
+**Do/While Loop**
+
+Replace the initial (i) loop with a do/while loop 
+
+
+
+
+<hr>
+
+<details>
+<summary>Solutions</summary>
+
+**Descending Order**
+
+```js
+function bubbleSort(arr) {
+  let swapHappened;
+  // for(let i = arr.length; i > 0; i -= 1) {
+  for(let i = arr.length; i > 0; i -= 1) {
+    swapHappened = true
+    for(let j = 0; j < i - 1; j += 1) {
+      console.log(arr, arr[j], arr[j+1], `i-${i} j-${j}`)
+      if(arr[j] > arr[j+1]) {
+        // SWAP
+        let temp = arr[j]
+        arr[j] = arr[j+1]
+        arr[j+1] = temp
+        swapHappened = false
+      }
+    }
+    // if(swapHappened) break;
+  }
+  return arr
+}
+
+bubbleSort([3,2,1])
+```
+
+**Do/While Loop**
+
+```js
+function bubbleSort(array) {
+  let swapHappened; 
+  do {
+    swapHappened = false;
+    let end = array.length-1
+    for (var i = 0; i < end; i += 1) {
+      if (array[i] > array[i + 1]) {
+        let temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+        swapHappened = true;
+      }
+    }
+    end -= 1
+  } while (swapHappened)
+  return array;
+}
+
+bubbleSort([3,2,1])
+
+```
+</details>
 
 ## Additional Resources
 
