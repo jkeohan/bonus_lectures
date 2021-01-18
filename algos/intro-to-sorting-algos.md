@@ -557,13 +557,38 @@ selectionSort([3,2,1])
 
 Insertion sort is the last of the basic sorting algos we will be covering in this lecture and might be the most challenging to wrap our heads around. 
 
-This algo is unique in that the second loop (j) starts one position before first loop (i) and then works it's way backwards to insert (more like swap) elements into their correct placement. 
+The way it works is that it splits the array into two sections — one sorted and the other unsorted. We don’t know if any of the items are in place yet, so we will start our sorted list with the first item and consider it an an array of a single sorted item.
 
-It builds up the sort by gradually creating a larger left half which is always sorted. 
+Then we start going through the other items in the array. For each one we must find it’s proper place in the sorted array. We do that by finding the first smaller item or until we reach the beginning of the sorted list.
 
-In a way it moves elements up creating temporary duplicates in the array until its condition is no longer true and then once it breaks out of the seconday loop (j) it make one final swap.
+This algo is unique in that the first loop () starts one position ahead first second loop (j).  It's thee job of the second loop to sort each element and does so by looping in descending order, or backwards, in order to insert (more like swap) elements into their correct placement in the sorted portion of the array. 
 
-This takes a minute to process so let's first take a look at it in action in [Visualgo](https://visualgo.net/en/sorting) and then we can try writing some pseudocode.
+```js
+3, 2, 1  // the only sorted part is the first item
+3, 3, 1  // 3 > 2 we move 3 forward
+2, 3, 1  // and then swap the first element with 2
+2, 3, 1  // 3 > 1 and we now compare it to each element until we reach the head 
+2, 3, 3  // compare all to 1, until we reach the head
+2, 2, 3  // compare all to 1, until we reach the head
+1, 2, 3  // once the head is reached we swap the element
+```
+
+During this process it temporary creates duplicates in the array until it breaks out of the secondary loop (j) and  at that point it swaps the elements.
+
+Here is a snippet from the console logs which we can use to understand what is happening within the loops which will help us write the needed pswudocode. 
+
+```js
+[ 3, 2, 1 ] arr[i] is: 2
+INSIDE j LOOP - arr[j] is 3
+SWAPPING HAPPENED IN j LOOP: 3 > 2 true
+[ 3, 3, 1 ]
+J LOOP COMPPLETED. j is: -1
+[ 3, 3, 1 ] 2
+SWAPPING HAPPENED IN i:
+[ 2, 3, 1 ]
+```
+
+Let's also take a look at [Visualgo](https://visualgo.net/en/sorting) and see if we can see that pattern in action. 
 
 Here is the visual that conveys the logic
 
@@ -620,15 +645,14 @@ function insertionSort(arr){
     let currentVal = arr[i]
     console.log(arr, 'arr[i] is:', currentVal)
     for(var j = i - 1; j >=0 && arr[j] > currentVal; j -= 1) {
-     console.log('J is: ', j)
-     console.log('SWAPPING HAPPENED J Loop:', arr[j], currentVal, arr[j] > currentVal)
+     console.log('INSIDE j LOOP - arr[j] is', arr[j])
+     console.log('SWAPPING HAPPENED IN j LOOP:', arr[j], '>', currentVal, arr[j] > currentVal)
       arr[j + 1] = arr[j]
       console.log(arr)
-     
     }
-    console.log('J Loop Completed. J is:', j)
+    console.log('J LOOP COMPPLETED. j is:', j)
     console.log(arr, currentVal)
-    console.log('SWAPPING HAPPENED:')
+    console.log('SWAPPING HAPPENED IN i:')
     arr[j+1] = currentVal
     console.log(arr)
     console.log('##########################')
@@ -643,33 +667,36 @@ Let's take a look at the console logs so we can see the code in action.
 
 ```js
 [ 3, 2, 1 ] arr[i] is: 2
-J is:  0
-SWAPPING HAPPENED J Loop: 3 2 true
+INSIDE j LOOP - arr[j] is 3
+SWAPPING HAPPENED IN j LOOP: 3 > 2 true
 [ 3, 3, 1 ]
-J Loop Completed. J is: -1
+J LOOP COMPPLETED. j is: -1
 [ 3, 3, 1 ] 2
-SWAPPING HAPPENED:
+SWAPPING HAPPENED IN i:
 [ 2, 3, 1 ]
 ##########################
 [ 2, 3, 1 ] arr[i] is: 1
-J is:  1
-SWAPPING HAPPENED J Loop: 3 1 true
+INSIDE j LOOP - arr[j] is 3
+SWAPPING HAPPENED IN j LOOP: 3 > 1 true
 [ 2, 3, 3 ]
-J is:  0
-SWAPPING HAPPENED J Loop: 2 1 true
+INSIDE j LOOP - arr[j] is 2
+SWAPPING HAPPENED IN j LOOP: 2 > 1 true
 [ 2, 2, 3 ]
-J Loop Completed. J is: -1
+J LOOP COMPPLETED. j is: -1
 [ 2, 2, 3 ] 1
-SWAPPING HAPPENED:
+SWAPPING HAPPENED IN i:
 [ 1, 2, 3 ]
 ##########################
-[ 1, 2, 3 ]
 ```
 
+Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
 
 ## Additional Resources
+
+- [Step-by-step Visualization of Algorithms](https://visualgo.net/bn/sorting)
+- [Animated Comparison of Sorting Algorithms](http://www.sorting-algorithms.com/)
+- [Big O Cheat Sheet](http://bigocheatsheet.com/)
 - Visualize bubble sort and insertion sort using [this fun tool](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html).
-- More visuals here: [bubble sort](https://www.youtube.com/watch?v=Cq7SMsQBEUw), [insertion sort](https://www.youtube.com/watch?v=8oJS1BMKE64).
-- Some [sample interview questions](https://hoven-in.appspot.com/Home/Data-Structures/Data-Structure-Interview-Questions/interview-questions-on-bubble-sort-01.html) about bubble sort. (Note: The code in this article is not JavaScript.)
 - Recap of how [insertion sort works](https://hackernoon.com/programming-with-js-insertion-sort-1316df8354f5).
-- Last but certainly not least: Folk dancing for [bubble sort](https://www.youtube.com/watch?v=lyZQPjUT5B4) and [insertion sort](https://www.youtube.com/watch?v=ROalU379l3U).
+
+- Some [sample interview questions](https://hoven-in.appspot.com/Home/Data-Structures/Data-Structure-Interview-Questions/interview-questions-on-bubble-sort-01.html) about bubble sort. (Note: The code in this article is not JavaScript.)
