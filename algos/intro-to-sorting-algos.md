@@ -284,11 +284,11 @@ bubbleSort([3,2,1])
 
 
 
-### Stop Sorting Once Array Is Sorted
+### Stop Sorting A Sorted Array
 
-Our previous refactor increased the efficiency of our code but we can do one better. It makes sense that if the array is already sorted that we should add some logic to terminate the loops since any additional comparisons would redundant.  
+Our previous refactor increased the efficiency of our code and we have one final improvement to make. It makes sense that if the array is already sorted that we should add some logic to terminate the loops, since any additional comparisons would redundant.  
 
-To do this we need to keep track to determine if any elements have been swapped during the loop.  If not then the array is already sorted and we should end the loops and return the sorted array. 
+To do this we need to keep track and determine if any elements have been swapped during the loop.  If not, then the array is already sorted and, we should end the loops and return the sorted array. 
 
 Let's add a few new lines to our pseudocode in order to keep track of any swaps that might have occurred. 
 
@@ -341,7 +341,7 @@ Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Bubble-Sort#in
 
 ## Selection Sort
 
-Selection sort works in a similar fashion to Bubble sort however its a bit more efficient in that keeps track of the lowest values position as it is discovered and only at the end of the loop does it perform a swap. 
+Selection sort works in a similar fashion to Bubble sort however its a bit more efficient. It keeps track of the lowest value as it is discovered and, only at the end of the loop, does it perform a single swap. 
 
 Here is visual that conveys that logic.
 
@@ -350,12 +350,12 @@ Here is visual that conveys that logic.
 
 #### Pseudocode...Pseudocode...Pseudocode...
 
-As always let's start by writing some pseudocode to work out our thought process. We can use much of the Bubbke sort logic here but with a few key edits. 
+As always let's start by writing some pseudocode to work out our thought process. We can use much of the Bubble sort logic here but with a few key edits. 
 
 Things to keep in mind when working out the pseudocode are:
 
 - we need to keep track of the lowest value as it is found
-- we should not compare the same element to itself so 2nd loop should be the next element
+- we should not compare the same element to itself so 2nd loop should start at the next element
 - the swap must only happen a single time after each j loop has completed 
 
 ```js
@@ -365,8 +365,8 @@ Things to keep in mind when working out the pseudocode are:
 //   IF arr[j] < arr[lowest]
 //    SET lowest to j
 //   END IF
-//   SWAP the elements
 //  END LOOP
+//  SWAP the elements
 // END LOOP
 // RETURN THE ARRAY
 ```
@@ -440,7 +440,7 @@ When asked slack your answer(s) in the thread.
 
 #### Increase Selection Sort Efficiency 
 
-Let's first update our pseudocode with the changes. 
+So it appears that a swap happens even if it's not required.  Let's first update our pseudocode with the changes. 
 
 
 ```js
@@ -450,10 +450,10 @@ Let's first update our pseudocode with the changes.
 //   IF arr[j] < arr[lowest]
 //    SET lowest to j
 //   END IF
-//   IF(i is not equal to lowest) 
-//    SWAP the elements
-//   END IF
 //  END LOOP
+//  IF(i is not equal to lowest) 
+//   SWAP the elements
+//  END IF
 // END LOOP
 // RETURN THE ARRAY
 ```
@@ -546,7 +546,7 @@ Wow...that seems like it contains much more logic than either of the previous so
 //   CONTINUE TO LOOP IF j is >= 0 && the value at j is > currentVal
 //   SET arr[j + 1] = arr[j]
 //  END LOOP
-//   SET  arr[j + 1] = currentVal
+//  SET  arr[j + 1] = currentVal
 // END LOOP
 // RETURN THE ARRAY
 ```
