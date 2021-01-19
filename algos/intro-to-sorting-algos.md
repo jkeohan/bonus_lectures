@@ -173,7 +173,7 @@ Let's take a look at the console logs and see if anything stands out.
 
 ### :alarm_clock: Activity
 
-Based on the console output does anything stand out perhaps has you thinking about improving the code performance or efficiency? 
+Review the console output and look for some inefficiency.  Then ask yourself how you might update the code to improve it's performance. 
 
 When asked slack your answer(s) in the thread. 
 
