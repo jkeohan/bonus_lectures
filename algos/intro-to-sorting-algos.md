@@ -150,8 +150,8 @@ bubbleSort([3,2,1])
 
 ```
 
-Let's take a look at the console logs so we can see the code in action.
 
+Let's take a look at the console logs and see if anything stands out.
 
 ```js
 
@@ -167,10 +167,6 @@ Let's take a look at the console logs so we can see the code in action.
 // [ 1, 2, 3 ]
 ```
 
-Let's take a look at the console logs and see if anything stands out.
-
-```js
-```
 
 
 <hr>
