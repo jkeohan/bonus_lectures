@@ -531,11 +531,15 @@ Here is the visual that conveys the logic
 
 Before we write the pseudocode let me share some of the requirements:
 
-- the i loop will always be one ahead of j
-- the j loop will iterate down until and stop when j is less than 0
+- the i loop will always be one ahead of j by 1
+- the j loop will iterate in descending order
 - the j loop will need to match 2 conditions to continue looping
 - the first condition is that j is greater than or equal to 0
-- the second condition is that the current value of j is > the current value in i
+- the second condition is that the current value of j is > the current value 
+
+**The Swap**
+
+The swap happens two places.  Once in the `j` loop as it keeps moving the higher values forward in the array and then again in the `i` loop where it places in the element it's correct position 
 
 Wow...that seems like it contains much more logic than either of the previous sorting algos. But in reality it's not any more code, only different logic. 
 
@@ -551,7 +555,7 @@ Wow...that seems like it contains much more logic than either of the previous so
 // RETURN THE ARRAY
 ```
 
-With our pseudocode in place let's write our code.
+With our pseudocode in place let's write our code.  Make not that the second loop makes use of the `var` keyword instead of `let`.  This is due to the fact that we want `j` to be available or scoped outside of it's loop.  `let` were introduced to create block scope at which point `j` wouldn't exist outside its loop. 
 
 ```js
 function insertionSort(arr){
