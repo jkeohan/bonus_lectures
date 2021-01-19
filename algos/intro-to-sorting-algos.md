@@ -204,7 +204,7 @@ When asked slack your answer in the thread.
 Based on our brainstorming let's sse if we can improve the code. 
 
 #### Removing Undefined
-We can resolve the issue of having to compare an element past the length of the array by removing one value from `arr.length` of the in the nested loop. 
+We can resolve the issue of having to compare an element past the length of the array by removing one value from `arr.length` from the the nested `j` loop. 
 
 ```js
 function bubbleSort(arr) {
@@ -238,7 +238,7 @@ This solution will also require making one small edit to the second loop but it 
 
 Keep in mind that we already already removed one value from the length (length-1) which keeps it confined to only the elements in the array.  
 
-But what if we could also continue to increase that value after a full iteration of the nested loop has completed. That would continue to limit the number of elements it needs to compare. 
+But what if we could also continue to decrease that value. That would continue to limit the number of elements the `j` loop would need to iterate over. 
 
 <hr>
 
@@ -250,6 +250,7 @@ When asked slack your answer in the thread.
 
 <hr>
 
+We can implement this logic of decreasing that value by also subtracting `i` as well within the `j` loop condition.  This would continue to decrease the that value by 1 every time a new `i` loop initiates.
 
 
 Let' take a moment and update ou pseudocode to reflect the changes we decided.  
