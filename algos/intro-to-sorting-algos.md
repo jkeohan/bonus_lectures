@@ -273,7 +273,7 @@ With the new pseudocode in place we can now write our code.
 ```js
 function bubbleSort(arr) {
   for(let i = 0; i < arr.length; i += 1) {
-    for(let j = 0; j < arr.length-1-i;; j += 1) {
+    for(let j = 0; j < arr.length-1-i; j += 1) {
       // ...rest of code
     }
   }
@@ -297,15 +297,15 @@ Let's add a few new lines to our pseudocode in order to keep track of any swaps 
 // CREATE a variable called swapHappened 
 // LOOP over the array in ascending order (i)
 //  LOOP over the array.length-1-i in ascending order (j) 
-//  SET swapHappened  to true
+//  SET swapHappened  to false
 //  LOOP over the array while j < i - 1
 //   IF arr[j] is > arr[i]
 //    SWAP the elements
-//    SET swapHappened to false
+//    SET swapHappened to true
 //   END IF
 //  END LOOP
-//  IF swapHappened is false
-//   BREAK
+//  IF swapHappened is not true 
+//   BREAK the loop
 //  END IF
 // END LOOP
 // RETURN THE ARRAY
@@ -315,9 +315,9 @@ Here is the code:
 
 ```js
 function bubbleSort(arr) {
-  let noSwap;
-  for(let i = 0 i < arr.length>; i += 1) {
-    noSwap = true
+  let swapHappened ;
+  for(let i = 0; i < arr.length; i += 1) {
+    swapHappened  = false
     for(let j = 0; j < arr.length-1-i; j += 1) {
       console.log(arr, arr[j], arr[j+1])
       if(arr[j] > arr[j+1]) {
@@ -325,10 +325,10 @@ function bubbleSort(arr) {
         let temp = arr[j]
         arr[j] = arr[j+1]
         arr[j+1] = temp
-        noSwap = false
+        swapHappened  = true
       }
     }
-    if(noSwaps) break;
+    if(!swapHappened) break;
   }
   return arr
 }
