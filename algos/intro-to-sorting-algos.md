@@ -187,7 +187,7 @@ So it seems like the following things stand stand out.
 
 - it tries to sort an element that isn't there (undefined)
 - it continues to sort all values even though the ones at the end are in the right position
-- it continues to sort even though by the end of the second loop the array is already sorted. 
+- it continues to sort even though by the end of the second loop the array is already sorted
 
 <hr>
 
