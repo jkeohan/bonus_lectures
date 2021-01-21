@@ -73,7 +73,7 @@ For this demo we will create a group called **seir-admins** and assign the **Adm
 
 We have the option to assign tags to this user but we will not do so at this time so click **Next**. 
 
-On the review page we must make sure to download the the security keys as they contain both the **Access key id** and **Secret access key** we will use when we connect via the CLI. 
+On the review page we must make sure to download the security keys as they contain both the **Access key id** and **Secret access key** we will use when we connect via the CLI. 
 
 
 ## Creating An S3 Bucket
