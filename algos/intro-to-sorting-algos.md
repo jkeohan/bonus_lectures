@@ -37,7 +37,7 @@ Let's start our discussion of sorting with JavaScript's predefined Array method 
 We will use to to following array and then sort it using `Array.sort()`. 
 
 ```js
-console.log(['Zoe', 'Jane', 'Kel', 'Alex'])
+console.log(['Zoe', 'Jane', 'Kel', 'Alex'].sort())
 => [ 'Alex', 'Jane', 'Kel', 'Zoe' ]
 ```
 
@@ -46,7 +46,7 @@ Now that works, but just not how you would expect it to work.
 Let's add a few duplicate names but this time but in all lowercase characters. 
 
 ```js
-console.log(['Zoe', 'Jane', 'Kel', 'Alex', 'alex])
+console.log(['Zoe', 'Jane', 'Kel', 'Alex', 'alex].sort())
 => [ 'Alex', 'Jane', 'Kel', 'Zoe', 'alex', 'jane' ]
 ```
 
