@@ -57,7 +57,7 @@ Once complete click **Next**.
 
 <img src="https://i.imgur.com/yBsbLQq.png" width=600>
 
-Groups are a key part to security in AWS and by default there are no predefined groups so we will need to create one. 
+Groups are a key part to security in AWS and, by default, there are no predefined groups so we will need to create one. 
 
 Click on **Create group**. 
 
