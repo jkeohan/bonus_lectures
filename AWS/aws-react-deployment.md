@@ -169,7 +169,7 @@ Copy the JSON.  You can use the below JSON as well if you didn't perform the pre
 }
 ```
 
-Paste the JSON into the **Bucket Policy**
+Paste the JSON into the **Bucket Policy** and click **Save Changes**
 
 <img src="https://i.imgur.com/9AVi9WY.png" width=600>
 
