@@ -78,7 +78,7 @@ On the review page we must make sure to download the security keys as they conta
 
 ## Creating An S3 Bucket
 
-S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS and is used for general purpose and frequent access to data. Besides simple storage they can configurerd as a static web server. 
+S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage they can configurerd as a static web server. 
 
 We can find the service by using their search option once again and typing in **S3**. 
 
