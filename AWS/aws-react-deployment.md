@@ -41,7 +41,7 @@ Creating an account involves the following steps:
 - Adding the user to a group and assigning group permissions
 - Download the `credentials.csv` file that contains access & secret keys
 
-AWS has made it easy to search for the We can find the service by using their search option and typing in **IAM**. 
+AWS has made it easy to search for a service by using typing in the service name, in this case **IAM**. 
 
 <img src="https://i.imgur.com/TDjx7Uj.png" width=600>
 
