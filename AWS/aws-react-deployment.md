@@ -34,7 +34,7 @@ Thier infrastructure currently contains 24 geographic Regions around the world w
 
 The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site. 
 
-#### AWS Services
+### AWS Services
 
 Along with thier global instrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
 
