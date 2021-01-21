@@ -171,7 +171,9 @@ aws -- version
 => aws-cli/2.0.7 Python/3.8.2 Darwin/19.5.0 botocore/2.0.0dev11
 ```
 
-Let's configure our access keys stored in the .csv file we downloaded earlier. In order to do this we will type: **aws configure** and follow the prompts. 
+Let's configure our access keys stored in the .csv file we downloaded earlier. 
+
+In order to do this we will type: **aws configure** and follow the prompts. 
 
 <img src="https://i.imgur.com/yV9UDuf.png" width=600>
 
