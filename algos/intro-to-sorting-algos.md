@@ -25,11 +25,16 @@ Here are a few examples:
 - sorting names alphabetically
 - sorting movies based on release year
 
+**Starter Repl**
+
+Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture-seir-1207)
+<!-- [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
+
 ## JavaScript Array.sort()
 
-JavaScript arrays come with predefined method called `.sort()`.  
+Let's start our discussion of sorting with JavaScript's predefined Array method called `.sort()`.  
 
-Let's take the following array and sort it using `Array.sort()`. 
+We will use to to following array and then sort it using `Array.sort()`. 
 
 ```js
 console.log(['Zoe', 'Jane', 'Kel', 'Alex'])
