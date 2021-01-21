@@ -38,6 +38,12 @@ The best way to convey their global network is through their [AWS Infrastructure
 
 Along with thier global instrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
 
+**Free Tier**
+
+AWS provides a free tier of support for many of thier services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
+
+So before we begin lets take a look at thier [free tier] (https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+
 ## Creating User/Groups Using IAM
 
 The first service we will use is **IAM**, which stands for **Identity and Access Management**.  It is used for managing user and group accounts, along with creating roles and policies in AWS.  
