@@ -65,7 +65,7 @@ Looks like `.sort()` doesn't quite meet our expectations.
 My guess is that were missing some vital piece of info on how to use `.sort()` so its off to the 
 [MDN - Array.prototype.sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) docs to figure out what were missing.  
 
-The docs state that the method can take in a optional `compareFunction` but if omitted...
+The docs state that the method can take in a optional `compareFunction`.
 
 <img src="https://i.imgur.com/9Vc0xNc.png" width=700/>
 
@@ -75,37 +75,52 @@ Ok. Now I'm sure most of us don't either know what Unicode is or how to start ev
 
 So `sort()` accepts an optional `comarator` function and we can use it to tell JS how we want to sort. The function takes in 2 values (a and b) and compares those elements.  Based on that comparison it returns either 1, -1 or 0. 
 
-This breaks it down a little further.
+Let's breaks it down a little further.
 
 - if it returns a negative number, a should come before b
 - if it returns a positive number, b should come before a
-- If we return 0 it sorts them the same
+- If we return 0 it leaves them in the same order
 
 Let's take a look at how to use the `comarator` function and create a function that sorts numbers in ascending order.
 
 ```js
-function sortNumsAsc(a, b) {
+function sortAsc(a, b) {
   if( a > b) { return 1}
   else if(a < b) { return -1}
   else { return 0}
 }
 
-console.log([12,3,10,2,1].sort(sortNumbersAsc))
+console.log([12,3,10,2,1].sort(sortAsc))
 ```
 
 Now let's try and write the code a bit more efficiently. 
 
 ```js
-function sortNumsAsc(num1, num2) {
+function sortAsc(num1, num2) {
   return num1 - num2
 }
 
-console.log([12,3,10,2,1].sort(sortNumbersAsc))
+console.log([12,3,10,2,1].sort(sortAsc))
 ```
 
 Although `.sort()` will meet your sorting needs one common practice in learnig algos is to reproduce the code that already is being used within the given JS method. 
 
 As for sorting there are over a dozen ways to sort an array and each one provides context into how to use JS in unique ways to do the same thing and in the process learn to become more efficient and code for optimization. 
+
+**Sorting Names**
+
+We can use the same sorting function to sort the array of names as well. 
+
+
+```js
+console.log(['Zoe', 'Jane', 'Kel', 'Alex', 'alex].sort(sortAsc))
+=> [ 'Alex', 'Jane', 'Kel', 'Zoe', 'alex', 'jane' ]
+```
+
+Hmmm...that didn't work as expected. 
+
+:question: How would you go about resolving this? 
+
 
 ## Bubble Sort
 
