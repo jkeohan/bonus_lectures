@@ -37,9 +37,9 @@ The one golden rule to follow is that we should never use the **Root** account w
 
 Creating an account involves the following steps:
 
-1. Defining a user name and the type of access
-2. Adding the user to a group and assigning group permissions
-3. Download the credentials.csv file (contains access & secret keys)
+- Defining a user name and the type of access
+- Adding the user to a group and assigning group permissions
+- Download the credentials.csv file (contains access & secret keys)
 
 AWS has made it easy to search for the We can find the service by using their search option and typing in **IAM**. 
 
