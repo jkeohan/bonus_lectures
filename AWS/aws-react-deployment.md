@@ -147,7 +147,7 @@ Here we will click **Edit** on the **State webstie hosting** section.
 
 <img src="https://i.imgur.com/VgPFqXN.png" width=600>
 
-Once **Enabled** we will need to type a document name for both **index document** and **error document**.  Since our React app is already configured to render an index.html file we will use that. 
+Once **Enabled** we will need to type a document name for both **index document** and **error document**.  Since our React app is already configured to render an **index.html** file we will use that. 
 
 <img src="https://i.imgur.com/dhZBLM1.png" width=600>
 
