@@ -101,11 +101,13 @@ Then we will uncheck the **Block all public access** and then check the **I ackn
 
 <img src="https://i.imgur.com/amttek1.png" width=600>
 
-Once the bucket is created we now need to add a custom **Bucket Policy**.  We will do this by clicking on the Bucket and clicking the **Permissions** tab. 
+Once the bucket is created we must now add a custom **Bucket Policy**.  We will do this by clicking on the Bucket and clicking the **Permissions** tab. 
 
 <img src="https://i.imgur.com/XYnVQeP.png" width=600>
 
-Now browse down to **Bucket Policy** and click on **Edit**.  We will add the following JSON however you may need to change the resource name to the Bucket name you defined. 
+Now browse down to **Bucket Policy** and click on **Edit**.  
+
+We will add the following JSON. The only thing we will need to customize here is the name of the S3 Bucket name you defined. 
 
 
 ```
@@ -128,7 +130,7 @@ Here is a breakdown of what those options mean.
 |Configurration| Description|
 |-----|------|
 |Version | Defines the type of policy
-| Statement | An array of key:values that define the level of permissions
+| Statement | An array of key:values that define the permissions
 | Sid | Defines the level of permissions
 | Effect | Set to Allow or Deny
 | Principle | Acecss the entire object
