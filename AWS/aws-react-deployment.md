@@ -22,7 +22,7 @@ This is a mini lecture focused on deploying a React app to an AWS S3 bucket conf
 
 If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account.
 
-## AWS Intro
+## Intro To AWS Global Network And Services
 
 AWS has become the premier cloud service provider and provides companines with a global instrastructure and pay as you go service model helping companies to lower their TCO. 
 
