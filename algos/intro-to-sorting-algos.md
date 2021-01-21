@@ -2,7 +2,7 @@
 
 # Intro To Sorting Algos
 
-<img src="https://i.imgur.com/minpkI0.png" />
+<img src="https://i.imgur.com/wlCY5GQ.png" />
 
 ## Learning Objectives
 By the end of this lesson, you will be able to:
