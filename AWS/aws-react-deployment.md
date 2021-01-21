@@ -22,7 +22,7 @@ This is a mini lecture focused on deploying a React app to an AWS S3 bucket conf
 
 If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account.
 
-## Intro To AWS Global Network And Services
+## Intro To The AWS Global Network 
 
 AWS has become the premier cloud service provider and provides companines with a global instrastructure and pay as you go service model helping companies to lower their TCO. 
 
@@ -33,6 +33,8 @@ Thier infrastructure currently contains 24 geographic Regions around the world w
 <br>
 
 The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site. 
+
+#### AWS Services
 
 Along with thier global instrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
 
