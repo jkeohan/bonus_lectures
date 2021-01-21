@@ -15,6 +15,13 @@ This is a mini lecture focused on deploying a React app to an AWS S3 bucket conf
 - connect to the S3 bucket via our terminal
 - add a new startup script to build & push the React app
 
+## Prerequisites
+
+- An AWS (Amazon Web Services) account
+- A Credit card is required to verify your AWS account.
+
+If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account.
+
 ## AWS Intro
 
 AWS has become the premier cloud service provider and provides companines with a global instrastructure and pay as you go service model helping companies to lower their TCO. 
@@ -76,6 +83,9 @@ We have the option to assign tags to this user but we will not do so at this tim
 On the review page we must make sure to download the security keys as they contain both the **Access key id** and **Secret access key** we will use when we connect via the CLI. 
 
 
+<img src="https://i.imgur.com/3MLmPNM.png" width=600/>
+
+
 ## Creating An S3 Bucket
 
 S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage an S3 bucket can also be configurerd as a static web server. 
@@ -84,8 +94,10 @@ We can find the service by using their search option once again and typing in **
 
 <img src="https://i.imgur.com/aZQH1hG.png" width=600>
 
+**NOTE**: accessKeys.csv contains secrets! Do not share them or store them in git. The .gitignore in this repository explicitly ignores this file. Altering the .gitignore file in this repository could result in your AWS credentials (credentials linked to your credit card information) being visible on Github. NEVER COMMIT SECRETS TO GIT
 
-### Creating A Bucket
+
+### Creating An Simple Storage Bucket (S3)
 
 Creating an S3 bucket will involve the following steps:
 
