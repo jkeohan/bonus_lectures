@@ -125,9 +125,33 @@ Once the bucket is created we must now add a custom **Bucket Policy**.  We will 
 
 <img src="https://i.imgur.com/XYnVQeP.png" width=600>
 
-Now browse down to **Bucket Policy** and click on **Edit**.  
+Now browse down to **Bucket Policy** and click on **Edit**. 
 
-We will add the following JSON. The only thing we will need to customize here is the name of the S3 Bucket name you defined. 
+<img src="https://i.imgur.com/pdK5NXR.png" width=600/>
+
+On the **Edit Policy Page** click on **Policy Generator**
+
+<img src="https://i.imgur.com/zJQfjLa.png" width=600/>
+
+
+#### On the AWS Policy Generator page
+
+- For `Select Type of Policy` use `S3 Bucket Policy`.
+- Under `Add Statement(s)`:
+    - Select `Allow` for `Effect`.
+    - In the `Principal` box type `*`
+    - Select `GetObject` for `Actions`.
+    - Enter `arn:aws:s3:::bucket_name/*` into the `Amazon Resource Name (ARN)` box.
+
+Once the info is in place click **Add Statement**
+
+<img src="https://i.imgur.com/fZWru8z.png" width=600>
+
+Now click on **Generate Policy**
+
+<img src="https://i.imgur.com/3XtV5Od.png" width=600>
+
+Copy the JSON.  You can use the below JSON as well if you didn't perform the previous steps. The only thing we will need to customize here is the name of the S3 Bucket name you defined. 
 
 
 ```
@@ -145,7 +169,11 @@ We will add the following JSON. The only thing we will need to customize here is
 }
 ```
 
-Here is a breakdown of what those options mean. 
+Paste the JSON into the **Bucket Policy**
+
+<img src="https://i.imgur.com/9AVi9WY.png" width=600>
+
+<!-- Here is a breakdown of what those options mean. 
 
 |Configurration| Description|
 |-----|------|
@@ -156,10 +184,10 @@ Here is a breakdown of what those options mean.
 | Principle | Acecss the entire object
 | Action | Defines the type of action that can be performed
 | Resource | Defines the resource that you are providing access
+ -->
 
 
-
-### Create A Static Website
+### Configure S3 As A Static Website
 
 As mentioned before S3 buckets can be used as general storage containers or as static web servers.  We can make that configuratioin by clicking on the **Properites** and scrolling to the very bottom of the page. 
 
