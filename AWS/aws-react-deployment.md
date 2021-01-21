@@ -204,7 +204,7 @@ npm run build
 npm run deploy
 ```
 
-Confirm that your site has been pushed up and is accessible by refreshing the page that contianed the 404 error. 
+Confirm that your site has been pushed up and is accessible by refreshing the page. 
 
 #### References
 
