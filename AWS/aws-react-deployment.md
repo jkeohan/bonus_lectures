@@ -173,7 +173,7 @@ aws -- version
 
 Let's configure our access keys stored in the .csv file we downloaded earlier. 
 
-In order to do this we will type: **aws configure** and follow the prompts. 
+In order to do this we will type: **aws configure** and follow the prompts to provide the **Access** and **Secret Access** keys which you can copy/paste.
 
 <img src="https://i.imgur.com/yV9UDuf.png" width=600>
 
