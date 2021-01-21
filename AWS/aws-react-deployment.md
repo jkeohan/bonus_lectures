@@ -89,8 +89,8 @@ We can find the service by using their search option once again and typing in **
 
 Creating an S3 bucket will involve the following steps:
 
-1. Define a Bucket name and assigning it a region
-3. Define Bucket Access permissions
+- Define a Bucket name and assigning it a region
+- Define Bucket Access permissions
 
 
 Let's get started by clicking on the **Create Bucket** button. The first option we will configure is the **Bucket Name** and **Region**.
