@@ -197,7 +197,7 @@ In **package.json** add the following **deploy** script. Make sure to change the
 "deploy": "aws s3 sync build/ s3://seir1207-p2"
 ```
 
-All that is left if is to run the **build** script first and then **deploy**.
+All that is left if is to first run the **build** script, wait for the build to complete, and then run **deploy**.
 ```
 npm run build
 
