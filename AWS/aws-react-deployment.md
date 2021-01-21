@@ -67,7 +67,7 @@ For this demo we will create a group called **seir-admins** and assign the **Adm
 
 <img src="https://i.imgur.com/4gsJoZU.png" width=600>
 
- we need to add the user to the appropriate group.  For now we will add them to the default **admins** group. Once the group is created it will have already added the user the newly created group.
+ We need to add the user to the appropriate group.  For now we will add them to the default **admins** group. Once the group is created it will have already added the user the newly created group.
 
 <img src="https://i.imgur.com/IIg6Ce5.png" width=600>
 
