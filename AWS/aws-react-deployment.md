@@ -189,7 +189,7 @@ If successful you should see something similar to the following output.
 
 ## Deploying The React App
 
-Now that AWS is configured all we have to do is configure a new startup script for our React app and push it to our S3 bucket. 
+Now that AWS is configured all we have to do is configure a new startup script in the **package.json** of the React app and push it all up to our S3 bucket. 
 
 In **package.json** add the following **deploy** script. Make sure to change the s3 bucket name to that which you created earlier. 
 
