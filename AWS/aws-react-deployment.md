@@ -161,7 +161,7 @@ However since we haven't yet pushed an index.html file we should receive the fol
 
 ## Setting Up CLI Access
 
-Let's now install the Install the AWS Cli tool.  AWS provides installers for either [Mac, Windows or Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html). 
+Let's now install the Install the **AWS CLI** tool.  AWS provides installers for either [Mac, Windows or Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html). 
 
 Once it's installed open a **terminal** and type the following to confirrm the cli was successfully installed. 
 
