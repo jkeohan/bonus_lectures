@@ -24,9 +24,9 @@ If you do not have an account, open AWS and click Create a Free Account. Amazon 
 
 ## Intro To The AWS Global Network 
 
-AWS has become the premier cloud service provider and provides companines with a global instrastructure and pay as you go service model helping companies to lower their TCO. 
+AWS has become the premier cloud service provider and provides companies with a global infrastructure and pay as you go service model helping companies to lower their TCO. 
 
-Thier infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will incldue 18 Availability Zones.  
+Their infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.  
 
 
 <img src="https://i.imgur.com/ZVH2bAl.jpg" width=600>
@@ -36,13 +36,13 @@ The best way to convey their global network is through their [AWS Infrastructure
 
 ### AWS Services
 
-Along with thier global instrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
+Along with their global infrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
 
 **Free Tier**
 
-AWS provides a free tier of support for many of thier services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
+AWS provides a free tier of support for many of their services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
 
-So before we begin lets take a look at thier [free tier] (https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+So before we begin lets take a look at their[free tier] (https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
 
 ## Creating User/Groups Using IAM
 
@@ -96,7 +96,7 @@ On the review page we must make sure to download the security keys as they conta
 
 ## Creating An S3 Bucket
 
-S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage an S3 bucket can also be configurerd as a static web server. 
+S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage an S3 bucket can also be configured as a static web server. 
 
 We can find the service by using their search option once again and typing in **S3**. 
 
@@ -189,7 +189,7 @@ Paste the JSON into the **Bucket Policy** and click **Save Changes**
 
 ### Configure S3 As A Static Website
 
-As mentioned before S3 buckets can be used as general storage containers or as static web servers.  We can make that configuratioin by clicking on the **Properites** and scrolling to the very bottom of the page. 
+As mentioned before S3 buckets can be used as general storage containers or as static web servers.  We can make that configuration by clicking on the **Properites** and scrolling to the very bottom of the page. 
 
 Here we will click **Edit** on the **State webstie hosting** section.
 
@@ -211,7 +211,7 @@ However since we haven't yet pushed an index.html file we should receive the fol
 
 Let's now install the Install the **AWS CLI** tool.  AWS provides installers for either [Mac, Windows or Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html). 
 
-Once it's installed open a **terminal** and type the following to confirrm the cli was successfully installed. 
+Once it's installed open a **terminal** and type the following to confirm the cli was successfully installed. 
 
 ```
 aws -- version
@@ -225,7 +225,7 @@ In order to do this we will type: **aws configure** and follow the prompts to pr
 
 <img src="https://i.imgur.com/yV9UDuf.png" width=600>
 
-We can test that our account now has admin access by tyypeing in: 
+We can test that our account now has admin access by typing: 
 
 ```
 aws iam list-users
