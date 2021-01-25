@@ -126,7 +126,9 @@ Hmmm...that didn't work as expected.
 
 We will kick off sorting algos with `Bubble Sort`.  
 
-This algo starts at the beginning of the array, much like `.sort()` and compares the first 2 values which it then sorts.  It then proceeds to compare values 2 and 3 and sorts them as well.  It continues this process until it has looped over the entire array once for each element in the array.   We can use some logic to limit the number of iterations and even stop them if the array has been sorted. 
+This algo starts at the beginning of the array and compares and sorts the first 2 values.  It then proceeds to compare values 2 and 3 and sorts them as well.  It continues this process until it has compared all adjacent pairs and looped over the entire array for each element in the array.  
+
+We can however add some additional logic that would improve the performance including ending the loops once the array has been sorted. 
 
 <img src="https://i.imgur.com/92umHRm.png" width=300/>
 
