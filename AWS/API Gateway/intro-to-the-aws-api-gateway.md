@@ -88,9 +88,11 @@ This will take us to the **Resources** configuration page for our newly created 
 
 <img src="https://i.imgur.com/omo32kJ.png" >
 
-Since this is a RestFul API we will need to also configure an HTTP method for this resource (aka...route).   We can do that by clicking on the **Action** button and choosing **GET**. 
+Since this is a RestFul API we will need to also configure an HTTP method for this resource (aka...route).   We can do that by clicking on the **Action** button and choosing **Create Method**
 
 <img src="https://i.imgur.com/yAsZ1rK.png">
+
+Here we are provided all the available methods of which we will choose **GET**
 
 <img src="https://i.imgur.com/TCsgYv5.png">
 
@@ -147,7 +149,7 @@ If we open that in a new browser we should recieive the following JSON.
 
 <img src="https://i.imgur.com/NkEXOPR.png" />
 
-And there you have it.  Your very first AWS API created using the API Gateway service. gp
+And there you have it.  Your very first AWS API created using the API Gateway service. No node/express servers needed and a clean GUI that provides us access to a visual representation of the the request/response cycle and all the configuration options available in each. 
 
 #### References
 
