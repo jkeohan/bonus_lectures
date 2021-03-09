@@ -84,22 +84,70 @@ Let's use the following configurations for the API and click **Create API**.
 
 <img src="https://i.imgur.com/R9EGN0S.png">
 
-This will take us to the configuration page for our newly created API.
+This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API is a single **/**.  AWS refers to the routes as resources which makes sense as they are meant to provide some type of resource to the user.  
 
-<img src="https://i.imgur.com/afXQ7UM.png" >
+<img src="https://i.imgur.com/omo32kJ.png" >
+
+Since this is a RestFul API we will need to also configure an HTTP method for this resource (aka...route).   We can do that by clicking on the **Action** button and choosing **GET**. 
 
 <img src="https://i.imgur.com/yAsZ1rK.png">
 
 <img src="https://i.imgur.com/TCsgYv5.png">
 
-For the time being we will create a **Moock** API 
+There are several option for us to choose from and, although we will be configuring Lambda for the remainder of this lecture, we will first choose **Mock** so that we can easily test the API.  
 
 <img src="https://i.imgur.com/5rz1cJr.png">
 
+Once the method is in place we will be presented with the following screen.  This follows the request/response cycle that you have already worked with in express. A request is received and a response is returned.  As this is a **Mock** endpoint we will only send back mock data for the time being. 
+
 <img src="https://i.imgur.com/Cc2IXzP.png">
 
+In order to return (aka respond) we will configure the **Integration Request** so click on that to configure additional options.  Once it opens we will click the the drop down to configure the request. 
+
+<img src="https://i.imgur.com/7uOkZGF.png" />
+
+ Continue to expand **Mapping Templates** and then click on **application/json**. 
+
+ <img src="https://i.imgur.com/N0vrMRU.png" />
+
+This will open a side panel where we can send our mock response data. 
+
+<img src="https://i.imgur.com/tdS7XYm.png" />
+
+Here we will add the following JSON and click on **Save**
+
+<img src="https://i.imgur.com/oepgmax.png">
 
 
+#### Testing The API
+
+Before we proceed to make our API public it's probably best that we test it first. Click on the back arrow **<- Method Exccution** and there we can click on **Test**
+
+<img src="https://i.imgur.com/Vz4575X.png" />
+
+If the test is successful we should see the following: 
+
+<img src="https://i.imgur.com/lDuAQqh.png" />
+
+### Deploying The API
+
+Our API isn't yet available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Action** button and then **Deploy API**.  
+
+<img src="https://i.imgur.com/8eiKEJf.png" />
+
+Here we will need to add a new **Deployment State** and in our case we will choose the name of **dev** and then click **Deploy**
+
+<img src="https://i.imgur.com/bQoLpNB.png" />
+
+AWS then provides us a url to access the dev version of our API.  
+
+<img src="https://i.imgur.com/NaVCAue.png" />
+
+If we open that in a new browser we should recieive the following JSON.
+
+<img src="https://i.imgur.com/NkEXOPR.png" />
+
+And there you have it.  Your very first AWS API created using the API Gateway service. gp
 
 #### References
 
