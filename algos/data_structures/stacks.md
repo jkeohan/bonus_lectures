@@ -217,6 +217,17 @@ stack Stack {
 }
 */
 ```
+<hr>
+
+##### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - Add Additional Methods
+
+Try your hand at extending the class to include the following methods: 
+
+- peek (return the top element but don't pop it from the Stack)
+- isEmpty(return True or False) Used to check whether the stack contains items
+- clear (remove all elements from the Stack, leaving an empty Stack)
+
+<hr>
 
 
 ### References
