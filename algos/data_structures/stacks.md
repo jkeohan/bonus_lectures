@@ -61,24 +61,25 @@ We've discussed both push/pop as the standard actions to be performed on a stack
 If we opted for an array approach we would use push and pop.   This would allow us to maintain constant time or O(1) as there would be no need to re-index the items. 
 
 ```
-[a, b, c, d]
+[a, b, c]
 ```
 
 If we opt for a linked list approach then we won't have an array or array methods to work with and will have to work out that logic ourselves. In doing so however we must also maintain **O(1) constant time**. 
 
 
-So adding elements requires that they have a way to pointing to the next element added to the stack. Although we can assign **d** as the last and then easily remove it we would need to work out the logic to re-assign **c** as the new last element. 
+So adding elements requires that they have a way to pointing to the next element added to the stack. Although we can assign **c** as the last and then easily remove it we would need to work out the logic to re-assign **b** as the new last element. 
 
 ```
-a => b => c => d
+a => b => c
 
 {val: 'a', next: null}
 {val: 'b', next: {val: 'a', next: null}}
+{val: 'c', next: {val: 'b', next: {val: 'a', next: null}}}
 ```
 
 This would require that we cycle through all the elements until we have reached the end and would force us to use **O(n)**.
 
-A better approach is to to flip the order and push the most recent addition to the front.  That way we can remove the last in, which will also have a pointer to the next one in line and reassign that one as last. 
+A better approach is to to flip the order and push the most recent addition to the front.  That way we can remove the last in, which will also have a pointer to the next one in line which we can then assign as the **new** last element. 
 
 ```
 d => c => b => a
