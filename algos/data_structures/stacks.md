@@ -37,10 +37,14 @@ Here are several use cases for a stack.
 
 ### Stack Implementations
 
-Let's take a moment to discuss the different approaches that can be taken when creating a stack, the Big O time complexity and what additional methods we might want to include. 
+Let's take a moment to discuss the different approaches that can be taken when creating a stack, the Big O time complexity and what additional methods we might want to include in the stack.
 
 #### Approaches
-We can implement a stack using an **array** or a **linked list** (singly or double). In both the implementations, a user will be able to use the operations like push and pop without knowing the underlying approach used to implement those operations.
+A Stack is data structure that is meant to keep track of LIFO therefor any approach we take must accomplish this one requirement.  
+
+On the surface it makes sense to use an **array** as it already has methods to push/pop elements but we can achieve the same result using an **object** or an object structured as a **linked list** (singly or doubly). 
+
+In any implementations, the user will be able to use operations like push and pop without knowing the underlying approach that was taken to implement those methods.
 
 #### Big O
 Either approach will also need to implement **insertion (push)** and **removal (pop)** as **O(1)** constant time. 
@@ -54,42 +58,65 @@ We've discussed both push/pop as the standard actions to be performed on a stack
 - peek (return the top element but don't pop it from the Stack)
 - isEmpty(return True or False) Used to check whether the stack contains items
 - clear (remove all elements from the Stack, leaving an empty Stack)
+- count (return the number of items currently in the stack)
 
 
 ### Creating a Stack
 
-If we opted for an array approach we would use push and pop.   This would allow us to maintain constant time or O(1) as there would be no need to re-index the items. 
+##### Array Apprroach
+
+If we opted for an array approach we would use push and pop.   This would allow us to maintain constant time or O(1) as there would be no need to re-index the items as we are adding/removing them from the end. 
+
+```js
+let arr = []
+arr.push('a') => [a]
+arr.push('b') => [a, b]
+arr.push('c') => [a, b, c]
+```
+
+##### Basic Object
+
+If we opt to use an object then we won't have the array methods of push/pop to work with and will have to work out that logic ourselves. 
+
+One approach is to assign the key a numeric value that represents the position of that element in the stack. 
+
+```js
+{1: a}
+{1: a, 2: b}
+{1: a, 2: b, 3: c}
+```
+
+##### Linked List
+
+A linked list is also another object based approach where each element addded to the stack is it's own object and includes a pointer to the next item that is linked in the list, hence the title **linked list**. 
 
 ```
-[a, b, c]
-```
-
-If we opt for a linked list approach then we won't have an array or array methods to work with and will have to work out that logic ourselves. In doing so however we must also maintain **O(1) constant time**. 
-
-
-So adding elements requires that they have a way to pointing to the next element added to the stack. Although we can assign **c** as the last and then easily remove it we would need to work out the logic to re-assign **b** as the new last element. 
-
-```
-a => b => c
+c => b => a
 
 {val: 'a', next: null}
 {val: 'b', next: {val: 'a', next: null}}
 {val: 'c', next: {val: 'b', next: {val: 'a', next: null}}}
 ```
 
-This would require that we cycle through all the elements until we have reached the end and would force us to use **O(n)**.
+In this approach we would place the new element at the front of the list and assign the **next** key a value that points to the element that it just replaced as the last element in the stack. 
 
-A better approach is to to flip the order and push the most recent addition to the front.  That way we can remove the last in, which will also have a pointer to the next one in line which we can then assign as the **new** last element. 
+<!-- This would require that we cycle through all the elements until we have reached the end and would force us to use **O(n)**. -->
+
+<!-- A better approach is to to flip the order and push the most recent addition to the front.  That way we can remove the last in, which will also have a pointer to the next one in line which we can then assign as the **new** last element. 
 
 ```
 d => c => b => a
-```
+``` -->
 
 ### Stack as a Class
 
-Although we can create this data structure as a function, constructor function, object we will opt to package the code as an ES6 class.  
+Just as there are several approaches to take when we consider how to structure the we also have several approaches as to wrap that structure such as a function, constructor function, object or an ES6 class.  
 
-The reason is that ES6 classes are meant to convey structure and allow us to **instantiate** new instances of the class.  They are essentially syntactic sugar that are **constructor functions** under the hood. 
+#### Function
+
+
+
+For this demo we will opt to use an ES6 classes as they are meant to convey structure and allow us to **instantiate** new instances of the class.  
 
 Let's create our class and define **first**, **last** and **length** variables. 
 
@@ -233,6 +260,7 @@ Try your hand at extending the class to include the following methods:
 
 ### References
 
+- [data-structures-with-javascript-stack-and-queue](https://code.tutsplus.com/articles/data-structures-with-javascript-stack-and-queue--cms-23348)
 - [Use Cases For Implementing A Stack](https://javascript.plainenglish.io/algorithm-in-javascript-few-use-cases-implementing-stack-data-structure-2f46f975a8ba)
 - [More Use Cases For Stack](https://medium.com/swift2go/stacks-and-lifo-structures-implementation-and-use-cases-7ada8f8c400)
 - [stack-data-structure](https://www.geeksforgeeks.org/stack-data-structure/)
