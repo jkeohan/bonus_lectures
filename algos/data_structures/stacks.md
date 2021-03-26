@@ -257,13 +257,11 @@ Try your hand at extending the class to include the following methods:
 
 <hr>
 
-#### Problems
+### Problems
 
 Try your hand at using a stack to solve the following algos:
 
-<hr> 
-
-##### Valid Openers To Closers
+#### Valid Openers To Closers
 
 Given a string containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 
@@ -291,7 +289,7 @@ Output: false
 
 
 
-##### Factoial
+#### Factoial
 
 Given a number, print its factorial.
 
@@ -303,7 +301,7 @@ Given a number multiply all the previous numbers
 
 <hr>
 
-##### Pez Dispenser
+#### Pez Dispenser
 
 Imagine that your virtual Pez dispenser is filled with red, yellow, and white colors and you don’t like the yellow ones. Write the code that uses a stack  to remove the yellow ones and replace them with red without changing the order of the other candies in the dispenser.
 
