@@ -257,11 +257,70 @@ Try your hand at extending the class to include the following methods:
 
 <hr>
 
+#### Problems
 
-### References
+Try your hand at using a stack to solve the following algos:
+
+<hr> 
+##### Valid Openers To Closers
+
+Given a string containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
+
+An input string is valid if:
+
+1. Open brackets must be closed by the same type of brackets.
+2. Open brackets must be closed in the correct order.
+
+Note that an empty string or a string with only a single value should be considered invalid.
+
+Input: '()'
+Output: true
+
+Input: '({}){}'
+Output: true
+
+Input: '('
+Output: false
+
+Input: '(){'
+Output: false
+
+
+<hr>
+
+
+
+##### Factoial
+
+Given a number, print its factorial.
+
+Input: 5
+
+Output: 120 = (5 X 4 X 3 X 2 X 1)
+
+Given a number multiply all the previous numbers
+
+<hr>
+
+##### Pez Dispenser
+
+Imagine that your virtual Pez dispenser is filled with red, yellow, and white colors and you don’t like the yellow ones. Write the code that uses a stack  to remove the yellow ones and replace them with red without changing the order of the other candies in the dispenser.
+
+
+Input: ['red','yellow','white,'yellow','white']
+
+Output: ['red','red','white,'red','white']
+
+<hr>
+
+[Starter Repl](https://replit.com/@jkeohan/algo-bonus-lecture-stack)
+
+
+#### References
 
 - [data-structures-with-javascript-stack-and-queue](https://code.tutsplus.com/articles/data-structures-with-javascript-stack-and-queue--cms-23348)
 - [Use Cases For Implementing A Stack](https://javascript.plainenglish.io/algorithm-in-javascript-few-use-cases-implementing-stack-data-structure-2f46f975a8ba)
 - [More Use Cases For Stack](https://medium.com/swift2go/stacks-and-lifo-structures-implementation-and-use-cases-7ada8f8c400)
 - [stack-data-structure](https://www.geeksforgeeks.org/stack-data-structure/)
 - [Stack as constructor function](https://replit.com/@jkeohan/algo-stack-constructor-function)
+- [Solving Algos Using Stack](https://www.oreilly.com/library/view/data-structures-and/9781449373931/ch04.html)
