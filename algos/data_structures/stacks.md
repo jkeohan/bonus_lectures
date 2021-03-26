@@ -262,6 +262,7 @@ Try your hand at extending the class to include the following methods:
 Try your hand at using a stack to solve the following algos:
 
 <hr> 
+
 ##### Valid Openers To Closers
 
 Given a string containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
