@@ -224,9 +224,9 @@ stack.push('a')
 stack.push('b')
 stack.push('c')
 
-console.log('stack', stack)
+console.log('stack:', stack)
 /*
-stack Stack {
+stack: Stack {
   first: { val: 'c', next: { val: 'b', next: [Object] } },
   last: { val: 'a', next: null },
   length: 3
@@ -236,9 +236,9 @@ stack Stack {
 console.log('pop', stack.pop())
 // => pop c
 
-console.log('stack', stack)
+console.log('stack:', stack)
 /*
-stack Stack {
+stack: Stack {
   first: { val: 'b', next: { val: 'a', next: null } },
   last: { val: 'a', next: null },
   length: 2
