@@ -259,7 +259,7 @@ Try your hand at extending the class to include the following methods:
 
 ### Problems
 
-Try your hand at using a stack to solve the following algos:
+Try your hand at using a Stack to solve the following algos:
 
 #### Valid Openers To Closers
 
