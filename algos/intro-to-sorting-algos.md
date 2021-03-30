@@ -729,6 +729,7 @@ bubbleSort([3,2,1])
 - [Big O Cheat Sheet](http://bigocheatsheet.com/)
 - Visualize bubble sort and insertion sort using [this fun tool](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html).
 - Recap of how [insertion sort works](https://hackernoon.com/programming-with-js-insertion-sort-1316df8354f5).
-- [Inserrtion Sort]https://medium.com/hackernoon/programming-with-js-insertion-sort-1316df8354f5()
+- [Inserrtion Sort](https://medium.com/hackernoon/programming-with-js-insertion-sort-1316df8354f5)
 
 - Some [sample interview questions](https://hoven-in.appspot.com/Home/Data-Structures/Data-Structure-Interview-Questions/interview-questions-on-bubble-sort-01.html) about bubble sort. (Note: The code in this article is not JavaScript.)
+- Visual on [bubble sort](https://i.imgur.com/2GXltBB.png)
