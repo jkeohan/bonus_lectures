@@ -568,9 +568,9 @@ Wow...that seems like it contains much more logic than either of the previous so
 ```js
 // LOOP over the array in ascending order setting i = 1
 //  SET a variable called currentVal to i
-//  LOOP over the array ascending order setting j = i - 1 
+//  LOOP over the array descending order setting j = i - 1 
 //   CONTINUE TO LOOP IF j is >= 0 && the value at j is > currentVal
-//   SET arr[j + 1] = arr[j]
+//   SWAP adjacent values by setting arr[j + 1] = arr[j]
 //  END LOOP
 //  SET  arr[j + 1] = currentVal
 // END LOOP
