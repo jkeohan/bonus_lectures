@@ -11,7 +11,8 @@ By the end of this lesson, you will be able to:
 
 ## Prerequisites
 * Working knowledge of ascending/descending for loops 
-* Working knowledge of using multiple conditions in a for loop
+* Working knowledge of while loops
+* Working knowledge of using multiple conditions in a loop
 
 ## Multiple Pointers
 
