@@ -1,6 +1,6 @@
 # Multiple Pointers Problem Solving Pattern 
 
-<img src="https://i.imgur.com/eyqJD70.png" />
+<img src="https://i.imgur.com/FOjZeRR.png" />
 
 ## Learning Objectives
 By the end of this lesson, you will be able to:
