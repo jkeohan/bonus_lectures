@@ -6,7 +6,7 @@
 By the end of this lesson, you will be able to:
 - Know when to use the multiple pointers approach
 - Explain how the multiple pointers approach can be used to solve an algo
-- Use multiple pointers to solve **sumZero** and **insertion sort**
+- Use multiple pointers to solve **sumZero** and **insertionSort**
 
 
 ## Prerequisites
@@ -16,22 +16,21 @@ By the end of this lesson, you will be able to:
 
 ## Multiple Pointers
 
-This approach uses multiple pointers that correspond to an index position and move towards the beginning, end or middle based on specific condition.s 
+The multiple pointers approach uses separate pointers that correspond to index positions and move towards the beginning, end or middle based on specific condition
 
-This approach can incorporate double nested loops however a much better solution is to limit it to a single loop. 
 
 ### Looping Approaches
 
-As mention previously using the multiple pointer approach can be done using:
+We can make use of the following looping techniques to solve a problem using the multiple pointer approach. 
 
-- nested for loops
-- single loop with multiple pointers defined
+- double nested for loops
+- single while loop with multiple pointers defined
 
 We will first take a look at a double nested for loop. 
 
 ### Nested For Loops
 
-Let's say we needed to loop over an array and keep j one position ahead of i the entire time.  Doing so using the following would mean O(n^2)
+Let's say we needed to loop over an array and keep **j** one position ahead of **i** the entire time.  The time efficiency of this approach is **O(n^2)**
 
 ```js
 let arr = [1,2,3]
@@ -48,7 +47,7 @@ for(let i = 0; i < arr.length; i += 1){
 
 ```
 
-This same requirement can also be accomplished using a single while loop and thereby increase the time efficiency to O(n)
+This same requirement can also be accomplished using a single **while loop** and thereby increase the time efficiency to **O(n)**
 
 ```js
 let arr = [1,2,3]
@@ -86,7 +85,7 @@ sumZero([-2, -1, 0, 4, 5]) // []
 
 #### O(n^2) Time Complexity Approach
 
-The most obvious approach to solving this would be to add the value a position i with each subsequent value until we find a pair that sums to 0.  Here is a good way to visualize how the algo works through the steps. 
+The brute force way of solving this would be to add the value a position i with each subsequent value of j until we find a pair that sums to 0.  Here is a good way to visualize how the algo works through the steps. 
 
 ```js
 INDEX:   1   2   3   4   5
@@ -119,7 +118,7 @@ function sumZero(arr){
 
 A much better approach to solving this algo is to limit it to a single loop yet still incorporate multiple pointers.  
 
-Here we will position the pointers at opposite ends with each one working their way to the middle.  If at any point left exceeds right then we know there is no possible solution and that becomes the condition on which the loop terminates. 
+Here we will position the pointers at opposite ends with each one working their way to the middle.  If at any point the value of **left** exceeds **right* then we know there is no possible solution and that becomes the condition on which the loop terminates. 
 
 ```js
 INDEX:   0   1   2   3   4  5
@@ -154,13 +153,33 @@ function sumZero(arr){
 
 ### Solving insertionSort
 
+InsertionSort is an algo that takes a very unique way to sort an array of numbers.  When **j** finds a value that is less than the **i** it moves in a descending order until it finds the proper position to place the element in the correct order. 
 
-```
+Here are the starting positions for both **i** and **j** and some additional pseudocode to help work through the problem. 
+
+```js
 INDEX    0  1  2
 ELEM     3  2  1
             i      
           j
+
+
+SET i = 1
+SET j = i - 1
+
+IF i < arr.length
+  SET cur to the value of arr[i]
+  IF arr[j] > cur AND j > -1
+    SWAP arr[j+1] = arr[j]
+    j--
+  END IF
+
+  SET arr[j+1] = cur
+  i++
+END IF
 ```
+
+#### O(n^2) Time Complexity Approach
 
 Here is the solution using a double nested for loop. 
 
@@ -177,29 +196,30 @@ function insertionSort(arr){
 }
 ```
 
-And once again we refactor to leverage a single loop with multiple pointers. 
+#### O(n) Time Complexity Approach
+
+Let's refactor and implement a single loop which will reduce the time complexity as before. 
 
 
 ```js
-function insertionSort(arr){
+function insertionSort2(arr){
   let i = 1
   let j = i - 1
-  let temp = arr[1];
+  let cur = arr[1];
   while(i < arr.length){
-    if(j > -1 && arr[j] > temp) {
+    if(j > -1 && arr[j] > cur) {
          arr[j+1] = arr[j]
         j--
     } else {
-      console.log('j, temp', j, temp)
-      arr[j+1] = temp
+      console.log('j, cur', j, cur)
+      arr[j+1] = cur
       i++
       j = i - 1
-      temp = arr[i]
+      cur = arr[i]
     }
  } 
  return arr
 }
-
 ```
 
 ### Resources
