@@ -38,7 +38,6 @@ reverseString(ia)
     // LOOP over the input string in descending order
         // ADD each letter to the end of revStringArr
     // END LOOP
-
     // INIT a string named revStr
     // SET revStr to use the Array .join() method to join the array into a single string
     // RETURN revStr
@@ -54,7 +53,6 @@ reverseString(ia)
     // LOOP over the input string in descending order
         // ADD each letter to the beginning of revStringArr
     // END LOOP
-
     // INIT a string named revStr
     // SET revStr to use the Array .join() method to join the array into a single string
     // RETURN revStr
