@@ -650,13 +650,13 @@ SWAPPING HAPPENED IN i:
 Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
 
 
-### :alarm_clock: Activity - Additional Bubble Sort Refactor Challenges
+### :alarm_clock: Activity - Bubble Sort Refactor Challenges
 
 With a full working solution try your hand at the following separate refactors:
 
 **Descending Order**
 
-Refactor the initial loop (i) to loop in descending order 
+Refactor both the i and j loops to work in descending order and sort lowest to highest. 
 
 **Do/While Loop**
 
@@ -673,22 +673,27 @@ Replace the initial (i) loop with a do/while loop
 **Descending Order**
 
 ```js
+/*
+0  1  2  3  4 
+4  3  2  1
+            i
+      j
+*/
+
 function bubbleSort(arr) {
   let swapHappened;
-  // for(let i = arr.length; i > 0; i -= 1) {
-  for(let i = arr.length; i > 0; i -= 1) {
+  for(let i = arr.length; i >= 0; i -= 1) {
     swapHappened = true
-    for(let j = 0; j < i - 1; j += 1) {
-      console.log(arr, arr[j], arr[j+1], `i-${i} j-${j}`)
-      if(arr[j] > arr[j+1]) {
-        // SWAP
+    for(let j = arr.length - 2; j >= arr.length - i ; j -= 1) {
+      console.log(arr, arr[j], arr[j+1], `i: ${i} j: ${j}`)
+      if(arr[j+1] < arr[j]) {
         let temp = arr[j]
         arr[j] = arr[j+1]
         arr[j+1] = temp
         swapHappened = false
       }
     }
-    // if(swapHappened) break;
+    if(swapHappened) return arr
   }
   return arr
 }
