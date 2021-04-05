@@ -1,35 +1,12 @@
 # Pseudocode Examples
 
-### why algorithms? 🤔
+### Why Algorithms? 🤔
 > you'll be asked to solve them on an interview 😅
 
 It's to train your brain into solving everyday problems. 
 
-1. If you have to go to the database, reach for all the books in the database, bring them back, and render it onto the page; your code running and algo.
-```
-- call database
-- get data
-- come back
-- put it in an image tag
-- render each one onto the page
-```
-...and what if: 
+### What Is An Algorithm? 🤔
 
-2. Go to the database, reach for all the books in the database, but only get the ones that that have a ranking of 5 stars or maybe 4 stars..for now, horror books, and the `client` or `user` is only looking for stephen king books. Then bring them back, and render them onto the page? ...that's your code running an algo
-
-```
-- call database
-- evaluate that are:
- - 5 stars
- - 5.9 ...
- - 5.8 ...
- - ...
- - 4 stars
- - filter author that goes by 'Stephan King'
- - come back
- - put it in an image tag
- - render each one onto the page
-```
 An algorithm is:
 - "a procedure for solving a problem in terms of the actions to be executed and the order in which those actions are to be executed." 
 - An algorithm is the sequence of steps taken to solve a problem. 
@@ -37,49 +14,62 @@ An algorithm is:
 
 ### How do we solve difficult algos? 🤔
 
-Pseudocode is an artificial and informal language that helps programmers develop algorithms. Pseudocode is a "text-based" detail (algorithmic) design tool.
+Pseudocode is an artificial and informal language that helps programmers develop algorithms. Pseudocode helps developers think through the problem without writing any actual code. 
 
-The "rules" of Pseudocode are reasonably straightforward. All statements showing "dependency" are to be indented. These include while, do, for, if, switch.
+The **rules** of pseudocode almost always include the following:
+- key actions are capitalized
+- nested code is always indented
+- ending statements are included to indicate the ending of a codeblock
 
 ### Examples:
 
-problem: 
+Think about when you cross the street and all the actions that you take to make it to the other side safely.  
+
+```text
+WAIT for the light to turn red
+IF all cars have stopped
+  CROSS the street
+ELSE IF some cars are coming to a stop
+  WAIT for them to stop before deciding to cross the street
+END IF
+
+```
+
+Problem: 
 Evaluate all the student's exam grades, if the students recieved anything above 60 they passed otherwise they didnt.
 
 ```text
-// pseaudocode:
-If student's grade is greater than or equal to 60
-    Print "passed"
-else
-    Print "failed"
-endif
+IF a student's grade is greater than or equal to 60
+   RETURN PASSED
+ELSE 
+    RETURN FAILED
+END IF
 ```
 
-problem: 
+Problem: 
 Find the class average of the student's exam grade
 
 
 ```text
-// pseaudocode: 
-Set total to zero
-Set grades to one
-Set the classAverage to zero
+SET a variable called total to zero
+SET a variable called grades to one
+SET a variable classAverage to zero
 
-while grades is less than or equal to totalStudents
-    Input the next grade
-    Add the grade to total
-endwhile
+WHILE grades is less than or equal to totalStudents
+    ADD the current grade to total 
+END WHILE
 
-classAverage is: total divided by totalStudents
-Print the class average.
+SET classAverage equal to total / totalStudents
+
+RETURN classAverage
 ```
-
+<!-- 
 ```text
-initialize passes to zero
-initialize failures to zero
-initialize student to one
+INTI a variable called passes to zero
+INTI a variable called failures to zero
+INTI a variable called student to one
 
-while student counter is less than or equal to ten
+WHILE student counter is less than or equal to ten
     input the next exam result
     if the student passed
         add one to passes
@@ -88,7 +78,7 @@ while student counter is less than or equal to ten
     endif
     
     add one to student counter
-endwhile
+END WHILE
 
 print the number of passes
 print the number of failures
@@ -96,20 +86,16 @@ print the number of failures
 if eight or more students passed
     print "raise tuition"
 endif
-```
+``` -->
 
 ## Some keywords that could be used:
-For looping and selection, calling The keywords that are to be used include 
+For looping and selection refer to the following key words:
 
-- Do While...EndDo 
-- Do Until...Enddo
-- Loop
-- Case...EndCase
-- If...Endif
-- Call with (parameters)
-- Call
-- Return
-- When
+- DO WHILE..END WHILE
+- Loop...END LOOP
+- CASE...END CASE
+- IF...END IF
+- RETURN
 
 
 Always indent scopes and end them with proper spacing, and/or end keywords
