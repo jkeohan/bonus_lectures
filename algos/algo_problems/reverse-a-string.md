@@ -23,8 +23,10 @@ reverseString(ia)
 ## What interview questions do you have for the interviewer?
 
 ```javascript
-// what do I do with spaces?
-// => you can assume all inputs will not have spaces
+// how should we handle an empty string
+// => return the empty string
+
+// ADDITIONAL QUESTIONS
 
 ```
 
