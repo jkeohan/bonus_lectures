@@ -30,7 +30,19 @@ reverseString(ia)
 
 ```
 
-## for loop in descending order + .join
+## for loop in descending order + string concatenation
+
+```javascript
+// INIT function reverseString that takes in a string as input
+    // INIT an empty string named revString 
+    // LOOP over the input string in descending order
+        // ADD each letter to the end of revString
+    // END LOOP
+    // RETURN revString
+// END function
+```
+
+## for loop in descending order + Array.join
 
 ```javascript
 // INIT function reverseString that takes in a string as input
@@ -45,7 +57,7 @@ reverseString(ia)
 ```
 
 
-## for loop in ascending order + .join
+## for loop in ascending order + Array.join
 
 ```javascript
 // INIT function reverseString that takes in a string as input
@@ -59,7 +71,7 @@ reverseString(ia)
 // END function
 ```
 
-## while loop + concatenation
+## while loop + string concatenation
 
 ```javascript
 // INIT function reverseString that takes in a string as input
