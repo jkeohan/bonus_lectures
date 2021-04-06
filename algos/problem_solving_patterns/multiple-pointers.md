@@ -29,7 +29,7 @@ Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-St
 
 We can make use of the following looping techniques to solve an algorithmic problem using the multiple pointer approach. 
 
-- double nested for loops
+- double nested for loops with multiple pointers defined
 - single while loop with multiple pointers defined
 
 We will first take a look at a double nested for loop. 
