@@ -247,7 +247,6 @@ function insertionSort(arr){
          arr[j+1] = arr[j]
         j--
     } else {
-      console.log('j, cur', j, cur)
       arr[j+1] = cur
       i++
       j = i - 1
