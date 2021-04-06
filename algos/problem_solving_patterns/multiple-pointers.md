@@ -1,4 +1,4 @@
-# Multiple Pointers Problem Solving Pattern 
+# The "Multiple Pointers" Problem Solving Pattern 
 
 <img src="https://i.imgur.com/98YnScd.png" />
 
