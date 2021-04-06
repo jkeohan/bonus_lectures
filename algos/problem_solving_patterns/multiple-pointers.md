@@ -138,9 +138,9 @@ One slight difference in this approach will be to position the pointers at oppos
 
 If ever **left** exceeds **right** then we know there is no possible solution and we will use that logic to terminate the loop.  
 
-```js
+```
 INDEX:   0   1   2   3   4  5
-ELEM    -2, -1,  0,  1,  2  3
+ELEM:   -2, -1,  0,  1,  2  3
          l
                             r
 
@@ -207,11 +207,11 @@ Given an sorted array of positive integers and a target number, return a new arr
 
 Here are the starting positions for both **i** and **j** and some additional pseudocode to help work through the problem. 
 
-```js
-INDEX   -1  0  1  2
-ELEM        3  2  1
-               i       cur = 2
-            j
+```
+INDEX:   -1  0  1  2
+ELEM:        3  2  1
+                i       cur = 2
+             j
 ```
 
 Of course we should define those steps above as pseudocode before we write any actual code. 
