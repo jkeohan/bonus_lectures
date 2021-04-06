@@ -258,4 +258,22 @@ function insertionSort(arr){
 }
 ```
 
-### Resources
+## Challenge - CountingDuplicates
+
+Solve the **countingDuplicates** algo using both a double nested for loop and a single loop. 
+
+The function will take in a sorted array of numbers and will return the number of unique values it finds in the array. 
+
+```js
+countUniqueValues([1,1,2,2,3]) => 3
+```
+
+### Bonus - CountingDuplicates
+
+Refactor the code so that it would also place the unique values in order as it finds them and returns only the unique values. 
+
+```js
+countUniqueValues([1,1,2,2,3]) => [1,2,3]
+```
+
+
