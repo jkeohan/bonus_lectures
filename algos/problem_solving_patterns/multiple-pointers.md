@@ -43,10 +43,9 @@ for(let i = 0; i < arr.length; i += 1){
 => 1 2
 => 1 3
 => 2 3
-
 ```
 
-Taking the nested loop approach will mean our solution has a time efficiency of **O(n^2)**. 
+This type of approach is called **brute force** as you are forcing every combination until the solution is found. Taking this nested looping approach will mean our solution has a time efficiency of **O(n^2)**. 
 
 This same requirement can also be accomplished using a single **while loop** and thereby increase the efficiency to **O(n)**.
 
@@ -68,14 +67,13 @@ while(i < arr.length){
 => 1 2
 => 1 3
 => 2 3
-
 ```
 
-Let's apply both of these approaches to solve the **sumeZero** algo. 
+Let's apply the **brute force** method and a slight variation of the **while** loop to solve one of the more basic algos you will encounter that require finding two numbers that add to a target number.  
 
 ### Solving sumZero
 
-This algo takes in a sorted array of integers and returns either an array of the first pair that sum to 0 or an empty array. 
+The algo accepts a sorted array of integers and returns either an array of the first pair that sum to 0 or an empty array.  Keep in mind that this specific solution does require that the array first be sorted. 
 
 ```js
 sumZero([-3, -2, -1, 0, 1, 2, -3]) // [-3, 3]
@@ -85,9 +83,9 @@ sumZero([-2, -1, 0, 4, 5]) // []
 
 #### Double Nested Loop
 
-The brute force way of solving this would be to add the value a position **i** with each subsequent value of **j** until we find a pair that sums to 0.  
+The brute force way of solving this would be to add the value in the first loop(**i**) with each subsequent value of nested loop(**j**) until we find a pair that sums to 0.  
 
-Here is a good way to try and visualize how the algo works through the steps. 
+Here is a good first step in trying to visualize each step performed by the algo.
 
 ```
 INDEX:   1   2   3   4   5
@@ -102,7 +100,7 @@ sum = -2 +  1 = -1
 sum = -2 +  2 =  0
 ```
 
-Here is the pseudocode for this solution.
+Of course we should define those steps above as pseudocode before we write any actual code. 
 
 ```
 LOOP over the array length SETTING i = 0
@@ -115,7 +113,7 @@ END LOOP
 RETURN empty array
 ```
 
-Here is the code based on the pseudocode and has a time complexity of O(n^2). 
+With our pseudocode in place let's write the code. 
 
 ```js
 function sumZero(arr){
@@ -132,11 +130,11 @@ function sumZero(arr){
 
 #### Single Loop
 
-The above solution does indeed solve the algo using multiple pointers however a much more efficient approach to solving this algo is to use a single loop with multiple pointers.  
+The above solution does indeed solve the algo using multiple pointers however it has a time efficiency of O(n^2).  If we take a simple loop approach we can increase the time efficiency to O(n).
 
-An additional approach we will take is to position the pointers at opposite ends of the array with each one working their way towards the middle.  
+One slight difference in this approach will be to position the pointers at opposite ends of the array with each one working their way towards the middle.  
 
-If at any point the value of **left** exceeds **right* then we know there is no possible solution and that becomes the condition on which the loop terminates. 
+If ever **left** exceeds **right** then we know there is no possible solution and we will use that logic to terminate the loop.  
 
 ```js
 INDEX:   0   1   2   3   4  5
@@ -148,7 +146,7 @@ sum = -2 + 3 = 1
 sum = -2 + 2 = 0
 ```
 
-Here is the pseudocode for this solution
+Of course we should define those steps above as pseudocode before we write any actual code. 
 
 ```
 SET a variable called left to 0
@@ -189,32 +187,32 @@ function sumZero(arr){
 
 ### Solving insertionSort
 
-InsertionSort is one of the basic sortin algos that uses multiple pointers and does so in a very unique.   **j** starts one position behind **i** and when **j** finds a value that is less than the value at **i** it decrements until it finds the proper position to place the element in the correct order. 
+**InsertionSort** is one of the 3 basic sorting algos.  The other two are **bubble** and **selection** sort.  All three of these sorting algos make use of multiple pointers and does so in a very unique.   **j** starts one position behind **i** and when **j** finds a value that is less than the value at **i** it decrements until it finds the proper position to place the element in the correct order. 
 
 Here are the starting positions for both **i** and **j** and some additional pseudocode to help work through the problem. 
 
 ```js
-INDEX    0  1  2
-ELEM     3  2  1
-            i      
-          j
-
-
-SET i = 1
-SET j = i - 1
-IF i < arr.length
-  SET cur to the value of arr[i]
-  IF arr[j] > cur AND j > -1
-    SWAP arr[j+1] = arr[j]
-    j--
-  END IF
-
-  SET arr[j+1] = cur
-  i++
-END IF
+INDEX   -1  0  1  2
+ELEM        3  2  1
+               i      
+            j
 ```
 
-#### O(n^2) Time Complexity Approach
+
+```
+LOOP over the array in ascending order SETTING i = 1
+ SET a var called cur to the element at position i
+ LOOP over the array in descending order SETTING j = i - 1
+  IF j > -1 AND arr[j] > cur
+    SET arr[j + 1] = arr[j]
+  END IF
+ END LOOP
+    SET arr[j+1] = cur
+END LOOP
+RETURN arr
+```
+
+#### Brute Force Solution
 
 Here is the solution using a double nested for loop. 
 
@@ -231,7 +229,7 @@ function insertionSort(arr){
 }
 ```
 
-#### O(n) Time Complexity Approach
+#### Single Loop Solution
 
 Let's refactor and implement a single loop which will reduce the time complexity as before. 
 
