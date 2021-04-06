@@ -30,7 +30,7 @@ We will first take a look at a double nested for loop.
 
 ### Nested For Loops
 
-Let's say we needed to loop over an array and keep the nested loop(**j**) one position ahead of first loop(**i**) the entire time.  The time efficiency of this approach is **O(n^2)**
+Let's say we needed to loop over an array and keep the nested loop(**j**) one position ahead of first loop(**i**) the entire time.  
 
 ```js
 let arr = [1,2,3]
@@ -46,7 +46,9 @@ for(let i = 0; i < arr.length; i += 1){
 
 ```
 
-This same requirement can also be accomplished using a single **while loop** and thereby increase the time efficiency to **O(n)**
+Taking the nested loop approach will mean our solution has a time efficiency of **O(n^2)**. 
+
+This same requirement can also be accomplished using a single **while loop** and thereby make it more increase the efficiency to **O(n)**.
 
 ```js
 let arr = [1,2,3]
