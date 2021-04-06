@@ -189,7 +189,7 @@ function sumZero(arr){
 
 <hr>
 
-#### :alarm_clock: Activity - Solving TwoSum - 15min
+#### :alarm_clock: - Activity - Solving TwoSum - 15min
 
 Given an sorted array of positive integers and a target number, return a new array that contains the first 2 numbers from the input array that, if added, would be the sum of the target number.
 
