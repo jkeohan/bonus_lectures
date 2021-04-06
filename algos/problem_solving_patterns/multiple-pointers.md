@@ -18,7 +18,7 @@ By the end of this lesson, you will be able to:
 
 ## Multiple Pointers
 
-The multiple pointers approach uses separate pointers that correspond to index positions and move towards the beginning, end or middle based on specific condition.
+The multiple pointers approach uses separate pointers that correspond to index positions and move towards the beginning, end or middle based on specific conditions.
 
 ### Starter Code
 
@@ -27,7 +27,7 @@ Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-St
 
 ### Looping Approaches
 
-We can make use of the following looping techniques to solve a problem using the multiple pointer approach. 
+We can make use of the following looping techniques to solve an algorithmic problem using the multiple pointer approach. 
 
 - double nested for loops
 - single while loop with multiple pointers defined
