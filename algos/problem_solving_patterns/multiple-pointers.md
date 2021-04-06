@@ -1,6 +1,6 @@
 # Multiple Pointers Problem Solving Pattern 
 
-<img src="https://i.imgur.com/FOjZeRR.png" />
+<img src="https://i.imgur.com/98YnScd.png" />
 
 ## Learning Objectives
 By the end of this lesson, you will be able to:
@@ -40,7 +40,6 @@ for(let i = 0; i < arr.length; i += 1){
     }
 }
 
-
 => 1 2
 => 1 3
 => 2 3
@@ -64,7 +63,6 @@ while(i < arr.length){
   }
 }
 
-
 => 1 2
 => 1 3
 => 2 3
@@ -83,23 +81,39 @@ sumZero([-2, -1, 0, 1, 2]) // [-2, 2]
 sumZero([-2, -1, 0, 4, 5]) // []
 ```
 
-#### O(n^2) Time Complexity Approach
+#### Double Nested Loop
 
-The brute force way of solving this would be to add the value a position i with each subsequent value of j until we find a pair that sums to 0.  Here is a good way to visualize how the algo works through the steps. 
+The brute force way of solving this would be to add the value a position **i** with each subsequent value of **j** until we find a pair that sums to 0.  
 
-```js
+Here is a good way to try and visualize how the algo works through the steps. 
+
+```
 INDEX:   1   2   3   4   5
-ELEM    -2, -1,  0, 1,  2
+VALUE:  -2, -1,  0, 1,  2
          i
              j
-
+       
+       i    j
 sum = -2 + -1 = -3
-sum = -2 + 0 = -2
-sum = -2 + 1 = -1
-sum = -2 + 2 = 0
+sum = -2 +  0 = -2
+sum = -2 +  1 = -1
+sum = -2 +  2 =  0
 ```
 
-The doubles nested solution will look like this and have a time complexity of O(n^2). 
+Here is the pseudocode for this solution.
+
+```
+LOOP over the array length SETTING i = 0
+ LOOP over the array length SETTING j = i + 1
+  IF arr[i] + arr[j] === 0
+   RETURN an array of those two values ([arr[left], arr[right]])
+  END IF
+ END LOOP
+END LOOP
+RETURN empty array
+```
+
+Here is the code based on the pseudocode and has a time complexity of O(n^2). 
 
 ```js
 function sumZero(arr){
@@ -114,11 +128,13 @@ function sumZero(arr){
 }
 ```
 
-#### O(n) Time Complexity Approach
+#### Single Loop
 
-A much better approach to solving this algo is to limit it to a single loop yet still incorporate multiple pointers.  
+The above solution does indeed solve the algo using multiple pointers however a much more efficient approach to solving this algo is to use a single loop with multiple pointers.  
 
-Here we will position the pointers at opposite ends with each one working their way to the middle.  If at any point the value of **left** exceeds **right* then we know there is no possible solution and that becomes the condition on which the loop terminates. 
+An additional approach we will take is to position the pointers at opposite ends of the array with each one working their way towards the middle.  
+
+If at any point the value of **left** exceeds **right* then we know there is no possible solution and that becomes the condition on which the loop terminates. 
 
 ```js
 INDEX:   0   1   2   3   4  5
@@ -130,7 +146,25 @@ sum = -2 + 3 = 1
 sum = -2 + 2 = 0
 ```
 
-Here is a solution that uses a single while loop. 
+Here is the pseudocode for this solution
+
+```
+SET a variable called left to 0
+SET a variable called right to the length of the array - 1
+WHILE left < right
+    SET sum to adding the arr[left] + arr[right]
+    IF sum = 0
+        RETURN an array of those two values ([arr[left], arr[right]])
+    ELSE IF sum > 0
+        DECREASE right by 1
+    ELSE 
+        INCREASE left by 1
+    END IF
+END WHILE
+RETURN empty array
+```
+
+Here is a solution that uses a single while loop and has a time complexity of O(n).
 
 ```js
 function sumZero(arr){
@@ -153,7 +187,7 @@ function sumZero(arr){
 
 ### Solving insertionSort
 
-InsertionSort is an algo that takes a very unique way to sort an array of numbers.  When **j** finds a value that is less than the **i** it moves in a descending order until it finds the proper position to place the element in the correct order. 
+InsertionSort is one of the basic sortin algos that uses multiple pointers and does so in a very unique.   **j** starts one position behind **i** and when **j** finds a value that is less than the value at **i** it decrements until it finds the proper position to place the element in the correct order. 
 
 Here are the starting positions for both **i** and **j** and some additional pseudocode to help work through the problem. 
 
@@ -166,7 +200,6 @@ ELEM     3  2  1
 
 SET i = 1
 SET j = i - 1
-
 IF i < arr.length
   SET cur to the value of arr[i]
   IF arr[j] > cur AND j > -1
