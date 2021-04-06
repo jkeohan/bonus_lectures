@@ -40,6 +40,7 @@ Let's say we needed to loop over an array and keep the nested loop(**j**) one po
 
 ```js
 let arr = [1,2,3]
+//   initialize   condition    increment
 for(let i = 0; i < arr.length; i += 1){
     for(let j = i + 1; j < arr.length-1; j += 1) {
         console.log(arr[i], arr[j])
