@@ -81,7 +81,7 @@ sumZero([-2, -1, 0, 1, 2]) // [-2, 2]
 sumZero([-2, -1, 0, 4, 5]) // []
 ```
 
-#### Double Nested Loop
+#### Double Nested Loop Solution
 
 The brute force way of solving this would be to add the value in the first loop(**i**) with each subsequent value of nested loop(**j**) until we find a pair that sums to 0.  
 
@@ -128,7 +128,7 @@ function sumZero(arr){
 }
 ```
 
-#### Single Loop
+#### Single Loop Solution
 
 The above solution does indeed solve the algo using multiple pointers however it has a time efficiency of O(n^2).  If we take a simple loop approach we can increase the time efficiency to O(n).
 
@@ -235,7 +235,7 @@ Let's refactor and implement a single loop which will reduce the time complexity
 
 
 ```js
-function insertionSort2(arr){
+function insertionSort(arr){
   let i = 1
   let j = i - 1
   let cur = arr[1];
