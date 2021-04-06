@@ -5,8 +5,8 @@
 ## Learning Objectives
 By the end of this lesson, you will be able to:
 - Know when to use the multiple pointers approach
-- Explain how the multiple pointers approach can be used to solve an algo
-- Write a solution using nested either nested loops or a single loop
+- Explain how the multiple pointers approach and how can be used to solve an algo
+- Write a solution using either nested loops or a single loop
 - Use multiple pointers to solve **sumZero** and **insertionSort**
 
 
@@ -14,7 +14,7 @@ By the end of this lesson, you will be able to:
 * Working knowledge of ascending/descending loops 
 * Working knowledge of while loops
 * Working knowledge of using multiple conditions in a loop
-- High level understanding of O(n) time complexity
+* High level understanding of O(n) time complexity
 
 ## Multiple Pointers
 
