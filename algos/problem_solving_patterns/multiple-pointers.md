@@ -48,7 +48,7 @@ for(let i = 0; i < arr.length; i += 1){
 
 Taking the nested loop approach will mean our solution has a time efficiency of **O(n^2)**. 
 
-This same requirement can also be accomplished using a single **while loop** and thereby make it more increase the efficiency to **O(n)**.
+This same requirement can also be accomplished using a single **while loop** and thereby increase the efficiency to **O(n)**.
 
 ```js
 let arr = [1,2,3]
