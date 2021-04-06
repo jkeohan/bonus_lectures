@@ -1,6 +1,6 @@
 # The "Multiple Pointers" Problem Solving Pattern 
 
-<img src="https://i.imgur.com/98YnScd.png" />
+<img src="https://i.imgur.com/wlv2H2X.png" />
 
 ## Learning Objectives
 By the end of this lesson, you will be able to:
@@ -186,6 +186,11 @@ function sumZero(arr){
 }
 
 ```
+
+<hr>
+:alarm_clock:
+
+<hr>
 
 ### Solving insertionSort
 
