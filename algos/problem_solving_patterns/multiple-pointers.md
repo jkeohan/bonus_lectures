@@ -18,7 +18,11 @@ By the end of this lesson, you will be able to:
 
 ## Multiple Pointers
 
-The multiple pointers approach uses separate pointers that correspond to index positions and move towards the beginning, end or middle based on specific condition
+The multiple pointers approach uses separate pointers that correspond to index positions and move towards the beginning, end or middle based on specific condition.
+
+### Starter Code
+
+Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Starter#index.js).
 
 
 ### Looping Approaches
