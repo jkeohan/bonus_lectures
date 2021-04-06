@@ -29,14 +29,16 @@ Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-St
 
 We can make use of the following looping techniques to solve an algorithmic problem using the multiple pointer approach. 
 
-- double nested for loops with multiple pointers defined
-- single while loop with multiple pointers defined
+- double nested for loops 
+- single while loop 
 
 We will first take a look at a double nested for loop. 
 
 ### Nested For Loops
 
 Let's say we needed to loop over an array and keep the nested loop(**j**) one position ahead of first loop(**i**) the entire time.  
+
+In this case our multiple pointers are **j** and **i**. 
 
 ```js
 let arr = [1,2,3]
@@ -52,9 +54,11 @@ for(let i = 0; i < arr.length; i += 1){
 => 2 3
 ```
 
-This type of approach is called **brute force** as you are forcing every combination until the solution is found. Taking this nested looping approach will mean our solution has a time efficiency of **O(n^2)**. 
+This type of approach is called **brute force** as you are forcing every combination until the solution is found. Taking this nested looping approach will mean our solution has a time efficiency of **O(n^2)** or Quadratic Time. 
 
-This same requirement can also be accomplished using a single **while loop** and thereby increase the efficiency to **O(n)**.
+### Single While Loop
+
+We can also create multiple pointers and produce the same output using a single **while loop**.  This will increase the time efficiency to **O(n)** or Linear Time. 
 
 ```js
 let arr = [1,2,3]
@@ -145,7 +149,7 @@ If ever **left** exceeds **right** then we know there is no possible solution an
 
 ```
 INDEX:   0   1   2   3   4  5
-ELEM:   -2, -1,  0,  1,  2  3
+ELEM:   -2  -1   0   1   2  3
          l
                             r
 
@@ -174,6 +178,8 @@ RETURN empty array
 Here is a solution that uses a single while loop and has a time complexity of O(n).
 
 ```js
+let arr = [-2, -1,  0,  1,  2, 3]
+
 function sumZero(arr){
   let left = 0
   let right = arr.length-1
