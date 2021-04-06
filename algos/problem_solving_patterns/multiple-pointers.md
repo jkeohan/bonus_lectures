@@ -56,7 +56,7 @@ let arr = [1,2,3]
 let i = 0
 let j = i + 1
 
-while(i < arr.length){
+while(i < arr.length - 1){
   if(j < arr.length) {
       console.log(arr[i], arr[j])
       j++
@@ -275,5 +275,3 @@ Refactor the code so that it would also place the unique values in order as it f
 ```js
 countUniqueValues([1,1,2,2,3]) => [1,2,3]
 ```
-
-
