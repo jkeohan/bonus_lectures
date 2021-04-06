@@ -188,7 +188,16 @@ function sumZero(arr){
 ```
 
 <hr>
-:alarm_clock:
+
+#### :alarm_clock: Activity - Solving TwoSum - 15min
+
+Given an sorted array of positive integers and a target number, return a new array that contains the first 2 numbers from the input array that, if added, would be the sum of the target number.
+
+```js
+  let numsArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  twoSum(numsArr, 9) // returns [1,8]
+  twoSum(numsArr, 4) // returns [1,3]
+```
 
 <hr>
 
@@ -270,6 +279,7 @@ The function will take in a sorted array of numbers and will return the number o
 
 ```js
 countUniqueValues([1,1,2,2,3]) => 3
+countUniqueValues([1,1,2,2,3,5]) => 4
 ```
 
 ### Bonus - CountingDuplicates
@@ -278,4 +288,5 @@ Refactor the code so that it would also place the unique values in order as it f
 
 ```js
 countUniqueValues([1,1,2,2,3]) => [1,2,3]
+countUniqueValues([1,1,2,2,3,5]) => [1,2,3,5]
 ```
