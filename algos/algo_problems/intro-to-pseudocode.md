@@ -1,4 +1,76 @@
-# Pseudocode Examples
+# Intro To Pseudocode 
+
+As developers we often go through many stages, from getting an idea to reaching a valid, working implementation of it. This often requires developers to design an **algorithm**, apply it to the problem at hand, and then test it for various input datasets.
+
+#### But What Is An Algorithm? 🤔
+
+An algorithm is:
+- A procedure for solving a problem in terms of the actions to be executed and the order in which those actions are to be executed.
+- An algorithm is the sequence of steps taken to solve a problem. 
+
+Here where pseudocode comes to the rescue. Pseudocode is a technique used to describe the distinct steps of an algorithm in a manner that is easy to understand for anyone with basic programming knowledge.
+
+#### Just How Important Is Good Pseudocode
+
+When writing instructions for another human to perform a basic task we take into account certain assumptions and provide detailed instructions for where we know they are needed.  Let's take the following example.
+
+##### Assemble A New IKEA Shelving Unit 
+
+Assumptions:
+- User knows how to open the box
+- User knows how to remove objects from the box
+- User knows to look for instructions
+- User knows that twisting screwdriver right tightens and left loosens
+
+Detailed Instructions:
+- User must be provided the steps on how to assemble the parts in the proper order
+- User provided diagrams for which parts to connect and which screws are used for those connections
+
+<hr>
+
+:alarm_clock: Activity - 5min 
+
+Let's watch the [Exact Instructions Challenge](https://www.youtube.com/watch?v=Ct-lOOUqmyY) to see just how often writing an algorithm can be. 
+
+<hr>
+
+## The Main Keywords Of Pseudocode
+
+The core of pseudocode is the ability to represent 6 programming constructs (always written in uppercase): SEQUENCE, CASE, WHILE, REPEAT-UNTIL, FOR, and IF-THEN-ELSE. These constructs — also called keywords —are used to describe the control flow of the algorithm.
+
+- SEQUENCE represents linear tasks sequentially performed one after the other.
+- WHILE a loop with a condition at its beginning.
+- REPEAT-UNTIL a loop with a condition at the bottom.
+- FOR another way of looping.
+- IF-THEN-ELSE a conditional statement changing the flow of the algorithm.
+- CASE the generalization form of IF-THEN-ELSE.
+
+<img src="https://i.imgur.com/cDN573l.png" />
+
+
+## Additional Keywords 
+
+Here are additional keywords that are most often used as well.
+ - Input: GET, READ, OBTAIN
+ - Output: PRINT, DISPLAY, SHOW
+ - Compute: COMPUTE, CALCULATE, DETERMINE
+ - Initialize: SET, INIT
+ - Add One: INCREMENT, BUMP, ADD
+
+ ## Rules of writing pseudocode
+
+ When writing pseudocode, everyone often has their own style of presenting things out since it’s read by humans and not by a computer; its rules are less rigorous than that of a programming language. However, there are some simple rules that help make pseudocode more universally understood.
+
+- Always capitalize the initial word 
+- Have only one statement per line.
+- Indent to show hierarchy, improve readability, and show nested constructs.
+- Always end multiline sections using any of the END keywords (ENDIF, ENDWHILE, etc.).
+- Keep your statements programming language independent.
+- Use the naming domain of the problem, not that of the implementation. E.g., “Append the last name to the first name” instead of “name = first+ last.”
+Keep it simple, concise, and readable.
+
+<img src="https://i.imgur.com/6R5SFA0.png">
+
 
 ### Why Algorithms? 🤔
 > you'll be asked to solve them on an interview 😅
@@ -103,13 +175,7 @@ Always indent scopes and end them with proper spacing, and/or end keywords
 As verbs, use the words Generate, Compute, Process, etc. Words such as set, reset, increment, compute, calculate, add, sum, multiply, ... print, display, input, output, edit, test. Along with careful indentation tend to foster desirable pseudocode.
 
 
-## Pseudocode "standard"
-Common categories of actions include:
- - Input: GET, READ, OBTAIN
- - Output: PRINT, DISPLAY, SHOW
- - Compute: COMPUTE, CALCULATE, DETERMINE
- - Initialize: SET, INIT
- - Add One: INCREMENT, BUMP, ADD
+
 
 
 ### Sequence
@@ -189,3 +255,7 @@ Given a string, write the pseudocode function to check if it is palindrome or no
 ## Challenge2
 Function `VowelCount(str)` takes the `str` string parameter being passed and `return` the number of vowels the string contains 
 > (ie. "All cows eat grass" would return 5).
+
+### Resources 
+
+- [Pseudocode 101](https://towardsdatascience.com/pseudocode-101-an-introduction-to-writing-good-pseudocode-1331cb855be7)
