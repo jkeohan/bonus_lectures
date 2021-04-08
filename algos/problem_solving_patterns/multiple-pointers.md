@@ -58,7 +58,7 @@ This type of approach is called **brute force** as you are forcing every combina
 
 ### Single While Loop
 
-We can also create multiple pointers and produce the same output using a single **while loop**.  This will increase the time efficiency to **O(n)** or Linear Time. 
+We can also create multiple pointers and use a single **while loop** to produce the same output.  This will improve the time efficiency to **O(n)** or Linear Time. 
 
 ```js
 let arr = [1,2,3]
@@ -80,7 +80,7 @@ while(i < arr.length - 1){
 => 2 3
 ```
 
-Let's apply the **brute force** method and a slight variation of the **while** loop to solve one of the more basic algos you will encounter that require finding two numbers that add to a target number.  
+Let's apply the **brute force** method and a slight variation of the above **while** loop to solve an algo that requires finding two numbers that add to a target number.  
 
 ### Solving sumZero
 
