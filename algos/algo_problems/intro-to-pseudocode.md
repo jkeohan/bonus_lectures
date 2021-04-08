@@ -10,8 +10,12 @@ An algorithm is:
 
 Here where pseudocode comes to the rescue. Pseudocode is a technique used to describe the distinct steps of an algorithm in a manner that is easy to understand for anyone with basic programming knowledge.
 
-**:question: What is an algorithm?**
+<hr>
 
+In your own words answer the question:**:question: What is an algorithm?**
+
+<hr
+>
 #### Just How Important Is Good Pseudocode
 
 When writing instructions for another human to perform a basic task we take into account certain assumptions and provide detailed instructions for where we know they are needed.  Let's take the following example.
