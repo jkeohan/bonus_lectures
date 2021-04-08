@@ -18,19 +18,21 @@ Here where pseudocode comes to the rescue. Pseudocode is a technique used to des
 
 #### Just How Important Is Good Pseudocode
 
+Open this starter repl: [Starter Repl](https://replit.com/@jkeohan/Algo-intro-to-pseudocode#index.js). 
+
 When writing instructions for another human to perform a basic task we take into account certain assumptions and provide detailed instructions for where we know they are needed.  Let's take the following example.
 
 ##### Assemble A New IKEA Shelving Unit 
 
-Assumptions:
-- User knows how to open the box
+Assumptions: (what assumptions can we make?)
+<!-- - User knows how to open the box
 - User knows how to remove objects from the box
 - User knows to look for instructions
-- User knows that twisting screwdriver right tightens and left loosens
+- User knows that twisting screwdriver right tightens and left loosens -->
 
-Detailed Instructions:
-- User must be provided the steps on how to assemble the parts in the proper order
-- User provided diagrams for which parts to connect and which screws are used for those connections
+Detailed Instructions: (where are more detailed instructions required?)
+<!-- - User must be provided the steps on how to assemble the parts in the proper order
+- User provided diagrams for which parts to connect and which screws are used for those connections -->
 
 <hr>
 
@@ -70,7 +72,7 @@ The core of pseudocode is the ability to represent programming constructs. These
 
 ### Making A Cup Of Tea
 
-Think about the steps needed to make a cup of tea. Of course after watching how to make a peanut butter sandwich we know that far more instructions need to be provided but let's just run with the below.
+Think about the steps needed to make a cup of tea. Of course after watching how to make a peanut butter sandwich we know that more instructions need to be provided, but let's start with the below.
 
 ```
 Put water into a kettle
@@ -128,7 +130,11 @@ PROGRAM
 END PROGRAM
 ```
 
-Of course we could apply the same logic to adding milk as well. Where else could we apply conditional logic? 
+Of course we could apply the same logic to adding milk as well. 
+
+<hr>
+
+:question: Where else could we apply conditional logic? 
 
 <hr>
 
@@ -158,7 +164,7 @@ WHILE (condition)
 END WHILE
 ```
 
-Now apply that to filling the kettle
+Now apply that to filling the kettle with water.
 
 ```
 PROGRAM
@@ -178,6 +184,10 @@ PROGRAM
     END IF
 END PROGRAM
 ```
+
+<hr>
+
+:question: Where else could we apply iterative logic? 
 
 <hr>
 
@@ -361,3 +371,5 @@ FWrite a function **vowelCount** take given a string returns the number of vowel
 ### Resources 
 
 - [Pseudocode 101](https://towardsdatascience.com/pseudocode-101-an-introduction-to-writing-good-pseudocode-1331cb855be7)
+- [Intro To Pseudocode](https://www.slideshare.net/DamianGordon1/pseudocode-10373156)
+- [GA Algos](https://git.generalassemb.ly/wdi-nyc-algorithms/whiteboarding-meetup/blob/master/algorithms.md)
