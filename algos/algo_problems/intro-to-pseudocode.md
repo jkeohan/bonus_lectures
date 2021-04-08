@@ -12,7 +12,7 @@ Here where pseudocode comes to the rescue. Pseudocode is a technique used to des
 
 <hr>
 
-In your own words answer the question:**:question: What is an algorithm?**
+**:question: What is an algorithm?**
 
 <hr>
 
@@ -83,6 +83,21 @@ Add water from kettle to cup
 Add milk and/or sugar
 ```
 
+The first thing we need to do is indicate that this is a program and all the code should be run when making a cup of tea. 
+
+```
+PROGRAM
+    Put water into a kettle
+    Turn on stove
+    Place kettle onto stove
+    Put teabag in cup
+    Wait for kettle to boil
+    Remove kettle from stove
+    Add water from kettle to cup
+    Add milk and/or sugar
+END PROGRAM
+```
+
 #### Selection
 
 Let's take a moment to update the code to include the need to make a selection such as adding sugar.  This is a condition and the structure for writing one in pseudocode.
@@ -97,18 +112,20 @@ END IF
 Now apply that to adding sugar.
 
 ```
-Put water into a kettle
-Turn on stove
-Place kettle onto stove
-Put teabag in cup
-Wait for kettle to boil
-Remove kettle from stove
-Add water from kettle to cup
-Add milk 
-IF sugar is required
- THEN add sugar
- ELSE do nothing
-END IF
+PROGRAM
+    Put water into a kettle
+    Turn on stove
+    Place kettle onto stove
+    Put teabag in cup
+    Wait for kettle to boil
+    Remove kettle from stove
+    Add water from kettle to cup
+    Add milk 
+    IF sugar is required
+        THEN add sugar
+        ELSE do nothing
+    END IF
+END PROGRAM
 ```
 
 Of course we could apply the same logic to adding milk as well. Where else could we apply conditional logic? 
@@ -117,7 +134,14 @@ Of course we could apply the same logic to adding milk as well. Where else could
 
 **:alarm_clock: Activity** - 2min
 
-Write a condition to check which of 2 numbers is the largest. 
+Write a condition that prints the larger of 2 numbers.
+
+<!-- ```
+IF A > B
+    THEN PRINT A
+    ELSE PRINT B
+END IF
+``` -->
 
 <hr>
 
@@ -137,21 +161,22 @@ END WHILE
 Now apply that to filling the kettle
 
 ```
-
-WHILE kettle is not full
-    DO keep adding water
-END WHILE
-Turn on stove
-Place kettle onto stove
-Put teabag in cup
-Wait for kettle to boil
-Remove kettle from stove
-Add water from kettle to cup
-Add milk 
-IF sugar is required
-    THEN add sugar
-    ELSE do nothing
-END IF
+PROGRAM
+    WHILE kettle is not full
+        DO keep adding water
+    END WHILE
+    Turn on stove
+    Place kettle onto stove
+    Put teabag in cup
+    Wait for kettle to boil
+    Remove kettle from stove
+    Add water from kettle to cup
+    Add milk 
+    IF sugar is required
+        THEN add sugar
+        ELSE do nothing
+    END IF
+END PROGRAM
 ```
 
 <hr>
@@ -160,10 +185,18 @@ END IF
 
 Write a loop to print out the numbers from 1 to 5.
 
+<!-- ```
+SET A = 1
+WHILE A < 5
+    DO PRINT A
+    INCREMENT A by 1
+END WHILE
+``` -->
+
 <hr>
 
 
-
+<!-- 
 Think about when you cross the street and all the actions that you take to make it to the other side safely.  
 
 ```text
@@ -174,9 +207,9 @@ ELSE IF some cars are coming to a stop
   WAIT for them to stop before deciding to cross the street
 END IF
 
-```
+``` -->
 
-Problem: 
+<!-- Problem: 
 Evaluate all the student's exam grades, if the students recieved anything above 60 they passed otherwise they didnt.
 
 ```text
@@ -203,7 +236,8 @@ END WHILE
 SET classAverage equal to total / totalStudents
 
 RETURN classAverage
-```
+``` -->
+
 <!-- 
 ```text
 INTI a variable called passes to zero
@@ -229,25 +263,8 @@ if eight or more students passed
 endif
 ``` -->
 
-## Some keywords that could be used:
-For looping and selection refer to the following key words:
 
-- DO WHILE..END WHILE
-- Loop...END LOOP
-- CASE...END CASE
-- IF...END IF
-- RETURN
-
-
-Always indent scopes and end them with proper spacing, and/or end keywords
-
-As verbs, use the words Generate, Compute, Process, etc. Words such as set, reset, increment, compute, calculate, add, sum, multiply, ... print, display, input, output, edit, test. Along with careful indentation tend to foster desirable pseudocode.
-
-
-
-
-
-### Sequence
+<!-- ### Sequence
 A series of instructions to complete one action and proceed to the next
 
 Example:
@@ -314,15 +331,31 @@ FOR EACH number up to limit
     PRINT number
   ENDIF
 ENDFOR
-```
+``` -->
 
-Using the pseudocode...
-## Challenge1
-Given a string, write the pseudocode function to check if it is palindrome or not. 
+## Practice 
+
+
+### isOddOrEven
+Write a function called **isOddOrEven** that checks if a number is **odd** or **even** and returns that value. 
+
+### isLargest
+Write a function called **isLargest** that takes in two numbers and returns the largest of the two. 
+
+### allNumbersBefore
+Write a function called **allNumbersBefore** that takes in a number returns an array of all the numbers starting from 1 that come before it. 
+
+### sumOfAllNumbers
+Write a function called **sumOfAllNumbers** that takes in a number returns a number that represents the sum of all numbers starting from 1 up to, and including, the input number. 
+
+### Bonus #1
+Write a function called **isPalindrome** that given a string returns true if it is a palindrome. 
+
 > A string is said to be palindrome if reverse of the string is same as string. For example, “radar” is palindrome, but “radix” is not palindrome.
 
-## Challenge2
-Function `VowelCount(str)` takes the `str` string parameter being passed and `return` the number of vowels the string contains 
+### Bonus #2
+FWrite a function **vowelCount** take given a string returns the number of vowels the string contains 
+
 > (ie. "All cows eat grass" would return 5).
 
 ### Resources 
