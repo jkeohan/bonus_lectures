@@ -373,3 +373,4 @@ FWrite a function **vowelCount** take given a string returns the number of vowel
 - [Pseudocode 101](https://towardsdatascience.com/pseudocode-101-an-introduction-to-writing-good-pseudocode-1331cb855be7)
 - [Intro To Pseudocode](https://www.slideshare.net/DamianGordon1/pseudocode-10373156)
 - [GA Algos](https://git.generalassemb.ly/wdi-nyc-algorithms/whiteboarding-meetup/blob/master/algorithms.md)
+- [js-algorithms-and-data-structures-masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass)
