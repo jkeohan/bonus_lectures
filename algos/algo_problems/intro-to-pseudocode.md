@@ -10,6 +10,8 @@ An algorithm is:
 
 Here where pseudocode comes to the rescue. Pseudocode is a technique used to describe the distinct steps of an algorithm in a manner that is easy to understand for anyone with basic programming knowledge.
 
+**:question: What is an algorithm?**
+
 #### Just How Important Is Good Pseudocode
 
 When writing instructions for another human to perform a basic task we take into account certain assumptions and provide detailed instructions for where we know they are needed.  Let's take the following example.
@@ -48,50 +50,19 @@ The core of pseudocode is the ability to represent programming constructs. These
 <img src="https://i.imgur.com/cDN573l.png" />
 
 
-## Additional Keywords 
-
-Here are additional keywords that are most often used as well.
- - Input: GET, READ, OBTAIN
- - Output: PRINT, DISPLAY, SHOW
- - Compute: COMPUTE, CALCULATE, DETERMINE
- - Initialize: SET, INIT
- - Add One: INCREMENT, BUMP, ADD
-
  ## Rules of writing pseudocode
 
- When writing pseudocode, everyone often has their own style of presenting things out since it’s read by humans and not by a computer; its rules are less rigorous than that of a programming language. However, there are some simple rules that help make pseudocode more universally understood.
+ Since everyone who writes pseudocode does so in their own style or preference here are some simple rules that help make pseudocode more universally understood.
 
-- Always capitalize the initial word 
+- Always **capitalize** the initial word 
 - Have only one statement per line.
-- Indent to show hierarchy, improve readability, and show nested constructs.
-- Always end multiline sections using any of the END keywords (ENDIF, ENDWHILE, etc.).
-- Keep your statements programming language independent.
+- **Indent** to show hierarchy, improve readability, and show nested constructs.
+- Always end multiline sections using any of the END keywords (ENDIF, ENDWHILE, etc.).-
 - Use the naming domain of the problem, not that of the implementation. E.g., “Append the last name to the first name” instead of “name = first+ last.”
-Keep it simple, concise, and readable.
+- Keep it simple, concise, and readable.
 
 <img src="https://i.imgur.com/6R5SFA0.png">
 
-
-### Why Algorithms? 🤔
-> you'll be asked to solve them on an interview 😅
-
-It's to train your brain into solving everyday problems. 
-
-### What Is An Algorithm? 🤔
-
-An algorithm is:
-- "a procedure for solving a problem in terms of the actions to be executed and the order in which those actions are to be executed." 
-- An algorithm is the sequence of steps taken to solve a problem. 
-- The steps are normally "sequence," "selection, " "iteration," and a "case-type" statement.
-
-### How do we solve difficult algos? 🤔
-
-Pseudocode is an artificial and informal language that helps programmers develop algorithms. Pseudocode helps developers think through the problem without writing any actual code. 
-
-The **rules** of pseudocode almost always include the following:
-- key actions are capitalized
-- nested code is always indented
-- ending statements are included to indicate the ending of a codeblock
 
 ### Examples:
 
