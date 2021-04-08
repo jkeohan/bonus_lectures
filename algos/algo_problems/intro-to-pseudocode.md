@@ -36,7 +36,7 @@ Let's watch the [Exact Instructions Challenge](https://www.youtube.com/watch?v=C
 
 ## The Main Keywords Of Pseudocode
 
-The core of pseudocode is the ability to represent 6 programming constructs (always written in uppercase): SEQUENCE, CASE, WHILE, REPEAT-UNTIL, FOR, and IF-THEN-ELSE. These constructs — also called keywords —are used to describe the control flow of the algorithm.
+The core of pseudocode is the ability to represent programming constructs. These constructs — also called keywords —are used to describe the control flow of the algorithm.
 
 - SEQUENCE represents linear tasks sequentially performed one after the other.
 - WHILE a loop with a condition at its beginning.
