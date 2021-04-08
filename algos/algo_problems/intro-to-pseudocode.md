@@ -68,7 +68,101 @@ The core of pseudocode is the ability to represent programming constructs. These
 <img src="https://i.imgur.com/6R5SFA0.png">
 
 
-### Examples:
+### Making A Cup Of Tea
+
+Think about the steps needed to make a cup of tea. Of course after watching how to make a peanut butter sandwich we know that far more instructions need to be provided but let's just run with the below.
+
+```
+Put water into a kettle
+Turn on stove
+Place kettle onto stove
+Put teabag in cup
+Wait for kettle to boil
+Remove kettle from stove
+Add water from kettle to cup
+Add milk and/or sugar
+```
+
+#### Selection
+
+Let's take a moment to update the code to include the need to make a selection such as adding sugar.  This is a condition and the structure for writing one in pseudocode.
+
+```
+IF (condition)
+ THEN (statement)
+ ELSE (statement)
+END IF
+```
+
+Now apply that to adding sugar.
+
+```
+Put water into a kettle
+Turn on stove
+Place kettle onto stove
+Put teabag in cup
+Wait for kettle to boil
+Remove kettle from stove
+Add water from kettle to cup
+Add milk 
+IF sugar is required
+ THEN add sugar
+ ELSE do nothing
+END IF
+```
+
+Of course we could apply the same logic to adding milk as well. Where else could we apply conditional logic? 
+
+<hr>
+
+**:alarm_clock: Activity** - 2min
+
+Write a condition to check which of 2 numbers is the largest. 
+
+<hr>
+
+
+#### Iteration
+
+I'm sure we have made the assumption that the user knows when the kettle is full of water but that's not so for a computer.  So let's add an **iteration** step to our code base. 
+
+This is a iteration and the structure for writing one in pseudocode.
+
+```
+WHILE (condition)
+ DO (stateement)
+END WHILE
+```
+
+Now apply that to filling the kettle
+
+```
+
+WHILE kettle is not full
+    DO keep adding water
+END WHILE
+Turn on stove
+Place kettle onto stove
+Put teabag in cup
+Wait for kettle to boil
+Remove kettle from stove
+Add water from kettle to cup
+Add milk 
+IF sugar is required
+    THEN add sugar
+    ELSE do nothing
+END IF
+```
+
+<hr>
+
+**:alarm_clock: Activity** - 2min
+
+Write a loop to print out the numbers from 1 to 5.
+
+<hr>
+
+
 
 Think about when you cross the street and all the actions that you take to make it to the other side safely.  
 
