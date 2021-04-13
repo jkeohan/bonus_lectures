@@ -30,6 +30,13 @@ Here are a few examples:
 Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture-seir-1207)
 <!-- [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
 
+<!-- Solutions 
+
+ https://replit.com/@jkeohan/intro-to-sorting#index.js
+ https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-seir-1207#index.js
+-->
+
+
 ## JavaScript Array.sort()
 
 Let's start our discussion of sorting with JavaScript's predefined Array method called `.sort()`.  
