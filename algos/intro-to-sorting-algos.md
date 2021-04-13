@@ -141,9 +141,9 @@ Whats that you say? We should start by righting some pseudocode? I couldn't agre
 Let's give it a try.
 
 ```js
-// LOOP over the array in ascending order setting i = 0
-//  LOOP over the array ascending order setting j = 0
-//   IF arr[j] > arr[i]
+// LOOP over the length of the array in ascending order setting i = 0
+//  LOOP over the length of the array in ascending order setting j = 0
+//   IF arr[j] > arr[j+1]
 //    SWAP the elements
 //   END IF
 //  END LOOP
@@ -278,8 +278,8 @@ We can implement this logic of decreasing that value by also subtracting `i` as 
 Let' take a moment and update ou pseudocode to reflect the changes we decided.  
 
 ```js
-// LOOP over the array in ascending order (i)
-//  LOOP over the array.length-1-i in ascending order (i) 
+// LOOP over the length of the array in ascending order setting i = 0
+//  LOOP over the array.length-1-i in ascending order setting j = 0
 //   IF arr[j] is > arr[i]
 //    SWAP the elements
 //   END IF
@@ -316,8 +316,8 @@ Let's add a few new lines to our pseudocode in order to keep track of any swaps 
 
 ```js
 // CREATE a variable called swapHappened 
-// LOOP over the array in ascending order (i)
-//  LOOP over the array.length-1-i in ascending order (j) 
+// LOOP over the length of the array in ascending order setting i = 0
+//  LOOP over the array.length-1-i in ascending order setting j = 0
 //  SET swapHappened  to false
 //  LOOP over the array while j < i - 1
 //   IF arr[j] is > arr[i]

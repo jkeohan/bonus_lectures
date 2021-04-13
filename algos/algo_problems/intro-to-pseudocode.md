@@ -25,14 +25,14 @@ When writing instructions for another human to perform a basic task we take into
 ##### Assemble A New IKEA Shelving Unit 
 
 Assumptions: (what assumptions can we make?)
-<!-- - User knows how to open the box
+- User knows how to open the box
 - User knows how to remove objects from the box
 - User knows to look for instructions
-- User knows that twisting screwdriver right tightens and left loosens -->
+- User knows that twisting screwdriver right tightens and left loosens
 
 Detailed Instructions: (where are more detailed instructions required?)
-<!-- - User must be provided the steps on how to assemble the parts in the proper order
-- User provided diagrams for which parts to connect and which screws are used for those connections -->
+- User must be provided the steps on how to assemble the parts in the proper order
+- User provided diagrams for which parts to connect and which screws are used for those connections
 
 <hr>
 
