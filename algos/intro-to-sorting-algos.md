@@ -58,7 +58,7 @@ console.log(['Zoe', 'Jane', 'Kel', 'Alex', 'alex].sort())
 ```
 
 
-Hmmm...not what you expected correct. 
+:thought_balloon: Is that what you expected?
 
 Let's try one more example using numbers to see if performs any differently. 
 
@@ -106,8 +106,6 @@ Now let's try and write the code a bit more efficiently.
 function sortAsc(num1, num2) {
   return num1 - num2
 }
-
-console.log([12,3,10,2,1].sort(sortAsc))
 ```
 
 Although `.sort()` will meet your sorting needs one common practice in learnig algos is to reproduce the code that already is being used within the given JS method. 
