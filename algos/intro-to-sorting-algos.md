@@ -27,7 +27,7 @@ Here are a few examples:
 
 **Starter Repl**
 
-Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture-seir-1207)
+Fork this [Starter Repl](https://replit.com/@jkeohan/intro-to-sorting-starter)
 <!-- [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
 
 <!-- Solutions 
