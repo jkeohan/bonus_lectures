@@ -47,7 +47,7 @@ Let's take a look at the [Redux](https://redux.js.org/) site
 
 #### Other Redux Goodies
 
-Needless to say that Redux also does some other cool stuff too, like make debugging easier (Redux DevTools let you inspect every single state change) and time-travel debugging (you can roll back state changes and see how your app looked in the past).
+Needless to say that Redux also does some other cool stuff too, like make debugging easier such as rolling back state changes to see how your app looked in the past and **Redux DevTools** which lets you inspect every single state change. 
 
 ## Redux Terminology
 
@@ -60,7 +60,7 @@ Redux brings with it some new terminology so let's review these new terms first 
 
 #### Store
 
-The store is the single source of truth for our in a program. The store encapsulates not only the data in the program, but also controls the flow of program data using `actions` and `reducers`
+The store is the single source of truth for our in a program. The store encapsulates not only the data in the program, but also manages any updates using `actions` and `reducers`
 
 #### Actions
 
@@ -89,7 +89,7 @@ The Reducer will always take the previous state and the action that was dispatch
 
 The body of the function is normally a `switch statement` that looks at the `type` property in the action. Each case in the switch statement will be an action type that the reducer is listening for. 
 
-```sh
+```js
 const exampleReducer = (state, action) => {
   switch(action.type){
     case: 'EXAMPLE_ACTION'
@@ -114,11 +114,11 @@ For this demo we will be using the following starter code:
 Here are the steps we will follow to configure and use Redux:
 
 - Install redux packages
-- Create a reducer
+- Create a `reducer`
 - Adding Redux to our App
 - Create a `store`
 - Wrap your app in the redux Provider
-- Dispatch Actions
+- Dispatch `Actions`
 - Subscribe a component to updates with `connect`
 
 Once that is all done our app will look like this: 
@@ -135,7 +135,7 @@ For the ease of the lecture the following libraries have already been installed 
 
 ### Create A Reducer
 
-Reducers are the bridge between an action being dispatched and updating state. Large applications often have more than one reducer so it's a good idea to create a folder and place all your reducers there. 
+Reducers are the bridge between an action being dispatched and the updating of state. Large applications often have more than one reducer so it's a good idea to create a folder and place all your reducers there. 
 
 So let's create a `reducer` folder in `src` and then create a file called `counterReducer.js`
 
@@ -190,7 +190,7 @@ export default counterReducer
 Since the App is the top level Component in our React hierarchy we will be adding our store there. 
 
 ### The Store
-A `store` is used to hold one global state object.  The is but one single store for the entire application.  The `store` is responsible for managing state which includes performing state updates based on the `actions` it receives. 
+A `store` is used to hold one global state object.  There is but one single store for the entire application.  The `store` is responsible for managing state which includes performing state updates based on the `actions` it receives. 
 
 Creating a store requires that we first import the `createStore` function from `redux`.
 
@@ -253,12 +253,13 @@ Let's take a look at React Dev Tools and we should see the provider.
 
 <details>
 <summary>Answer</summary>
+<br>
 
-- React Router
+**React Router**
 
 <img src="https://i.imgur.com/XY5tgQx.png" width=200>
 
-- useContenxt Hook
+**useContenxt Hook**
 
 <img src="https://i.imgur.com/9QUMmFg.png" width=200>
 
@@ -386,7 +387,7 @@ And lastly update the buttons to reference these new props.
 
 ### Redux Developer Tools
 
-Redux has a great [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)chrome extension. 
+Redux has a great [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) chrome extension. 
 
 First we must download and install it and then update `createstore` with the following in order to use it. 
 
