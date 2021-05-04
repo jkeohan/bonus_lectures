@@ -24,6 +24,8 @@ The multiple pointers approach uses separate pointers that correspond to index p
 
 Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Starter#index.js).
 
+<!-- [Solution Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Starter-1#index.js) -->
+
 
 ### Looping Approaches
 
@@ -84,7 +86,7 @@ Let's apply the **brute force** method and a slight variation of the above **whi
 
 ### Solving sumZero
 
-The algo accepts a sorted array of integers and returns either an array of the first pair that sum to 0 or an empty array.  Keep in mind that this specific solution does require that the array first be sorted. 
+The algo accepts a sorted array of integers and returns either an array of the first pair that sum to 0 or an empty array.  Keep in mind that this specific solution does **require** that the array first be sorted. 
 
 ```js
 sumZero([-3, -2, -1, 0, 1, 2, -3]) // [-3, 3]
