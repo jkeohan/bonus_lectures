@@ -4,7 +4,13 @@ Creator:  Joe Keohan<br>
 
 ---
 
-# AWS API Gateway
+
+
+# AWS API Gateway 
+
+<img src="https://i.imgur.com/0pExHXm.png" width=200/>
+
+
 
 This is a mini lecture focused on deploying an API using AWS API Gateway service. 
 
@@ -20,7 +26,7 @@ This is a mini lecture focused on deploying an API using AWS API Gateway service
 
 - An AWS (Amazon Web Services) account
 
-If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account.
+If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier for twelve months,with some limitations,  after you sign-up for an AWS account.
 
 ## Intro To The AWS Global Network 
 
@@ -42,7 +48,7 @@ Along with their global infrastructure AWS offers in the range of 175 products a
 
 AWS provides a free tier of support for many of their services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
 
-So before we begin lets take a look at their free tier (https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
 
 ### API Gateway
 
@@ -50,7 +56,7 @@ The AWS API Gateway is a fully managed service that makes it easy for developers
 
 <img src="https://i.imgur.com/ziCSBw7.png" width=500/>
 
-It can also accept data either via the ```body```, as ```params``` or as ```query strings```, all of which is the current standard for RESTFull APIs. 
+It can accepts data either via the ```body```, as ```params``` or as ```query strings```, all of which is the current standard for RESTFull APIs. 
 
 #### Creating An API
 
@@ -80,17 +86,24 @@ Here we have the option to create the API via the following ways:
 
 We will choose **New API** and give it a name and description.  The app we will be building will allow users to store fun facts about themselves such as their age, fav color, fav food, dream destination. 
 
+### Create An API
 Let's use the following configurations for the API and click **Create API**. 
 
 <img src="https://i.imgur.com/R9EGN0S.png">
 
-This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API is a single **/**.  AWS refers to the routes as resources which makes sense as they are meant to provide some type of resource to the user.  
+### Resources
 
-<img src="https://i.imgur.com/omo32kJ.png" >
+This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API and is assigned a single **/**.  
+
+AWS refers to the routes as resources which makes sense as they are meant to provide some type of resource to the user.  
+
+<img src="https://i.imgur.com/omo32kJ.png" width=600>
+
+### HTTP Methods
 
 Since this is a RestFul API we will need to also configure an HTTP method for this resource (aka...route).   We can do that by clicking on the **Action** button and choosing **Create Method**
 
-<img src="https://i.imgur.com/yAsZ1rK.png">
+<img src="https://i.imgur.com/yAsZ1rK.png" width=400>
 
 Here we are provided all the available methods of which we will choose **GET**
 
@@ -123,7 +136,7 @@ Here we will add the following JSON and click on **Save**
 
 #### Testing The API
 
-Before we proceed to make our API public it's probably best that we test it first. Click on the back arrow **<- Method Exccution** and there we can click on **Test**
+Before we proceed to make our API public it's probably best that we test it first. Click on the back arrow **<- Method Execution** and there we can click on **Test**
 
 <img src="https://i.imgur.com/Vz4575X.png" />
 
@@ -133,7 +146,7 @@ If the test is successful we should see the following:
 
 ### Deploying The API
 
-Our API isn't yet available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Action** button and then **Deploy API**.  
+Our API isn't available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Action** button and then **Deploy API**.  
 
 <img src="https://i.imgur.com/8eiKEJf.png" />
 
@@ -145,11 +158,11 @@ AWS then provides us a url to access the dev version of our API.
 
 <img src="https://i.imgur.com/NaVCAue.png" />
 
-If we open that in a new browser we should recieive the following JSON.
+If we open that in a new browser we should receive the following JSON.
 
 <img src="https://i.imgur.com/NkEXOPR.png" />
 
-And there you have it.  Your very first AWS API created using the API Gateway service. No node/express servers needed and a clean GUI that provides us access to a visual representation of the the request/response cycle and all the configuration options available in each. 
+And there you have it.  Your very first AWS API created using the API Gateway service. AWS provides us an easy way to setup an API along with a visual representation of the the request/response cycle. 
 
 #### References
 
