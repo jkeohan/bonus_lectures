@@ -36,9 +36,14 @@ Their infrastructure currently contains 24 geographic Regions around the world w
 
 
 <img src="https://i.imgur.com/ZVH2bAl.jpg" width=600>
+
+Let's take a closer look at a region.
+
+<img src="https://i.imgur.com/xZkVBM5.png" width=600>
+
+
 <br>
 
-The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site. 
 
 ### AWS Services
 
