@@ -51,123 +51,168 @@ Along with their global infrastructure AWS offers in the range of 175 products a
 
 **Free Tier**
 
-AWS provides a free tier of support for many of their services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
+AWS offers a 12months of free tier of support for many of their product and services.   Its important to mention that you will be charged accordingly once the 12months expires or you exceed the limits of the tier of support.  
 
 So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+
+<img src="https://i.imgur.com/Gplt0Ma.png" width=500/>
 
 ### API Gateway
 
 The AWS API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone RESTful APIs that can work with AWS backend services, Lambda being the most popular, to execute code once a url and method have been called.  
 
-<img src="https://i.imgur.com/ziCSBw7.png" width=500/>
+<img src="https://i.imgur.com/ziCSBw7.png" width=700/>
 
-It can accepts data either via the ```body```, as ```params``` or as ```query strings```, all of which is the current standard for RESTFull APIs. 
+The routes, which AWS refers to as **resources** can accept data either using **params** or **query strings** via the url or the **body**.  The API Gateway we will implement will be done so as a **REST API**. 
 
 #### Creating An API
 
-In this lecture we will focus on building a **REST API**.   
+Let's go ahead and create a new API by choosing **APIs** from the left menu and clicking the **Create API** all the way to the right. 
 
-Let's open the API Gateway and create a new API by clicking on the **Create API** button. 
+<img src="https://i.imgur.com/dK4tu18.png" />
 
-<img src="https://i.imgur.com/yZLccWs.png" width=700/>
-
-The API Gateway provides the following 4 ways for creating an API. 
-
+API Gateway provides 4 options for building an API server. 
 - HTTP
 - WebSockets
 - REST
 - REST (private)
 
+
 We will focus on creating a RESTful API which refers to a collection of resources and methods that can be invoked through HTTP endpoints. We will do so by clicking on the **Build** button. 
 
-<img src="https://i.imgur.com/vj9nTHx.png" />
+<img src="https://i.imgur.com/vj9nTHx.png" width=500/>
 
-Here we have the option to create the API via the following ways:
+On the next configuration page we will choose **REST** as the **protocol** and create a **New API**.
 
-- New API
-- Clone from existing API
-- Import from Swagger or Open API 3
-- Example API
+<img src="https://i.imgur.com/lkCRCgW.png" width=500/>
 
-We will choose **New API** and give it a name and description.  The app we will be building will allow users to store fun facts about themselves such as their age, fav color, fav food, dream destination. 
 
-### Create An API
-Let's use the following configurations for the API and click **Create API**. 
+We need to give it a **API name** and **Description** and will leave the **Endpoint Type** as **Regional**.  The app we will be building will allow us to store info about the projects in our portfolio so let's give it an appropriate name and description. 
 
-<img src="https://i.imgur.com/R9EGN0S.png">
+Then click **Create API**. 
+
+<img src="https://i.imgur.com/2ZDalPx.png" width=700/>
+
+<!-- The app we will be building will allow us to store info about the projects in our portfolio, including the following:
+
+- project_name	
+- live_url	
+- github_url	
+- image_url	
+- description -->
 
 ### Resources
 
-This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API and is assigned a single **/**.  
+This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API and is assigned a single forward slash **/**.  
 
-AWS refers to the routes as resources which makes sense as they are meant to provide some type of resource to the user.  
+AWS refers to the **routes** as **resources**, which makes sense as they are meant to provide some type of resource to the requesting user.  
 
 <img src="https://i.imgur.com/omo32kJ.png" width=600>
 
+#### RESTful Routes to CRUD Mapping
+
+Since the gateway we are building will be specific to projects we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit. 
+
+HTTP Method<br>(Verb) | URI (endpoint)  | CRUD Operation | Typical<br>Controller Action | Has Data<br>Payload
+-----------|------------------|------------------|:---:|:---:
+GET     | /projects          | Read all _projects_ | index | No
+GET     | /projects/:id      | Read a specific _project_ | show | No
+POST    | /projects          | Create a new _project_ | create | Yes
+PUT     | /projects/:id      | Update specified _project_  | update | Yes
+DELETE  | /projects/:id      | Delete specified _project_ | delete | No
+
+Based on the above routes lets create our first **resource** which will be **/projects**.  
+
+In order to do that click on the **Action** dropdown and choose **Create Resource**
+
+<img src="https://i.imgur.com/L08bRYl.png" width=200/>
+
+Here will choose **projects** as the name and path and the click on **Create Resource** button. 
+
+<img src="https://i.imgur.com/33snxEy.png" />
+
+Once the resource is created we are now presented with the resource and a message stating that **No methods defined for the resource** so we need to do that next.  
+
+<img src="https://i.imgur.com/B196Eqk.png" >
+
 ### HTTP Methods
 
-Since this is a RestFul API we will need to also configure an HTTP method for this resource (aka...route).   We can do that by clicking on the **Action** button and choosing **Create Method**
+As we can see from the routing table the **index** route we will be associated with the **GET** method. 
 
-<img src="https://i.imgur.com/yAsZ1rK.png" width=400>
+We will do that by clicking on the **Actions** dropdown once again and choosing **Create Method** which will then present a dropdown list of methods to choose from, of which we will choose **GET** and then click on the **checkmark**. 
 
-Here we are provided all the available methods of which we will choose **GET**
+<img src="https://i.imgur.com/NshdtNF.png" width=300/>
 
-<img src="https://i.imgur.com/TCsgYv5.png">
+Now there are several option for us to choose from and, although we will be configuring Lambda for all of the routes we will first choose **Mock** for now so that we can get it initially setup. 
 
-There are several option for us to choose from and, although we will be configuring Lambda for the remainder of this lecture, we will first choose **Mock** so that we can easily test the API.  
+<img src="https://i.imgur.com/HLYiy4S.png" width=700/>
 
-<img src="https://i.imgur.com/5rz1cJr.png">
+Once the method is in place we will be presented with the following screen.  This follows the **request/response** cycle that you have already worked with in the previous unit. 
 
-Once the method is in place we will be presented with the following screen.  This follows the request/response cycle that you have already worked with in express. A request is received and a response is returned.  As this is a **Mock** endpoint we will only send back mock data for the time being. 
+<img src="https://i.imgur.com/ZPVnYNy.png" width=700/>
 
-<img src="https://i.imgur.com/Cc2IXzP.png">
+A request is received and a response is returned and AWS divides each into it's corresponding type of **Method Request** and **Integration Request**. 
 
-In order to return (aka respond) we will configure the **Integration Request** so click on that to configure additional options.  Once it opens we will click the the drop down to configure the request. 
+As this is a **Mock** endpoint we will see that the **Integration Request** ends at the **Mock Endpoint**.  Since there is nothing there to pass data to **Integration Response** they both act independently in this configuration. 
 
-<img src="https://i.imgur.com/7uOkZGF.png" />
-
- Continue to expand **Mapping Templates** and then click on **application/json**. 
-
- <img src="https://i.imgur.com/N0vrMRU.png" />
-
-This will open a side panel where we can send our mock response data. 
-
-<img src="https://i.imgur.com/tdS7XYm.png" />
-
-Here we will add the following JSON and click on **Save**
-
-<img src="https://i.imgur.com/oepgmax.png">
-
+Once **Mock** is replaced with a **Lambda** function we will be able to pass data from **request** to **response**. 
 
 #### Testing The API
 
-Before we proceed to make our API public it's probably best that we test it first. Click on the back arrow **<- Method Execution** and there we can click on **Test**
+Before we proceed to make our API public we should first give it a test run and we will do so by clicking on the **Test** button. 
 
-<img src="https://i.imgur.com/Vz4575X.png" />
+<!-- In order to respond to an API request using our **Mock** setup we will need to configure the **Integration Response**.  
 
-If the test is successful we should see the following: 
+Clicking on **Integration Response**  will provide the following configuration options. 
+<img src="https://i.imgur.com/7uOkZGF.png" width=700/>
 
-<img src="https://i.imgur.com/lDuAQqh.png" />
+ Continue to expand **Mapping Templates** and then click on **application/json**. 
+
+ <img src="https://i.imgur.com/N0vrMRU.png" width=700/>
+
+This will open a side panel where we can send our mock response as JSON. 
+
+<img src="https://i.imgur.com/tdS7XYm.png" width=700/>
+
+Here we will add the following JSON and click on **Save**
+
+<img src="https://i.imgur.com/oepgmax.png" width=700/> -->
+
+<!-- <img src="https://i.imgur.com/Vz4575X.png" > -->
+
+We are presented with some test configuration options and by clicking on the **Test** button we should see the following: 
+
+<img src="https://i.imgur.com/Rv4PAN6.png" >
 
 ### Deploying The API
 
-Our API isn't available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Action** button and then **Deploy API**.  
+Our API isn't available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Actions** button and selecting **Deploy API**.  
 
-<img src="https://i.imgur.com/8eiKEJf.png" />
+<img src="https://i.imgur.com/qSMpOBI.png" width=200/>
 
-Here we will need to add a new **Deployment State** and in our case we will choose the name of **dev** and then click **Deploy**
+Here we will need to add a new **Deployment State** and in our case we will choose the name of **dev** and then click **Deploy**.
 
-<img src="https://i.imgur.com/bQoLpNB.png" />
+<img src="https://i.imgur.com/gr67gTk.png" width=400/>
 
-AWS then provides us a url to access the dev version of our API.  
+This now takes us to our **Stages** and we should see the following:
 
-<img src="https://i.imgur.com/NaVCAue.png" />
+<img src="https://i.imgur.com/Rzcn3C5.png" width=500/>
 
-If we open that in a new browser we should receive the following JSON.
+Located at the very top in the url the dev version of our API.  If we connect to that url we should receive the following:
 
-<img src="https://i.imgur.com/NkEXOPR.png" />
+<img src="https://i.imgur.com/jAKC7Sr.png" width=400/>
 
-And there you have it.  Your very first AWS API created using the API Gateway service. AWS provides us an easy way to setup an API along with a visual representation of the the request/response cycle. 
+If append **/projects** then we should see nothing as the route isn't configured to send any data. 
+
+<img src="https://i.imgur.com/Wye9Sy6.png" width=400/>
+
+If we go back to the dev state and look at the **Deployment History** tab we should see info about this deployment. 
+
+<img src="https://i.imgur.com/PxNVg3Y.png" >
+
+### Conclusion
+
+So we have created our very first route that doesn't do very much as this point. In order to start responding to requests we will need to setup up a **Lambda** function. 
 
 #### References
 
