@@ -4,19 +4,17 @@ Creator:  Joe Keohan<br>
 
 ---
 
-# AWS Lambda
+# AWS Lambda and API Gateway Integration
 
 <!-- <img src="https://i.imgur.com/0pExHXm.png" width=200/> -->
 
 
 
-This lecture will focus on creating and managing AWS Lambda functions and will cover the following topics: 
+This lecture will focus on creating AWS Lambda functions and configuring them to work with API Gateway. 
 
-- creating API paths (aka resources)
-- adding HTTP Methods to a resource
-- Work through the Request/Response cycle
-- Working with url params and query string
-- Testing the API
+- creating and testingLambda functions
+- deploying Lambda functions
+- configuring API Gateway to trigger Lambda functions
 
 ## Prerequisites
 
