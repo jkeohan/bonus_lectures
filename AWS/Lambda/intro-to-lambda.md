@@ -93,17 +93,19 @@ Now click on the **Create Function** button.
 
 ### Working With A Lambda Function 
 
-The function provides us a single **index.js** file with some initial code so click on that file.
+The function provides us a single **index.js** file with some initial starter code,  so click on the file and let's take a look. 
 
 <img src="https://i.imgur.com/fDI6L9D.png" width=500>
 
-Here we can see that the function is exporting a handler.  We've worked with the **exports** keyword before, in both Node and React, however  **exports.handler** is unique to Lambda.  
+Here we can see that the function is exporting a **handler**.  We've worked with the **exports** keyword before, in both Node and React, however  **exports.handler** is unique to Lambda.  
 
-The Lambda function handler is the method in your function will call that processes events. 
+<img src="https://i.imgur.com/Ejm6ELQ.png" width=500>
+
+The Lambda function handler is the method your function will call once it's been triggered. 
 
 When your function is invoked, Lambda runs the handler method. When the handler exits or returns a response, it then becomes available to handle another event.
 
-<img src="https://i.imgur.com/Ejm6ELQ.png" width=500>
+
 
 There is quite a bit for us to cover using Lambda but let's leave the defaults for now and go back and configure our AWS Gateway API to use this newly created Lambda function. 
 
