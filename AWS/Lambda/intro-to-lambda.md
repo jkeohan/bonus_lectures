@@ -103,11 +103,13 @@ Here we can see that the function is exporting a **handler**.  We've worked with
 
 The Lambda function handler is the method your function will call once it's been triggered. 
 
-When your function is invoked, Lambda runs the handler method. When the handler exits or returns a response, it then becomes available to handle another event.
+When your function is invoked, Lambda runs the function specified in it's **Runtime Settings**, in this case **index.handler**.
 
+<img src="https://i.imgur.com/E4E9LC8.png">
 
+When the handler exits or returns a response, it then becomes available to be called via the next trigger. 
 
-There is quite a bit for us to cover using Lambda but let's leave the defaults for now and go back and configure our AWS Gateway API to use this newly created Lambda function. 
+There is quite a bit for us to cover as it pertains to Lambda so let's leave the defaults for now and configure our AWS Gateway API to use this newly created Lambda function. 
 
 ### AWS Gateway Integration With Lambda
 
