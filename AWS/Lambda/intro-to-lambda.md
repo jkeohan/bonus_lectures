@@ -61,7 +61,7 @@ Lets get started with Lambda by clicking the **Get started with AWS Lambda** but
 
 <img src="https://i.imgur.com/lLIPK2t.png" width=500>
 <br>
-<br>
+
 
 
 On the left we will see the navigation and let's click on **Functions**. 
