@@ -38,16 +38,16 @@ Here are some of the main benefits of working with Lambda:
 
 **Free Tier**
 
-Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda. 
+Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda to confirm this is still the case.  
 
 <img src="https://i.imgur.com/lUFJYPL.png" width=300/>
 <br>
 <br>
 
-Lambda is free but only based on the following:
+Lambda is free but limited to the following:
 
-  - 1,000,000 requests (then .20C per 1 mil additional requests)
-  - 400,000 GBs of compute time (3,200,000 sec if function uses 128 MB Ram)
+  - 1,000,000 requests (then .20C per 1mil additional requests)
+  - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
 
 ### Lambda Overview
 
