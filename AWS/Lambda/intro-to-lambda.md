@@ -87,7 +87,7 @@ Here we must give the function a **name** and a **runtime environment**.  Since 
 
 Now click on the **Create Function** button. 
 
-<img src="https://i.imgur.com/0bSqU4q.png" width=500>
+<img src="https://i.imgur.com/0bSqU4q.png" width=700>
 
 
 
