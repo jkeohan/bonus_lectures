@@ -12,8 +12,8 @@ Creator:  Joe Keohan<br>
 
 This lecture will focus on creating AWS Lambda functions and configuring them to work with API Gateway. 
 
-- creating and testingLambda functions
-- deploying Lambda functions
+- creating and testing Lambda functions
+- editing and deploying Lambda functions
 - configuring API Gateway to trigger Lambda functions
 
 ## Prerequisites
@@ -28,10 +28,9 @@ AWS Lambda is a serverless compute service that lets you run code without provis
 
 Here are some of the main benefits of working with Lambda:
 
-- Virtual functions - no servers to manage
-- Integrated with many programming languages
-- Limited by time - short executions
-- Event Driven and Run on-demand 
+- Virtual functions with no servers to manage
+- Integrated with many programming languages such as JS, Ruby, Python
+- Event Driven and triggered by other services
 - Automated scaling
 
 
