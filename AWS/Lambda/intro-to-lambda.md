@@ -64,7 +64,7 @@ Lets get started with Lambda by clicking the **Get started with AWS Lambda** but
 
 
 
-On the left we will see the navigation and let's click on **Functions**. 
+On the left we will see the navigation and here let's click on **Functions**. 
 
 <img src="https://i.imgur.com/PyTDHzK.png" width=200>
 
@@ -76,12 +76,13 @@ Click on **Create Function**
 
 There are several options to choose from when creating a function so let's choose **Author from scratch**.
 
-
+<img src="https://i.imgur.com/CIttKLB.png">
 
 Here we must give the function a **name** and a **runtime environment**.  Since we will be working with JavaScript let's choose the latest version of **Node.js**.  
 
+<img src="https://i.imgur.com/Xzz0yCa.png" width=500/>
 
-<img src="https://i.imgur.com/etHLoft.png" width=500>
+<!-- <img src="https://i.imgur.com/etHLoft.png" width=500> -->
 
 
 Now click on the **Create Function** button. 
