@@ -129,10 +129,12 @@ Click **OK** on the pop up message regarding providing AWS Gateway permissions t
 
 
 
-There are quite a few new configuration options available after changing the integration type.  Some of which you have already worked with such as **URL Path and Query String Parameters**. 
+There are quite a few new configuration options available after changing the integration type.  Some of which you are already familiar with such as **URL Path and Query String Parameters**.  
+
+<img src="https://i.imgur.com/yskbFNz.png" width=500>
 
 We will take a look at them at a later point as we configure the remaining routes. 
-<img src="https://i.imgur.com/yskbFNz.png" width=500>
+
 
 ### Testing 
 
