@@ -113,7 +113,7 @@ There is quite a bit for us to cover as it pertains to Lambda so let's leave the
 
 ### AWS Gateway Integration With Lambda
 
-On the **GET** route let's click on **Integration Request** and change the option from **Mock** to **Lambda** and then choose the Lambda function we created earlier. 
+On the **GET** route let's click on **Integration Request** and change the option from **Mock** to **Lambda**, choosing the Lambda function we just created. 
 
 <img src="https://i.imgur.com/2rAtJHz.png" width=500>
 
@@ -125,7 +125,7 @@ Click **OK** on the pop up message regarding providing AWS Gateway permissions t
 
 <img src="https://i.imgur.com/CNj3GrR.png" width=500>
 
-**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to Lambda once we get to working with DynamoDB. 
+**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to Lambda once we need it to connect with DynamoDB. 
 
 
 
