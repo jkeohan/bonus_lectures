@@ -204,7 +204,40 @@ Of course confirm that testing the API externally also displays the new changes.
 
 <img src="https://i.imgur.com/FN2DpYf.png" width=500> 
 
-That completes creating our firs Lambda function and configuring it to be triggered by the AWS Gateway API. 
+That completes creating our first Lambda function and configuring it to be triggered by the AWS Gateway API. 
+
+## Lab - Configure Additional Lambda Functions - 15min
+
+Since our API will require additional routes this means we will need to create additional supporting Lambda functions. 
+
+#### RESTful Routes to CRUD Mapping
+
+Let's revisit the **RESTful Routes to CRUD Mapping** schema we saw in the previous API lecture. The **Controller Action** has been updated with the Lambda functions we will need to create to support our API.  
+
+HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
+-----------|------------------|------------------|:---:|:---:
+GET     | /projects          | Read all _projects_ | projects-get | No
+GET     | /projects/:id      | Read a specific _project_ | projects-show | No
+POST    | /projects          | Create a new _project_ | projects-create | Yes
+PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
+DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
+
+### Lab Deliverables
+
+#### Lambda
+
+- Create each of the supporting Lambda functions
+- Edit to the body to return back the same message as before but replace GET with the method
+- Create a new test to confirm that each function works as expected
+
+#### API GATEWAY
+
+- Add a new **POST** method to the **/projects** resource and assign the **projects-create** Lambda function
+- Test the new route locally 
+- Deploy the API and assign an appropriate message
+- Test the API is working using **Postman**
+
+<img src="https://i.imgur.com/6ln3Ft5.png">
 
 ### Resources
 

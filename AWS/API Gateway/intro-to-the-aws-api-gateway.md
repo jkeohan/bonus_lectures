@@ -113,7 +113,7 @@ AWS refers to the **routes** as **resources**, which makes sense as they are mea
 
 Since the gateway we are building will be specific to projects we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit. 
 
-HTTP Method<br>(Verb) | URI (endpoint)  | CRUD Operation | Typical<br>Controller Action | Has Data<br>Payload
+HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
 -----------|------------------|------------------|:---:|:---:
 GET     | /projects          | Read all _projects_ | index | No
 GET     | /projects/:id      | Read a specific _project_ | show | No
