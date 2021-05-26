@@ -133,12 +133,12 @@ There are quite a few new configuration options available after changing the int
 
 <img src="https://i.imgur.com/yskbFNz.png" width=500>
 
-We will take a look at them at a later point as we configure the remaining routes. 
+We will take a look at several of these settings a later point when we configure the remaining routes. 
 
 
 ### Testing 
 
-Let's click on the **<- Method Execution>** link to go back to the main **GET** configuration page.  
+Let's click on the **<- Method Execution** link to go back to the main **GET** configuration page.  
 
 Once there click on the **TEST** button. 
 
@@ -176,7 +176,7 @@ body: JSON.stringify('GET route working successfully'),
 
 Just as we tested the API before deployment we can also test the changes made to the Lambda function by clicking on the **Test** button. 
 
-Here we must first configure a new test.  Let's use the **hello-world** template and call our test **initialTest**
+Here we must first configure a new test.  Let's use the **hello-world** template and call our test **initialTest**.  By default it passes the function an object which we can edit, if needed. 
 
 <img src="https://i.imgur.com/RnbbmkC.png">
 
@@ -186,11 +186,11 @@ Clicking on the test button we can examine the execution results.
 
 <img src="https://i.imgur.com/YF4Dq4j.png">
 
-It seems however it still shows the previous message. 
+It seems however it still shows the previous message. That is because anytime we make changes to the Lambda function it must be re-deployed. 
 
 <img src="https://i.imgur.com/z33XiDk.png">
 
-That is because anytime we make changes to the Lambda function it must be re-deployed. 
+
 
 Click on the **Deploy** button. 
 
