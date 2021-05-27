@@ -202,7 +202,7 @@ Let's take a look at the **Deployment History** tab and we should see info about
 
 <img src="https://i.imgur.com/PxNVg3Y.png" >
 
-#### Testing The Deployment
+#### Testing The API
 
 Located at the very top nis the url to the dev version of our API.  If we copy/paste that into Chrome connect we should receive the following:
 
@@ -216,10 +216,31 @@ We can confirm that the request did go through by checking our the **Network** t
 
 <img src="https://i.imgur.com/9K6E498.png">
 
+#### Testing The API Using Postman
 
-### Next Step -> Lambda
+Open **Postman** and create a new **Collection** for our **Projects** routes.  
 
-So we have created our very first route however it doesn't do very much at this point. In order to start responding to requests we will need to setup up a **Lambda** function.  So let's do that now. 
+Here we will once again test the **GET** route and save it to our new collection. 
+
+## Lab - Configure a POST Route - 5min
+
+
+Let's revisit the **RESTful Routes to CRUD Mapping** schema.  Since were only focused on the **POST** route that is all that is the only route that has been included. 
+
+HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
+-----------|------------------|------------------|:---:|:---:
+POST    | /projects          | Create a new _project_ | projects-create | Yes
+
+Perform the following:
+
+- Add a new **POST** method to the the **/projects** route. 
+- Set it up as a **Mock Endpoint**
+- Run a test to confirm that it works using Postman
+
+
+### Next Steps -> Creating Lambda Functions
+
+So we have created our very first route however it doesn't do very much at this point. In order to start responding to requests we will need to setup up a **Lambda** function.  So let's do that now.
 
 #### References
 

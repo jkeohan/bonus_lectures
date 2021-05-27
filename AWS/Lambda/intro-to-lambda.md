@@ -226,9 +226,9 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 #### Lambda
 
-- Create each of the supporting Lambda functions
-- Edit to the body to return back the same message as before but replace GET with the method
-- Create a new test to confirm that each function works as expected
+- Create each of the remaining Lambda functions needed for the rest of our routes
+- Edit the body to return back the same message as before but replace GET with the method name
+- Create a new test in Lambda to confirm that each function works as expected
 
 #### API GATEWAY
 
