@@ -233,8 +233,8 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 #### API GATEWAY
 
 - Update the **POST** method for the **/projects** resource and assign the **projects-create** Lambda function
-- Test the new route locally 
-- Deploy the API and assign an appropriate message
+- Test the new route locally before deployment
+- Deploy the API and add an appropriate message
 - Test the API is working using **Postman**
 
 <img src="https://i.imgur.com/6ln3Ft5.png">
