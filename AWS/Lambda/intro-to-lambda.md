@@ -232,7 +232,7 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 #### API GATEWAY
 
-- Add a new **POST** method to the **/projects** resource and assign the **projects-create** Lambda function
+- Update the **POST** method for the **/projects** resource and assign the **projects-create** Lambda function
 - Test the new route locally 
 - Deploy the API and assign an appropriate message
 - Test the API is working using **Postman**

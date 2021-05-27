@@ -198,21 +198,28 @@ This now takes us to our **Stages** and we should see the following:
 
 <img src="https://i.imgur.com/Rzcn3C5.png" width=500/>
 
-Located at the very top in the url the dev version of our API.  If we connect to that url we should receive the following:
-
-<img src="https://i.imgur.com/jAKC7Sr.png" width=400/>
-
-If append **/projects** then we should see nothing as the route isn't configured to send any data. 
-
-<img src="https://i.imgur.com/Wye9Sy6.png" width=400/>
-
-If we go back to the dev state and look at the **Deployment History** tab we should see info about this deployment. 
+Let's take a look at the **Deployment History** tab and we should see info about this deployment. 
 
 <img src="https://i.imgur.com/PxNVg3Y.png" >
 
-### Conclusion
+#### Testing The Deployment
 
-So we have created our very first route that doesn't do very much as this point. In order to start responding to requests we will need to setup up a **Lambda** function. 
+Located at the very top nis the url to the dev version of our API.  If we copy/paste that into Chrome connect we should receive the following:
+
+<img src="https://i.imgur.com/jAKC7Sr.png" width=400/>
+
+Thats because there is no route configured for **/dev**. If append **/projects** to the url then we should see nothing as the route isn't configured to send any data. 
+
+<img src="https://i.imgur.com/Wye9Sy6.png" width=400/>
+
+We can confirm that the request did go through by checking our the **Network** tab in **DevTools**.  Here we should see that we received a status code of **200**. 
+
+<img src="https://i.imgur.com/9K6E498.png">
+
+
+### Next Step -> Lambda
+
+So we have created our very first route however it doesn't do very much at this point. In order to start responding to requests we will need to setup up a **Lambda** function.  So let's do that now. 
 
 #### References
 
