@@ -4,7 +4,7 @@ Creator:  Joe Keohan<br>
 
 ---
 
-# API Gateway and Lambda - Full CRUD
+# API Gateway Path Params
 
 <!-- <img src="https://i.imgur.com/0pExHXm.png" width=200/> -->
 
