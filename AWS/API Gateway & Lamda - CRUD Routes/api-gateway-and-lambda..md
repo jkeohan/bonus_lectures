@@ -178,7 +178,7 @@ As we can see the test returns our original message which is expected as we hard
 
 ### Passing Path Params To Lambda
 
-In order for the Lambda function to receive the value stored in the path param we need to configure the **Integration Request** to pass this value.  This id done by creating new **Mapping Template** 
+In order for the Lambda function to receive the value stored in the path param we need to configure the **Integration Request** to pass this value.  This is done by creating new **Mapping Template** 
 
 <!-- <img src="https://i.imgur.com/DXYIwVg.png"> -->
 
