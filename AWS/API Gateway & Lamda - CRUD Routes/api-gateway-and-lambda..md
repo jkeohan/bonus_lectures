@@ -155,7 +155,7 @@ Since the path param is part of a route we will need to create a new **resource*
 
 <img src="https://i.imgur.com/SLbZETW.png" width=300/>
 
-Defining the route as a param requires that the **Resource Path** is surrounded in curly braces. 
+Defining the route as a param requires that the **Resource Path** be surrounded in curly braces. 
 
 <img src="https://i.imgur.com/GmdxLhi.png" width=700/>
 
