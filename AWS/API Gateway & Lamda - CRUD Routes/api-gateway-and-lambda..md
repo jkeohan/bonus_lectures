@@ -110,9 +110,7 @@ We should see the new file in the left pane.
 
 #### Import And Return The Projects Array
 
-As with all node projects the resource must be imported using the **require** keyword. 
-
-Also replace any previous content that was assigned to **body** with the imported **projects** array. 
+As with all node projects the resource must be imported using the **require** keyword. Also replace any previous content that was assigned to **body** with the imported **projects** array. 
 
 <img src="https://i.imgur.com/dbcOvGX.png" width=500>
 
