@@ -271,25 +271,6 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 - Test the remaining routes using **Postman**
 
-<img src="" />
-
-
-<img src="" />
-
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-<img src="" />
-
 
 ### Resources 
 
