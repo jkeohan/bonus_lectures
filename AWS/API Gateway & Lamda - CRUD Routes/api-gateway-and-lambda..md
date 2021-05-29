@@ -169,7 +169,7 @@ Now let's add a  **GET** method.
 
 Of course we need to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
 
-As we can see the test returns our original message which is expected as we hard coded the message.  
+As we can see the test returns our original message which is expected as we hard coded the message in the body.  
 
 <!-- <img src="https://i.imgur.com/lvQD1r9.png" /> -->
 
