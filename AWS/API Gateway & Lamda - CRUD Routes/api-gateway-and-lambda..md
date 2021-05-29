@@ -163,13 +163,13 @@ Once the route is created we should see the resources list updated to include th
 
 <img src="https://i.imgur.com/QJWb96G.png" />
 
-Now let's add a  **GET Method**
+Now let's add a  **GET** method.
 
 <img src="https://i.imgur.com/3vzsQQ6.png" />
 
-Of course we need to test that the route works. The testing page now includes a reference to the path we just created.  
+Of course we need to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
 
-Let's add some value and run the test to see what it returns. As we can see the test returns our original message which is expected as we hard coded the message.  
+As we can see the test returns our original message which is expected as we hard coded the message.  
 
 <!-- <img src="https://i.imgur.com/lvQD1r9.png" /> -->
 
