@@ -250,7 +250,7 @@ If we take a look at the Lambda logs we should now see an entry where the consol
 <img src="https://i.imgur.com/f0hQpvo.png" /> 
 
 
-## Exercise - Create Remaining Routes And Assign A Lambda Functions - 10min
+## Exercise - Create Remaining Routes And Update The Lambda Functions - 10min
 
 HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
