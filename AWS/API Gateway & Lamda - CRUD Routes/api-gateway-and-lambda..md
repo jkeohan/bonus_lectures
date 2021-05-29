@@ -189,6 +189,8 @@ In **Mapping Templates** sections let's do the following:
 
 <img src="https://i.imgur.com/UponVtN.png" />
 
+#### AWS Documentation
+
 It's as this point we should take a look at the [AWS Documentation](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference), specifically **input variables**.  Here we see that the route retrieves the value of the path using **$input.params(x)**.  
 
 <img src="https://i.imgur.com/2RBQFCj.png">
