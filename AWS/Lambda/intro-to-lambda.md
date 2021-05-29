@@ -222,12 +222,12 @@ POST    | /projects          | Create a new _project_ | projects-create | Yes
 PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
-### Lab Deliverables
+## Exercise - Create And Assign A Lambda Functions - 10min
 
 #### Lambda
 
 - Create each of the remaining Lambda functions needed for the rest of our routes
-- Edit the body to return back the same message as before but replace GET with the method name
+- Edit the body to return back the same message as before but replace both **GET /projects** with the method and route name. 
 - Create a new test in Lambda to confirm that each function works as expected
 
 #### API GATEWAY

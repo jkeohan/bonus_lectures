@@ -222,10 +222,10 @@ Open **Postman** and create a new **Collection** for our **Projects** routes.
 
 Here we will once again test the **GET** route and save it to our new collection. 
 
-## Lab - Configure a POST Route - 5min
+## Exercise - Configure a POST Route - 5min
 
 
-Let's revisit the **RESTful Routes to CRUD Mapping** schema.  Since were only focused on the **POST** route that is all that is the only route that has been included. 
+Let's revisit the **RESTful Routes to CRUD Mapping** schema and focus on just the **POST** route. 
 
 HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
 -----------|------------------|------------------|:---:|:---:
