@@ -182,7 +182,7 @@ In order for the Lambda function to receive the value stored in the path param w
 
 <!-- <img src="https://i.imgur.com/DXYIwVg.png"> -->
 
-In **Mapping Templates** let's do the following:
+In **Mapping Templates** sections let's do the following:
 
 - Click the **When there are no templates defined**
 - Click the **Add mapping template** and assign **application/json**
