@@ -141,6 +141,8 @@ Also make sure that the route also returns data via Postman.
 
 Let's take a look at the routing table once again and our focus will be on the following routes, all of which make use of a **path params**.  This works in the same way as was configured in express.  
 
+The path param in all of the routes is represented as **/:id**
+
 HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
 GET     | /projects/:id      | Read a specific _project_ | projects-show | No
