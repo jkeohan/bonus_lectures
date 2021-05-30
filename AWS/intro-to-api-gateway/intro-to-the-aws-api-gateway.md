@@ -71,7 +71,7 @@ Let's go ahead and create a new API by choosing **APIs** from the left menu and 
 
 <img src="https://i.imgur.com/dK4tu18.png" />
 
-API Gateway provides 4 options for building an API server. 
+API Gateway provides the following 4 options: 
 - HTTP
 - WebSockets
 - REST
