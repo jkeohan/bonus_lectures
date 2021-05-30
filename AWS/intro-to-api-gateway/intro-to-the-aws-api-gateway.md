@@ -80,7 +80,7 @@ API Gateway provides the following 4 options:
 
 We will focus on creating a **RESTful API** which refers to a collection of resources and methods that can be invoked through **HTTP endpoints** and **HTTP methods**. 
 
-Let's create our firsts API by clicking on the **Build** button. 
+Let's create our firsts **REST API** by clicking on the **Build** button. 
 
 <img src="https://i.imgur.com/vj9nTHx.png" width=500/>
 
