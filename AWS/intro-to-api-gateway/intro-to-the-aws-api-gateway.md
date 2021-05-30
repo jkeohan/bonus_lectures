@@ -84,7 +84,7 @@ Let's create our firsts **REST API** by clicking on the **Build** button.
 
 <img src="https://i.imgur.com/vj9nTHx.png" width=500/>
 
-On the next configuration page we will choose **REST** as the **protocol** and create a **New API**.
+On the next configuration page we will choose **REST** as the **protocol** and **New API** from the list of options provided.
 
 <img src="https://i.imgur.com/lkCRCgW.png" width=500/>
 
