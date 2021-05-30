@@ -63,7 +63,7 @@ The AWS API Gateway is a fully managed service that makes it easy for developers
 
 <img src="https://i.imgur.com/ziCSBw7.png" width=700/>
 
-The routes, which AWS refers to as **resources**, can accept data either using **path params (/:id)** or **query strings (?id=1)**.  The API Gateway we will implement will be done so as a **REST API**. 
+The routes, which AWS refers to as **resources**, can accept data either using **path params (/:id)** or **query strings (?id=1)**.  
 
 #### Creating An API
 
