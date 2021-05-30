@@ -35,11 +35,21 @@ GET     | /projects/:id      | Read a specific _project_ | projects-show | No
 POST    | /projects          | Create a new _project_ | projects-create | Yes
 PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
-#### Seed Data
 
-We will be using the following data set for testing our routes as well as populating our DynamoDB database.  
+### Seed Data
 
-<details><summary>Project Data</summary>
+Let's import some data to use in order to test our routes.  The same seed data will be used later to populate the DynamoDB database. 
+
+
+#### Projects GET Route
+
+Open the **projects-get** route and click on **File > New File**.
+
+<img src="https://i.imgur.com/pS2zaoi.png" />
+
+Copy/paste the seed data into the file and then save the file as **projectData.js**
+
+<details><summary>Seed Data</summary>
 
 
 ```js
@@ -90,15 +100,6 @@ module.exports = [
 ```
 </details>
 
-#### Projects GET Route
-
-Open the **projects-get** route and click on **File > New File**.
-
-<img src="https://i.imgur.com/pS2zaoi.png" />
-
-Copy/paste the seed data into the file and then save the file as **projectData.js**
-
-
 
 <img src="https://i.imgur.com/eguUiVT.png">
 
@@ -126,7 +127,9 @@ Let's make sure to redeploy the API so that
 
 <img src="https://i.imgur.com/88xrRav.png"> -->
 
-Also make sure that the route also returns data via Postman. 
+#### Teesting Via Postman
+
+Also make sure that the route also returns data via **Postman**. 
 
 <img src="https://i.imgur.com/kLqKSSm.png" width=500/>
 
@@ -137,9 +140,9 @@ Also make sure that the route also returns data via Postman.
 
 ## Working With Route Params (Resources) 
 
-Let's take a look at the routing table once again and our focus will be on the following routes, all of which make use of a **path params**.  This works in the same way as was configured in express.  
+Let's take a look at the routing table once again and our focus will be on the following routes, all of which make use of a **path params**.  
 
-The path param in all of the routes is represented as **/:id**
+This works in the same way as was configured in express with the path param in all of the routes being represented as **/:id**
 
 HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
@@ -149,7 +152,9 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 ### Creating A Path Param 
 
-Since the path param is part of a route we will need to create a new **resource**. So click on **Actions > Create Resource**.
+Since the path param is part of a route we will need to create a new **resource** and associate a **method**.  
+
+So click on **Actions > Create Resource**.
 
 <img src="https://i.imgur.com/SLbZETW.png" width=300/>
 
@@ -165,6 +170,8 @@ Now let's add a  **GET** method.
 
 <img src="https://i.imgur.com/3vzsQQ6.png" />
 
+#### Testing The Route
+
 Of course we need to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
 
 As we can see the test returns our original message which is expected as we hard coded the message in the body.  
@@ -176,34 +183,44 @@ As we can see the test returns our original message which is expected as we hard
 
 ### Passing Path Params To Lambda
 
-In order for the Lambda function to receive the value stored in the path param we need to configure the **Integration Request** to pass this value.  This is done by creating new **Mapping Template** 
+In order for the Lambda function to receive the value stored in the path param we need to configure the **Integration Request** to pass this value.  This flow is visible in the pic below where we can clearly see that the **Integration Request** passes data to **Lambda** and then **Lambda** passes it's response to **Integration Response**. 
+
+<img src="https://i.imgur.com/P4CoI8q.png" width=300/>
+
+This is done by creating new **Mapping Template** 
 
 <!-- <img src="https://i.imgur.com/DXYIwVg.png"> -->
 
-In **Mapping Templates** sections let's do the following:
+Open the **Integration Request** and in the **Mapping Templates** sections let's do the following:
 
-- Click **When there are no templates defined**
+- Click the radio button: **When there are no templates defined**
 - Click the **Add mapping template** and assign **application/json**
+- Click the check mark to create the template
 
 <img src="https://i.imgur.com/UponVtN.png" />
 
 #### AWS Documentation
 
-It's as this point we should take a look at the [AWS Documentation](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference), specifically **input variables**.  Here we see that the route retrieves the value of the path using **$input.params(x)**.  
+It's as this point we should take a look at the [AWS Documentation](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference), specifically **input variables**.  
+
+Here we see that the route retrieves the value of the path using **$input.params(x)**.  
+
 
 <img src="https://i.imgur.com/2RBQFCj.png">
 
-Now in the template section let's add the following:
+In the template section let's add the following:
 
 ```js
 { "id": $input.params('id') }
 ```
 
+**NOTE:** A mapping template is a script expressed in [Velocity Template Language (VTL)](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/models-mappings.html) and applied to the payload using JSONPath expressions.
+
 ### Updating Lambda Function
 
 Back in our Lambda function let's update it to access the values that will be passed to it from the API Gateway via the **Integration Request**.  
 
-As we can see the async function is configured to accept a single **event** argument so let's console.log the event and return it in the response. 
+As we can see the async function is configured to accept a single **event** argument so let's console.log the event, as well as, return it in the response. 
 
 ```js
 exports.handler = async (event) => {
@@ -219,6 +236,8 @@ exports.handler = async (event) => {
 If we test the function using the lambda test we should see that it returns the values that have been assigned passed via the test. 
 
 <img src="https://i.imgur.com/1lMlksx.png" />
+
+In order for Lambda to return the project data we will need the API Gateway to trigger the lambda function.  But before we do so let's take a moment to look at how lambda keeps track of each triggered event. 
 
 ### AWS CloudWatch Logs
 
@@ -258,15 +277,16 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 #### API GATEWAY
 
-- Add new **PUT** and **DELETE** methods to the API
-- Configure them to pass the **id** to the Lamba function
+- Add new **PUT** and **DELETE** methods to the **{id}** route.
+- Configure them to pass the **id** to the Lambda function
 
 #### Lambda
-- Configure the Lambda function to return the value
+- Configure the Lambda function to return the id value
 
 
 #### Testing
 
+- Test the remaining routes using the **API Gateway**
 - Test the remaining routes using **Postman**
 
 
