@@ -78,7 +78,7 @@ API Gateway provides the following 4 options:
 - REST (private)
 
 
-We will focus on creating a RESTful API which refers to a collection of resources and methods that can be invoked through HTTP endpoints. We will do so by clicking on the **Build** button. 
+We will focus on creating a **RESTful API** which refers to a collection of resources and methods that can be invoked through **HTTP endpoints** and **HTTP methods**. We will do so by clicking on the **Build** button. 
 
 <img src="https://i.imgur.com/vj9nTHx.png" width=500/>
 
