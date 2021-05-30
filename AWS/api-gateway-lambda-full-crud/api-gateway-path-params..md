@@ -26,9 +26,7 @@ This lecture will focus on the following:
 
 #### RESTful Routes to CRUD Mapping
 
-Since the gateway we are building will be specific to projects we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit.  
-
-Although the route names are different, the routes themselves represent CRUD routes. 
+Since the gateway we are building will be specific to **/projects** we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit.  This means associating **routes, methods and path params**. 
 
 HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
