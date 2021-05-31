@@ -31,7 +31,9 @@ Amazon DynamoDB is a NoSQL Database and uses key-value and document database tha
 
 Many of the world's fastest growing businesses such as Lyft, Airbnb, and Redfin as well as enterprises such as Samsung, Toyota, and Capital One depend on the scale and performance of DynamoDB to support their mission-critical workloads.
 
-<img src="https://i.imgur.com/ldOTWqq.png">
+<img src="https://i.imgur.com/sJgLXRl.png">
+
+<!-- <img src="https://i.imgur.com/ldOTWqq.png"> -->
 
 **Free Tier**
 
@@ -39,66 +41,82 @@ Lambda falls into the **Always Free** tier of services so lets take a look at th
 
 DynamoDB is free but limited to the following:
 
+- Max size limit for any entry is 400KB
+
 
 
 <img src="https://i.imgur.com/HuIKHvJ.png" width=300/>
 <br>
 <br>
 
-<img src="https://i.imgur.com/0P8n82M.png">
+<!-- <img src="https://i.imgur.com/6JAOefX.png"> -->
 
-<img src="https://i.imgur.com/yBbGBPQ.png">
+<!-- <img src="https://i.imgur.com/yBbGBPQ.png"> -->
 
-<img src="https://i.imgur.com/sJgLXRl.png">
+<!-- <img src="https://i.imgur.com/sJgLXRl.png"> -->
 
 ### Creating A DynamoDB Table
 
+Let's get started with creating our first DynamoDB table by clicking on the big orange button. 
 
-<img src=https://i.imgur.com/lD1OpKf.png >
+<img src=https://i.imgur.com/lD1OpKf.png width=400/>
+
+This takes us to the DynamoDB services page where we can create tables and manage the DynamoDB database. 
 
 <img src="https://i.imgur.com/6kMrAyL.png">
 
-Add a **Table Name** and **Primary Key**
+Add a **Table Name** and **Primary Key**.  The **Primary Key**, like all databases, will be unique for each entry in the DB.  
+
+<img src="https://i.imgur.com/AxjGVug.png" width=500>
 
 <!-- <img src="https://i.imgur.com/BPVzVtf.png"> -->
 
+Here we will assign the **Primary Key** a name of **ProjectId** and of type **String**. 
+
 <img src="https://i.imgur.com/lV90zBp.png">
+
+Although DynamoDB falls into the free category if we exceed those limits we will incur charges.  We won't have to worry about that for our current use case but changes are applied based on either read or write capacity units.  In this case it's 5 per second. 
+
+It should be mentioned that cost is measured across all tables so the more you create the greater chance you have of exceeding the free tier. 
 
 <img src="https://i.imgur.com/WsmezJD.png">
 
-Max size limit for any entry is 400KB
 
-5x per second
 
-Even though it's showing an estimated cost it will be free for how we are going to setup and use the table. It should be mentioned that cost is measured across all tables so the more you create the greater chance you have of exceeding the free tier. 
+
+
+
 
 <img src="https://i.imgur.com/ZvG2nhC.png">
 
-The **id** has been removed
+
+
+### Create A New Item 
+<!-- 
+When we first add a new item we will have to decide the name of the **Primary Key** which is almost always the **Partition Key**.  -->
+
+<!-- <img src="https://i.imgur.com/AxjGVug.png"> -->
+
+Here is one of the project entries from the projectData.js file and we will use this to create our first entry. 
 
 ```js
 {
+    "id": 1,
     "title": "Instagram Quotes",
     "image": "https://res.cloudinary.com/jkeohan/image/upload/v1582134376/Screen_Shot_2020-01-30_at_8.57.12_AM_cnrvug.png",
     "description": "Add project description here..."
 }
 ```
 
-### Create A New Item 
-
-When we first add a new item we will have to decide the name of the **Primary Key** which is almost always the **Partition Key**. 
-
-<img src="https://i.imgur.com/AxjGVug.png">
-
-Clicking on **Create Item** we can assign the **Primary Key**. 
+Clicking on **Create Item** we can assign the **Primary Key** a new value.  For the sake of simplicity we will assign the item a value of **project_123**.  Later we will use another means of creating a unique key but for now this will do. 
 
 <img src="https://i.imgur.com/rkQmCjm.png">
 
-Add now it's just a matter of **Appending** additional keys based on the object format we have been using thus far for a single project
+Add now it's just a matter of **Appending** additional keys based, choosing a data type and the assigning a value. 
 
 <img src="https://i.imgur.com/7B9Ngq8.png" width=300/>
 
-The item should look like the image below if we have assigned the key:values correctly. 
+Once complete the item should look like the image below. 
 
 <img src="https://i.imgur.com/GDpAj76.png">
 
@@ -108,14 +126,12 @@ Clicking on **Save** we should see our new item added to the DB
 
 ### Accessing DynamoDB From Lambda
 
-Since we will be accessing DynamoDB from JavaScript we will need to use the [AWS SDK](https://aws.amazon.com/sdk-for-javascript/).  Since we will be using the JavaScript version of the SDK let's take a look at that documentation. 
+Since we will be accessing DynamoDB in a Lambda function we will need to use the [AWS SDK](https://aws.amazon.com/sdk-for-javascript/).  Since we will be using the JavaScript version of the SDK let's take a look at that documentation. 
 
 
 Here we can see that there is an option to use it in **Node** so let's click on that option. 
 
 <img src="https://i.imgur.com/W2k5vY9.png" width=500/>
-
-Much of this install and configure documentation is only if we are using the SDK in a local app we are developing that would need to connect to AWS DynamoDB. 
 
 The SDK however is already available in Lambda so no need to install it. 
 
@@ -124,7 +140,7 @@ The SDK however is already available in Lambda so no need to install it.
 
 ### DynamoDB Methods
 
-Let's take a look at the documentation on how to work with DynamobDB by going to the [AWS Services SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html) page. 
+Let's take a look at the documentation on how to work with DynamoDB by going to the [AWS Services SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html) page.  There are currently 2 versions to choose from which we will do once we setup DynamoDB in the lambda function. 
 
 <img src="https://i.imgur.com/tnShsuv.png" width=700/>
 
@@ -142,18 +158,20 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | de
 
 ### Get All Projects
 
-Let's start with retrieving object we added to the table so let's open the **projects-get** Lambda function.  
+Let's start with retrieving the item we added to the table.  Since the **projects-get** Lambda function is meant to return all projects that is where we will start. 
 
 #### AWS SDK
 
-Before we can access any of the AWS services we must first import the AWS SDK. 
+Before we can access any of the AWS services we must first import the AWS SDK into the Lambda function. 
 
 
 ```js
 const AWS = require('aws-sdk');
 ```
 
-Now instantiate a new instance of service we want to work with, in this case DynamoDB.  Working with DynamoDB requires that we define the **region** and **apiVersion**
+The SDK provides access to many of the AWS services and we must now instantiate a new instance of service we want to work with, in this case DynamoDB.  
+
+Working with DynamoDB requires that we define the **region** and **apiVersion**
 
 ```js
 const AWS = require('aws-sdk');
@@ -162,7 +180,7 @@ const dynamodb = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'
 
 #### The Scan Method
 
-The method we will use to return all items is **scan**. If we do a quick search for **scan** in the AWS Docs we should see the following:
+The method we will use to return all items is **scan**. If we do a quick search for **scan** in the [AWS Docs](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html) we should see the following:
 
 <img src="https://i.imgur.com/CVWnqlE.png">
 
@@ -177,7 +195,7 @@ This above example scans the entire Music table, and then narrows the results to
 
 #### Working With The Scan Method
 
-Let's create a **params** object and add a single key of **TableName** which will be assigned the value of our table name. 
+Let's create a **params** object and add a single key of **TableName** and assign it the value of our table name. 
 
 ```js
 const params = {
@@ -185,7 +203,7 @@ const params = {
 }
 ```
 
-The **scan** method takes in the **params** object as the first argument and then a **callback** function. The **callback** will be either passed an **err** or the **data** from the scan. 
+Let's pass in the the **params** object as the first argument and then a **callback** function. The **callback** will be either passed an **err** or the **data** from the scan. 
 
 ```js
 await dynamodb.scan(params, function(err, data) {
@@ -201,13 +219,13 @@ If we give this Lambda function a test run we should see the following error.  T
 
 <img src="https://i.imgur.com/T2OHYxw.png">
 
-But if we look at the logs we should also see that none of the console.log output is there. 
+But if we look at the logs we should also see that none of the console.log output is there either. 
 
 <img src="https://i.imgur.com/U6SfnGd.png">
 
 <!-- <img src="https://i.imgur.com/bQAe7vz.png"> -->
 
-This is because the dynamodb.scan() method is running as promise but it's not being resolved.  In order to resolve the promise we must include **.promise()**. 
+This is because the **dynamodb.scan()** method is running as promise but it's not being resolved.  In order to resolve the promise we must include **.promise()**. 
 
 ```js
 await dynamodb.scan(params, function(err, data) {
@@ -219,7 +237,7 @@ await dynamodb.scan(params, function(err, data) {
 }).promise()
 ```
 
-Deploy the changes and run the test again.  It fails with an **AccessDeniedException** error type.  
+Deploy the changes and run the test again.  It should fail once again but with an **AccessDeniedException** error.  
 
 <img src="https://i.imgur.com/J7Xsynz.png">
 
@@ -227,7 +245,9 @@ This is because our Lambda function doesn't have permissions to read data from D
 
 #### Assigning Lambda Permissions To DynamoDB
 
-Adding permissions to our Lambda function requires that we open **IAM**.  Let's choose roles and then search for **project**.  We should see a role for each of the Lambda functions we have created thus far. 
+Adding permissions to our Lambda function requires that we open **IAM**.  Let's choose roles and then search for all roles that contain **project** in their name.  
+
+We should see a role for each of the Lambda functions we have created thus far. 
 
 <img src="https://i.imgur.com/8JbXmeD.png">
 
@@ -252,7 +272,7 @@ Let's run the Lambda function one more time to confirm that it has access to the
 
 #### Formatting The Data
 
-We can see that the **data** is an object that has a key of **Items** which contains an array of objects.  Each object contains the key names with the value being an object. 
+We can see that **data** returned via the callback is an object and that it has a key of **Items** that is assigned an array containing all of our projects.  Each key returns yet another object as it's value. 
 
 Let's console.log the object stored inside the object keys so we can get see what it contains. 
 
@@ -358,7 +378,9 @@ GET     | /projects          | Read all _projects_ | projects-get | scan| No
 GET     | /projects/:id      | Read a specific _project_ | projects-show | getItem | No
 
 
-Let's setup dynamoDB to get a single item, format the data in a way the front end expects and then return that item in the body. 
+#### Formatting The Data
+
+Let's setup dynamoDB to get a single item, format the data in a way the front end expects and then return that item in the body just as before.
 
 ```js
 await dynamodb.getItem(params, function(err,data){
@@ -380,6 +402,8 @@ await dynamodb.getItem(params, function(err,data){
 return response;
 ```
 
+#### Assigning Lambda Permissions To DynamoDB
+
 If we test this we should receive the following error as this Lambda role hasn't been assigned the **AmazonDynamoDBReadOnlyAccess** policy. 
 
 <img src="https://i.imgur.com/XxamPe4.png">
@@ -392,6 +416,8 @@ Now perform the following tests to confirm that it works:
 
 
 ### Projects-Show Lambda Solution 
+
+Here is the complete solution for the Lambda function. 
 
 ```js
 const AWS = require('aws-sdk');
