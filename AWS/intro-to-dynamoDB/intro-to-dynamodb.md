@@ -37,10 +37,9 @@ Many of the world's fastest growing businesses such as Lyft, Airbnb, and Redfin 
 
 Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda to confirm this is still the case.  
 
-Lambda is free but limited to the following:
+DynamoDB is free but limited to the following:
 
-  - 1,000,000 requests (then .20C per 1mil additional requests)
-  - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
+
 
 <img src="https://i.imgur.com/HuIKHvJ.png" width=300/>
 <br>
@@ -85,31 +84,53 @@ The **id** has been removed
 }
 ```
 
-Create a new item in the table
+### Create A New Item 
+
+When we first add a new item we will have to decide the name of the **Primary Key** which is almost always the **Partition Key**. 
+
+<img src="https://i.imgur.com/AxjGVug.png">
+
+Clicking on **Create Item** we can assign the **Primary Key**. 
 
 <img src="https://i.imgur.com/rkQmCjm.png">
 
-Add another **key** called **Title**
+Add now it's just a matter of **Appending** additional keys based on the object format we have been using thus far for a single project
 
-<img src="https://i.imgur.com/7B9Ngq8.png">
+<img src="https://i.imgur.com/7B9Ngq8.png" width=300/>
+
+The item should look like the image below if we have assigned the key:values correctly. 
 
 <img src="https://i.imgur.com/GDpAj76.png">
 
+Clicking on **Save** we should see our new item added to the DB
+
+<img src="https://i.imgur.com/klBbRxz.png">
+
 ### Accessing DynamoDB From Lambda
 
-[AWS SDK](https://aws.amazon.com/sdk-for-javascript/)
+Since we will be accessing DynamoDB from JavaScript we will need to use the [AWS SDK](https://aws.amazon.com/sdk-for-javascript/).  Since we will be using the JavaScript version of the SDK let's take a look at that documentation. 
 
-<img src="https://i.imgur.com/W2k5vY9.png">
 
-<img src="https://i.imgur.com/hjJqcuv.png">
+Here we can see that there is an option to use it in **Node** so let's click on that option. 
 
-[AWS Services SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html)
+<img src="https://i.imgur.com/W2k5vY9.png" width=500/>
 
-<img src="https://i.imgur.com/tnShsuv.png">
+Much of this install and configure documentation is only if we are using the SDK in a local app we are developing that would need to connect to AWS DynamoDB. 
+
+The SDK however is already available in Lambda so no need to install it. 
+
+
+<!-- <img src="https://i.imgur.com/hjJqcuv.png"> -->
+
+### DynamoDB Methods
+
+Let's take a look at the documentation on how to work with DynamobDB by going to the [AWS Services SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html) page. 
+
+<img src="https://i.imgur.com/tnShsuv.png" width=700/>
 
 #### RESTful Routes to CRUD Mapping
 
-Let's revisit the **RESTful Routes to CRUD Mapping** schema. An additional column has been added to reflect the DynamoDB method used for that route. 
+Let's revisit the **RESTful Routes to CRUD Mapping** schema. An additional column has been added to reflect the DynamoDB methods that we will use for each corresponding route. 
 
 HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | DynamoDB | Has Data
 -----------|------------------|------------------|:---:|:---:|:---:
