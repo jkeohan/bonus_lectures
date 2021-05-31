@@ -53,27 +53,27 @@ AWS offers in the range of 175 products and services. We can browse those servic
 
 **Free Tier**
 
-AWS offers a 12months of free tier of support for many of their product and services.   Its important to mention that you will be charged accordingly once the 12months expires or you exceed the limits of the tier of support.  
+AWS offers 12 months of free tier of support for many of their product and services.   It's important to mention that you will be charged accordingly once the 12 months expires OR if you exceed the limits of the tier of support provided by the service. 
 
-So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services and search for **api gateway**.
 
 <img src="https://i.imgur.com/Gplt0Ma.png" width=500/>
 
 ### API Gateway
 
-The AWS API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone RESTful APIs that can work with AWS backend services, Lambda being the most popular, to execute code once a url and method have been called.  
+The API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone **RESTful APIs** that can work with AWS backend services with Lambda being the most popular. 
 
 <img src="https://i.imgur.com/ziCSBw7.png" width=700/>
 
-The routes, which AWS refers to as **resources**, can accept data either using **path params (/:id)** or **query strings (?id=1)**.  
+<!-- Routes, which AWS refers to as **resources**, can accept data either using **path params (/:id)** or **query strings (?id=1)**.   -->
 
 #### Creating An API
 
-Let's go ahead and create a new API by choosing **APIs** from the left menu and clicking the **Create API** all the way to the right. 
+Let's go ahead and create a new API by choosing **APIs** from the left menu and clicking the **Create API** all the way to the top right. 
 
 <img src="https://i.imgur.com/dK4tu18.png" />
 
-API Gateway provides the following 4 options: 
+API Gateway provides the following 4 options for creating an API:
 - HTTP
 - WebSockets
 - REST
@@ -82,7 +82,7 @@ API Gateway provides the following 4 options:
 
 We will focus on creating a **RESTful API** which refers to a collection of resources and methods that can be invoked through **HTTP endpoints** and **HTTP methods**. 
 
-Let's create our firsts **REST API** by clicking on the **Build** button. 
+Let's create our first **REST API** by clicking on the **Build** button. 
 
 <img src="https://i.imgur.com/vj9nTHx.png" width=500/>
 
@@ -91,7 +91,9 @@ On the next configuration page we will choose **REST** as the **protocol** and *
 <img src="https://i.imgur.com/lkCRCgW.png" width=500/>
 
 
-We need to give it a **API name** and **Description** and will leave the **Endpoint Type** as **Regional**.  The app we will be building will allow us to store info about the projects in our portfolio so let's give it an appropriate name and description. 
+We need to give it an **API name** and **Description** and will leave the **Endpoint Type** as **Regional**.  
+
+The app we will be building will allow us to store info about the projects in our portfolio so let's give it an appropriate name and description. 
 
 Then click **Create API**. 
 
@@ -109,7 +111,7 @@ Then click **Create API**.
 
 This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) for the API and is assigned a single forward slash **/**.  
 
-AWS refers to the **routes** as **resources**, which makes sense as they are meant to provide some type of resource to the requesting user.  
+AWS refers to the **routes** as **resources**, which makes sense as they are meant to provide some type of resource requested by the user.  
 
 <img src="https://i.imgur.com/omo32kJ.png" width=600>
 
@@ -117,21 +119,19 @@ AWS refers to the **routes** as **resources**, which makes sense as they are mea
 
 Since the gateway we are building will be specific to projects we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit. 
 
-HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
+HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
-GET     | /projects          | Read all _projects_ | index | No
-GET     | /projects/:id      | Read a specific _project_ | show | No
-POST    | /projects          | Create a new _project_ | create | Yes
-PUT     | /projects/:id      | Update specified _project_  | update | Yes
-DELETE  | /projects/:id      | Delete specified _project_ | delete | No
+GET     | /projects          | Read all _projects_ | projects-get | No
+GET     | /projects/:id      | Read a specific _project_ | projects-show | No
+POST    | /projects          | Create a new _project_ | projects-create | Yes
+PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
+DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
-Based on the above routes lets create our first **resource** which will be **/projects**.  
-
-In order to do that click on the **Action** dropdown and choose **Create Resource**
+Based on the above routes lets create our first **resource** which will be **/projects**.  In order to do that click on the **Action** dropdown and choose **Create Resource**
 
 <img src="https://i.imgur.com/L08bRYl.png" width=200/>
 
-Here will choose **projects** as the name and path and the click on **Create Resource** button. 
+Here we will choose **projects** as the name and path and then click on **Create Resource** button to create the resource.
 
 <img src="https://i.imgur.com/33snxEy.png" />
 
@@ -141,13 +141,17 @@ Once the resource is created we are now presented with the resource and a messag
 
 ### HTTP Methods
 
-As we can see from the routing table the **index** route we will be associated with the **GET** method. 
+As we can see from the routing table the **/projects** route we will be associated with the **GET** method. 
 
-We will do that by clicking on the **Actions** dropdown once again and choosing **Create Method** which will then present a dropdown list of methods to choose from, of which we will choose **GET** and then click on the **checkmark**. 
+HTTP  | URI  | CRUD Operation | Controller | Has Data
+-----------|------------------|------------------|:---:|:---:
+GET     | /projects          | Read all _projects_ | projects-get | No
+
+We will add the method by clicking on the **Actions** dropdown once again and choosing **Create Method** which will then present a dropdown list of methods to choose from, of which we will choose **GET** and then click on the **checkmark**. 
 
 <img src="https://i.imgur.com/NshdtNF.png" width=300/>
 
-Now there are several option for us to choose from and, although we will be configuring Lambda for all of the routes we will first choose **Mock** for now so that we can get it initially setup. 
+Now there are several option for us to choose from and, although we will be configuring Lambda for all of the RESTFul routes, we will first choose **Mock** for now.  
 
 <img src="https://i.imgur.com/HLYiy4S.png" width=700/>
 
@@ -155,15 +159,15 @@ Once the method is in place we will be presented with the following screen.  Thi
 
 <img src="https://i.imgur.com/ZPVnYNy.png" width=700/>
 
-A request is received and a response is returned and AWS divides each into it's corresponding type of **Method Request** and **Integration Request**. 
+A request is received and a response is returned and AWS divides each into it's corresponding type of **Method** and **Integration**. 
 
 As this is a **Mock** endpoint we will see that the **Integration Request** ends at the **Mock Endpoint**.  Since there is nothing there to pass data to **Integration Response** they both act independently in this configuration. 
 
-Once **Mock** is replaced with a **Lambda** function we will be able to pass data from **request** to **response**. 
+Once **Mock** is replaced with a **Lambda** function we will be able to pass data from the **request** to the **response**. 
 
 #### Testing The API
 
-Before we proceed to make our API public we should first give it a test run and we will do so by clicking on the **Test** button. 
+Before we proceed to make our API public we should first give it a test run by clicking on the **Test** button. 
 
 <!-- In order to respond to an API request using our **Mock** setup we will need to configure the **Integration Response**.  
 
@@ -184,17 +188,19 @@ Here we will add the following JSON and click on **Save**
 
 <!-- <img src="https://i.imgur.com/Vz4575X.png" > -->
 
-We are presented with some test configuration options and by clicking on the **Test** button we should see the following: 
+We are presented with some test configuration options which we will configure later but for now click on the blue **Test** button. 
 
-<img src="https://i.imgur.com/Rv4PAN6.png" >
+<img src="https://i.imgur.com/Rv4PAN6.png" width=700/ >
+
+As mentioned before there really isn't much we can do with the Mock endpoint but it does provide us enough to walk through some of the additional requirements, such as deployment. 
 
 ### Deploying The API
 
-Our API isn't available to the general public as of yet and needs to be deployed.  We can do that by clicking on the **Actions** button and selecting **Deploy API**.  
+If we want the API to be available outside the AWS environment then it needs to be deployed.  We can do that by clicking on the **Actions** button and selecting **Deploy API**.  
 
 <img src="https://i.imgur.com/qSMpOBI.png" width=200/>
 
-Here we will need to add a new **Deployment State** and in our case we will choose the name of **dev** and then click **Deploy**.
+Here we will need to add a new **Deployment Stage**.  Stages are used to segment versions of our API such as **production**, **development** or **testing**.  In our case we will opt to create a development stage and choose the name of **dev** and then click **Deploy**.
 
 <img src="https://i.imgur.com/gr67gTk.png" width=400/>
 
@@ -208,11 +214,11 @@ Let's take a look at the **Deployment History** tab and we should see info about
 
 #### Testing The API
 
-Located at the very top nis the url to the dev version of our API.  If we copy/paste that into Chrome connect we should receive the following:
+Located at the very top is the url to the dev version of our API.  If we copy/paste that into Chrome and connect we should receive the following:
 
 <img src="https://i.imgur.com/jAKC7Sr.png" width=400/>
 
-Thats because there is no route configured for **/dev**. If append **/projects** to the url then we should see nothing as the route isn't configured to send any data. 
+Thats because there is no route configured for **/dev**. Let's append **/projects** to the url then we should see nothing as the route isn't configured to send any data. 
 
 <img src="https://i.imgur.com/Wye9Sy6.png" width=400/>
 
@@ -239,12 +245,12 @@ Perform the following:
 
 - Add a new **POST** method to the the **/projects** route. 
 - Set it up as a **Mock Endpoint**
-- Run a test to confirm that it works using Postman
+- Run a test to confirm that it responds with status code 200 in chrome and Postman
 
 
 ### Next Steps -> Creating Lambda Functions
 
-So we have created our very first route however it doesn't do very much at this point. In order to start responding to requests we will need to setup up a **Lambda** function.  So let's do that now.
+So we have created our very first route which doesn't do very much at this point. In order to start responding to requests we will need to setup up a **Lambda** function.  So let's do that now.
 
 #### References
 
