@@ -49,7 +49,7 @@ Let's take a closer look at a region.
 
 ### AWS Services
 
-Along with their global infrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
+AWS offers in the range of 175 products and services. We can browse those services via the **Products** tab on [https://aws.amazon.com/](https://aws.amazon.com/).
 
 **Free Tier**
 
