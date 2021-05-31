@@ -31,14 +31,6 @@ Amazon DynamoDB is a NoSQL Database and uses key-value and document database tha
 
 Many of the world's fastest growing businesses such as Lyft, Airbnb, and Redfin as well as enterprises such as Samsung, Toyota, and Capital One depend on the scale and performance of DynamoDB to support their mission-critical workloads.
 
-
-Here are some of the main benefits of working with Lambda:
-
-- Virtual functions with no servers to manage
-- Integrated with many programming languages such as JS, Ruby, Python
-- Event Driven and triggered by other services
-- Automated scaling
-
 <img src="https://i.imgur.com/ldOTWqq.png">
 
 **Free Tier**
