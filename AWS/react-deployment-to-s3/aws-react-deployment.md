@@ -42,7 +42,7 @@ Along with their global infrastructure AWS offers in the range of 175 products a
 
 AWS provides a free tier of support for many of their services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
 
-So before we begin lets take a look at their[free tier] (https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
+So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
 
 ## Creating User/Groups Using IAM
 

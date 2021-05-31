@@ -1,0 +1,429 @@
+Title: Intro To AWS Lambda<br>
+Duration: 1 - 1.5 hrs+ <br>
+Creator:  Joe Keohan<br>
+
+---
+
+# AWS DynamoDB
+
+<img src="https://miro.medium.com/max/700/0*oPSyB-T0QPdpHYBi.png" width=700/> 
+
+
+
+This lecture will focus on working with DynamoDB and will over the following: 
+
+- creating tables
+- adding rows of data
+- using the DynamoDB SDK with Lambda to perform full CRUD
+
+## Prerequisites
+
+- An AWS (Amazon Web Services) account
+- Working knowledge of Lambda and APIs
+
+### AWS DynamoDB
+
+Amazon DynamoDB is a NoSQL Database and uses key-value and document database that provides the following:
+
+- delivers single-digit millisecond performance at any scale
+- it's a fully managed, multi-region, multi-active, durable database with built-in security, backup and restore, and in-memory caching for internet-scale applications. 
+- it can handle more than 10 trillion requests per day and can support peaks of more than 20 million requests per second.
+
+Many of the world's fastest growing businesses such as Lyft, Airbnb, and Redfin as well as enterprises such as Samsung, Toyota, and Capital One depend on the scale and performance of DynamoDB to support their mission-critical workloads.
+
+
+Here are some of the main benefits of working with Lambda:
+
+- Virtual functions with no servers to manage
+- Integrated with many programming languages such as JS, Ruby, Python
+- Event Driven and triggered by other services
+- Automated scaling
+
+<img src="https://i.imgur.com/ldOTWqq.png">
+
+**Free Tier**
+
+Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda to confirm this is still the case.  
+
+Lambda is free but limited to the following:
+
+  - 1,000,000 requests (then .20C per 1mil additional requests)
+  - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
+
+<img src="https://i.imgur.com/HuIKHvJ.png" width=300/>
+<br>
+<br>
+
+<img src="https://i.imgur.com/0P8n82M.png">
+
+<img src="https://i.imgur.com/yBbGBPQ.png">
+
+<img src="https://i.imgur.com/sJgLXRl.png">
+
+### Creating A DynamoDB Table
+
+
+<img src=https://i.imgur.com/lD1OpKf.png >
+
+<img src="https://i.imgur.com/6kMrAyL.png">
+
+Add a **Table Name** and **Primary Key**
+
+<!-- <img src="https://i.imgur.com/BPVzVtf.png"> -->
+
+<img src="https://i.imgur.com/lV90zBp.png">
+
+<img src="https://i.imgur.com/WsmezJD.png">
+
+Max size limit for any entry is 400KB
+
+5x per second
+
+Even though it's showing an estimated cost it will be free for how we are going to setup and use the table. It should be mentioned that cost is measured across all tables so the more you create the greater chance you have of exceeding the free tier. 
+
+<img src="https://i.imgur.com/ZvG2nhC.png">
+
+The **id** has been removed
+
+```js
+{
+    "title": "Instagram Quotes",
+    "image": "https://res.cloudinary.com/jkeohan/image/upload/v1582134376/Screen_Shot_2020-01-30_at_8.57.12_AM_cnrvug.png",
+    "description": "Add project description here..."
+}
+```
+
+Create a new item in the table
+
+<img src="https://i.imgur.com/rkQmCjm.png">
+
+Add another **key** called **Title**
+
+<img src="https://i.imgur.com/7B9Ngq8.png">
+
+<img src="https://i.imgur.com/GDpAj76.png">
+
+### Accessing DynamoDB From Lambda
+
+[AWS SDK](https://aws.amazon.com/sdk-for-javascript/)
+
+<img src="https://i.imgur.com/W2k5vY9.png">
+
+<img src="https://i.imgur.com/hjJqcuv.png">
+
+[AWS Services SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html)
+
+<img src="https://i.imgur.com/tnShsuv.png">
+
+#### RESTful Routes to CRUD Mapping
+
+Let's revisit the **RESTful Routes to CRUD Mapping** schema. An additional column has been added to reflect the DynamoDB method used for that route. 
+
+HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | DynamoDB | Has Data
+-----------|------------------|------------------|:---:|:---:|:---:
+GET     | /projects          | Read all _projects_ | projects-get | scan| No
+GET     | /projects/:id      | Read a specific _project_ | projects-show | getItem | No
+POST    | /projects          | Create a new _project_ | projects-create | putItem | Yes
+PUT     | /projects/:id      | Update specified _project_  | projects-update | updateItem | Yes
+DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | deleteItem | No
+
+### Get All Projects
+
+Let's start with retrieving object we added to the table so let's open the **projects-get** Lambda function.  
+
+#### AWS SDK
+
+Before we can access any of the AWS services we must first import the AWS SDK. 
+
+
+```js
+const AWS = require('aws-sdk');
+```
+
+Now instantiate a new instance of service we want to work with, in this case DynamoDB.  Working with DynamoDB requires that we define the **region** and **apiVersion**
+
+```js
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'});
+```
+
+#### The Scan Method
+
+The method we will use to return all items is **scan**. If we do a quick search for **scan** in the AWS Docs we should see the following:
+
+<img src="https://i.imgur.com/CVWnqlE.png">
+
+We can see that the scan method takes in a **params** object and a **callback** function. 
+
+Clicking on it should take us to the details section on how to use the method.
+
+<img src="https://i.imgur.com/WRRTWPW.png" width=500/>
+
+This above example scans the entire Music table, and then narrows the results to songs by the artist "No One You Know" and for each item, only the album title and song title are returned. 
+
+
+#### Working With The Scan Method
+
+Let's create a **params** object and add a single key of **TableName** which will be assigned the value of our table name. 
+
+```js
+const params = {
+    TableName: 'projects'
+}
+```
+
+The **scan** method takes in the **params** object as the first argument and then a **callback** function. The **callback** will be either passed an **err** or the **data** from the scan. 
+
+```js
+await dynamodb.scan(params, function(err, data) {
+    if(err){
+        console.log('failure - err', err)
+    } else {
+        console.log('success - data', data)
+    }
+})
+```
+
+If we give this Lambda function a test run we should see the following error.  This is because nothing is being returned from the scan.
+
+<img src="https://i.imgur.com/T2OHYxw.png">
+
+But if we look at the logs we should also see that none of the console.log output is there. 
+
+<img src="https://i.imgur.com/U6SfnGd.png">
+
+<!-- <img src="https://i.imgur.com/bQAe7vz.png"> -->
+
+This is because the dynamodb.scan() method is running as promise but it's not being resolved.  In order to resolve the promise we must include **.promise()**. 
+
+```js
+await dynamodb.scan(params, function(err, data) {
+    if(err){
+        console.log('failure - err', err)
+    } else {
+        console.log('success - data', data)
+    }
+}).promise()
+```
+
+Deploy the changes and run the test again.  It fails with an **AccessDeniedException** error type.  
+
+<img src="https://i.imgur.com/J7Xsynz.png">
+
+This is because our Lambda function doesn't have permissions to read data from DynamoDB.  
+
+#### Assigning Lambda Permissions To DynamoDB
+
+Adding permissions to our Lambda function requires that we open **IAM**.  Let's choose roles and then search for **project**.  We should see a role for each of the Lambda functions we have created thus far. 
+
+<img src="https://i.imgur.com/8JbXmeD.png">
+
+Clicking on the **projects-get-role** will take us to it's configuration page.  Click on **Attach policies** button. 
+
+<img src="https://i.imgur.com/3u3qvnO.png">
+
+
+Here we will search for **dynamo** and we should see the following policies. 
+
+<img src="https://i.imgur.com/tQDBoyH.png">
+
+Since the lambda function will only need read access let's check off **AmazonDynamoDBReadOnlyAccess** and click **Attach Policy**.
+
+We should now see that the Lambda role has the newly assigned permission.
+
+<img src="https://i.imgur.com/NmTVCZT.png">
+
+Let's run the Lambda function one more time to confirm that it has access to the data. 
+
+<img src="https://i.imgur.com/DRtoZ2D.png">
+
+#### Formatting The Data
+
+We can see that the **data** is an object that has a key of **Items** which contains an array of objects.  Each object contains the key names with the value being an object. 
+
+Let's console.log the object stored inside the object keys so we can get see what it contains. 
+
+```js
+console.log('success - data', data.Items[0])
+```
+
+We should see the following.
+
+<img src="https://i.imgur.com/v0k3FbV.png">
+
+So now we understand how the data is structured we can format it in a way that our front end expects to receive it. 
+
+```js
+const items = data.Items.map( (data,index) => {
+    return {
+        projectId: data.ProjectId.S,
+        title: data.Title.S,
+        image: data.Image.S,
+        description: data.Description.S
+    }
+})
+```
+
+Let's also assign the **items** array to the **response.body**
+
+```js
+const items = data.Items.map( (data,index) => {
+    //...more code
+})
+response.body = items
+```
+
+If we run one final test we should see the following:
+
+<img src="https://i.imgur.com/0ZHAhSM.png">
+
+### Projects-Get Lambda Solution 
+
+Here is the final codebase for the lambda function. 
+
+```js
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'});
+
+
+exports.handler = async (event) => {
+    
+    const response = {
+        statusCode: 200,
+    };
+    
+    const params = {
+        "TableName": "projects"
+    }
+    
+    await dynamodb.scan(params, function(err, data) {
+            if(err){
+                console.log('failure - err', err)
+            } else {
+                console.log('success - data', data.Items)
+                const items = data.Items.map( (data,index) => {
+                    return {
+                        projectId: data.ProjectId.S,
+                        title: data.Title.S,
+                        image: data.Image.S,
+                        description: data.Description.S
+                    }
+                })
+                response.body = items
+            }
+        }).promise()
+        
+     return response 
+};
+```
+
+### Get A Single Project 
+
+Open up our **projects-show** lambda function and add the following to so that we can work with the AWS SDK. 
+
+```js
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'});
+```
+
+Just as before we will need to pass in a **params** object with the key:values needed to retrieve the item from database. 
+
+Here we will include an additional **Key** parameter that will reference the column name.  It is also assigned a value as an object. 
+
+```js
+const params = {
+    Key: {"ProjectId": { S: event.id } },
+    TableName: 'projects'
+    }
+```  
+
+According to the routing table we can see that thee DynamoDB method to use to return a single item is **getItem**
+
+HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | DynamoDB | Has Data
+-----------|------------------|------------------|:---:|:---:|:---:
+GET     | /projects          | Read all _projects_ | projects-get | scan| No
+GET     | /projects/:id      | Read a specific _project_ | projects-show | getItem | No
+
+
+Let's setup dynamoDB to get a single item, format the data in a way the front end expects and then return that item in the body. 
+
+```js
+await dynamodb.getItem(params, function(err,data){
+    if(err) {
+        console.log(err)
+    } else {
+        console.log('success - data', data)
+        const item = {
+                userId: data.Item.ProjectId.S,
+                title:  data.Item.Title.S,
+                image:  data.Item.Image.S,
+                description: data.Item.Description.S
+            }
+        response.body = item
+}
+
+}).promise()
+
+return response;
+```
+
+If we test this we should receive the following error as this Lambda role hasn't been assigned the **AmazonDynamoDBReadOnlyAccess** policy. 
+
+<img src="https://i.imgur.com/XxamPe4.png">
+
+Based on how we previously assigned the role take a moment to do so now. 
+
+Now perform the following tests to confirm that it works:
+- Lambda
+- Postman
+
+
+### Projects-Show Lambda Solution 
+
+```js
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'});
+
+exports.handler = async (event) => {
+    console.log('event', event)
+    const response = {
+        statusCode: 200,
+    };
+    
+    const params = {
+        Key: {"ProjectId": { S: event.id } },
+        TableName: 'projects'
+     }
+               
+    await dynamodb.getItem(params, function(err,data){
+    if(err) {
+        console.log(err)
+    } else {
+        console.log('success - data', data)
+        const item = {
+                userId: data.Item.ProjectId.S,
+                title:  data.Item.Title.S,
+                image:  data.Item.Image.S,
+                description: data.Item.Description.S
+            }
+        response.body = item
+    }
+
+    }).promise()
+    
+    return response;
+}
+```
+
+
+
+
+
+
+  ### Resources
+
+  - [DynamoDB Services Page](https://aws.amazon.com/dynamodb/)
+  - [What is DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)
+  - [DynamoDB Pricing](https://aws.amazon.com/dynamodb/pricing/)
+  - [DynamoDB On Demand Pricing](https://aws.amazon.com/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/)
+  - [AWS SDK](https://aws.amazon.com/sdk-for-javascript/)
