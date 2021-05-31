@@ -8,7 +8,9 @@ Creator:  Joe Keohan<br>
 
 # AWS API Gateway 
 
-<img src="https://i.imgur.com/0pExHXm.png" width=200/>
+<!-- <img src="https://i.imgur.com/0pExHXm.png" width=200/> -->
+
+<img src="https://i.imgur.com/ywVhNKz.png">
 
 
 
