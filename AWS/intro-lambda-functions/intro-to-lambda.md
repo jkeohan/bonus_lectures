@@ -238,4 +238,6 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 ### Resources
 
+- [Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc)
 - [Lambda Simulation](https://console.aws.amazon.com/lambda/home?region=us-east-1#/begin)
+- [AWS Lambda](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=lambda&all-free-tier.q_operator=AND)
