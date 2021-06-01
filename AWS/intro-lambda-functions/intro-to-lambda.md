@@ -6,7 +6,7 @@ Creator:  Joe Keohan<br>
 
 # AWS Lambda and API Gateway Integration
 
-<!-- <img src="https://i.imgur.com/0pExHXm.png" width=200/> -->
+<img src="https://i.imgur.com/V8ZPBkF.png" />
 
 
 
@@ -19,8 +19,7 @@ This lecture will focus on creating AWS Lambda functions and configuring them to
 ## Prerequisites
 
 - An AWS (Amazon Web Services) account
-
-If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier for twelve months,with some limitations,  after you sign-up for an AWS account.
+- An AWS Gateway RESTFul API
 
 ### AWS Lambda
 
@@ -34,8 +33,6 @@ Here are some of the main benefits of working with Lambda:
 - Automated scaling
 
 
-
-
 **Free Tier**
 
 Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda to confirm this is still the case.  
@@ -44,14 +41,14 @@ Lambda falls into the **Always Free** tier of services so lets take a look at th
 <br>
 <br>
 
-Lambda is free but limited to the following:
+Although free Lambda's free tier of support is limited to the following, none of which we will exceed during our configuration. 
 
   - 1,000,000 requests (then .20C per 1mil additional requests)
   - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
 
 ### Lambda Overview
 
-Let's click on the [AWS Lambda](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=lambda&all-free-tier.q_operator=AND) link and review what the service can do for us. Below is just one example of where Lambda can be placed in the serverless framework.
+Let's click on the [AWS Lambda](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=lambda&all-free-tier.q_operator=AND) link and review what the service can do for us. The page provides multiple use cases describing how Lambda can be use with the below is just one example of where it can be placed in the serverless framework.
 
 <img src="https://i.imgur.com/O1Pb0jM.png" width=500>
 
@@ -70,11 +67,11 @@ On the left we will see the navigation and here let's click on **Functions**.
 
 ### Creating A Function
 
-Click on **Create Function**
+Now click on **Create Function**.
 
 <img src="https://i.imgur.com/FyvHGTb.png" width=500 />
 
-There are several options to choose from when creating a function so let's choose **Author from scratch**.
+There are several options to choose from when creating a function and we will choose **Author from scratch**.
 
 <img src="https://i.imgur.com/CIttKLB.png">
 
@@ -85,7 +82,7 @@ Here we must give the function a **name** and a **runtime environment**.  Since 
 <!-- <img src="https://i.imgur.com/etHLoft.png" width=500> -->
 
 
-Now click on the **Create Function** button. 
+Now create the function by clicking on the **Create Function** button. 
 
 <img src="https://i.imgur.com/0bSqU4q.png" width=700>
 
@@ -101,15 +98,15 @@ Here we can see that the function is exporting a **handler**.  We've worked with
 
 <img src="https://i.imgur.com/Ejm6ELQ.png" width=500>
 
-The Lambda function handler is the method your function will call once it's been triggered. 
 
-When your function is invoked, Lambda runs the function specified in it's **Runtime Settings**, in this case **index.handler**.
+
+When the function is invoked, Lambda runs the function specified in it's **Runtime Settings**, in this case **index.handler**.
 
 <img src="https://i.imgur.com/E4E9LC8.png">
 
 When the handler exits or returns a response, it then becomes available to be called via the next trigger. 
 
-There is quite a bit for us to cover as it pertains to Lambda so let's leave the defaults for now and configure our AWS Gateway API to use this newly created Lambda function. 
+There is quite a bit for us to cover as it pertains to Lambda so let's leave the defaults for now and configure our AWS Gateway API to use this newly created Lambda function.  
 
 ### AWS Gateway Integration With Lambda
 
@@ -125,11 +122,13 @@ Click **OK** on the pop up message regarding providing AWS Gateway permissions t
 
 <img src="https://i.imgur.com/CNj3GrR.png" width=500>
 
-**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to Lambda once we need it to connect with DynamoDB. 
+**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to Lambda once we set it up to connect to DynamoDB. 
 
 
 
-There are quite a few new configuration options available after changing the integration type.  Some of which you are already familiar with such as **URL Path and Query String Parameters**.  
+There are quite a few new configuration options available after changing the integration type.  Some of which you are already familiar with such as **URL Path and Query String Parameters**. 
+
+ They work in the same way as node/express and can accept data either using **path params (/:id)** or **query strings (?id=1)**.   
 
 <img src="https://i.imgur.com/yskbFNz.png" width=500>
 
@@ -138,9 +137,7 @@ We will take a look at several of these settings a later point when we configure
 
 ### Testing 
 
-Let's click on the **<- Method Execution** link to go back to the main **GET** configuration page.  
-
-Once there click on the **TEST** button. 
+Let's click on the **<- Method Execution** link to go back to the main **GET** configuration page.  Once there click on the **TEST** button. 
 
 <img src="https://i.imgur.com/BplYN3q.png" width=500>
 
@@ -170,13 +167,13 @@ Let's go back to our Lambda function and try changing the message. The first thi
 Click on the **index.js** file and make the following edit: 
 
 ```js       
-body: JSON.stringify('GET route working successfully'),
+body: JSON.stringify('GET /project route working successfully'),
 ```
 #### Testing Lambda
 
 Just as we tested the API before deployment we can also test the changes made to the Lambda function by clicking on the **Test** button. 
 
-Here we must first configure a new test.  Let's use the **hello-world** template and call our test **initialTest**.  By default it passes the function an object which we can edit, if needed. 
+This requires that we first configure a new test.  Let's use the **hello-world** template and call our test **initialTest**.  By default it passes the function an object which we can edit at any time.
 
 <img src="https://i.imgur.com/RnbbmkC.png">
 
@@ -186,7 +183,7 @@ Clicking on the test button we can examine the execution results.
 
 <img src="https://i.imgur.com/YF4Dq4j.png">
 
-It seems however it still shows the previous message. That is because anytime we make changes to the Lambda function it must be re-deployed. 
+It seems however that it still shows the previous message. That is because anytime we make changes to the Lambda function it must be re-deployed, just like the API Gateway. 
 
 <img src="https://i.imgur.com/z33XiDk.png">
 
@@ -212,9 +209,9 @@ Since our API will require additional routes this means we will need to create a
 
 #### RESTful Routes to CRUD Mapping
 
-Let's revisit the **RESTful Routes to CRUD Mapping** schema we saw in the previous API lecture. The **Controller Action** has been updated with the Lambda functions we will need to create to support our API.  
+Let's revisit the **RESTful Routes to CRUD Mapping** schema we saw in the previous API lecture. The **Controller** contains the Lambda functions we will need to create to support our API.  
 
-HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
+HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
 GET     | /projects          | Read all _projects_ | projects-get | No
 GET     | /projects/:id      | Read a specific _project_ | projects-show | No
@@ -227,7 +224,7 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 #### Lambda
 
 - Create each of the remaining Lambda functions needed for the rest of our routes
-- Edit the body to return back the same message as before but replace both **GET /projects** with the method and route name. 
+- Edit the body to return back the same message as before but replace the **GET /projects** text with the method and route name. 
 - Create a new test in Lambda to confirm that each function works as expected
 
 #### API GATEWAY
