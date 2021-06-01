@@ -133,10 +133,10 @@ Also make sure that the route also returns data via **Postman**.
 
 <img src="https://i.imgur.com/kLqKSSm.png" width=500/>
 
-
+<!-- 
 ### Exercise - Import Dataset For All Lambda Functions - 5min
 
-- import the dataset into each of the remaining lambda functions
+- import the dataset into each of the remaining lambda functions -->
 
 ## Working With Route Params (Resources) 
 
@@ -152,13 +152,13 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 ### Creating A Path Param 
 
-Since the path param is part of a route we will need to create a new **resource** and associate a **method**.  
+Since the path param is part of a route we will need to create a new **resource** and associate the corresponding **method**.  
 
-So click on **Actions > Create Resource**.
+Let's click on **Actions > Create Resource**.
 
 <img src="https://i.imgur.com/SLbZETW.png" width=300/>
 
-Defining the route as a param requires that the **Resource Path** be surrounded in curly braces. 
+Defining the route as a **path param** requires that the **Resource Path** be wrapped in curly braces. 
 
 <img src="https://i.imgur.com/GmdxLhi.png" width=700/>
 
@@ -172,9 +172,9 @@ Now let's add a  **GET** method.
 
 #### Testing The Route
 
-Of course we need to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
+Of course we should to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
 
-As we can see the test returns our original message which is expected as we hard coded the message in the body.  
+As we can see the test returns our original message, which is expected as we hard coded the message in the response body.  
 
 <!-- <img src="https://i.imgur.com/lvQD1r9.png" /> -->
 
@@ -187,11 +187,11 @@ In order for the Lambda function to receive the value stored in the path param w
 
 <img src="https://i.imgur.com/P4CoI8q.png" width=300/>
 
-This is done by creating new **Mapping Template** 
+The **Integration Request** can pass the path param value to the Lambda function using **Mapping Template** 
 
 <!-- <img src="https://i.imgur.com/DXYIwVg.png"> -->
 
-Open the **Integration Request** and in the **Mapping Templates** sections let's do the following:
+Open the **Integration Request** and in the **Mapping Templates** section let's do the following:
 
 - Click the radio button: **When there are no templates defined**
 - Click the **Add mapping template** and assign **application/json**
@@ -201,9 +201,9 @@ Open the **Integration Request** and in the **Mapping Templates** sections let's
 
 #### AWS Documentation
 
-It's as this point we should take a look at the [AWS Documentation](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference), specifically **input variables**.  
+It's as this point we will need to edit the template and need to take a look at the [AWS Documentation](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference) regarding what this involves.  
 
-Here we see that the route retrieves the value of the path using **$input.params(x)**.  
+If we take a look specifically at **input variables** we can see that the route retrieves the value of the path, query string or header using **$input.params(x)**.  
 
 
 <img src="https://i.imgur.com/2RBQFCj.png">
@@ -211,14 +211,14 @@ Here we see that the route retrieves the value of the path using **$input.params
 In the template section let's add the following:
 
 ```js
-{ "id": $input.params('id') }
+{ "id": $input.params("id") }
 ```
 
-**NOTE:** A mapping template is a script expressed in [Velocity Template Language (VTL)](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/models-mappings.html) and applied to the payload using JSONPath expressions.
+**NOTE:** A mapping template is a script expressed in [Velocity Template Language (VTL)](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/models-mappings.html).  We won't delve into this language any more than whats in the AWS documentation. 
 
 ### Updating Lambda Function
 
-Back in our Lambda function let's update it to access the values that will be passed to it from the API Gateway via the **Integration Request**.  
+Back in our Lambda function let's update it to access the values that are now being passed to it from the API Gateway via the **Integration Request**.  
 
 As we can see the async function is configured to accept a single **event** argument so let's console.log the event, as well as, return it in the response. 
 
@@ -233,15 +233,15 @@ exports.handler = async (event) => {
 }
 ```
 
-If we test the function using the lambda test we should see that it returns the values that have been assigned passed via the test. 
+If we test the function using the lambda test we should see that it returns the values that have been passed via the test. 
 
 <img src="https://i.imgur.com/1lMlksx.png" />
 
-In order for Lambda to return the project data we will need the API Gateway to trigger the lambda function.  But before we do so let's take a moment to look at how lambda keeps track of each triggered event. 
+In order for Lambda to console.log the path param value we will need the API Gateway to trigger the Lambda function.  But before we do so let's take a moment to look at the **AWS CloudWatch** service to see how it creates logs fo each triggered event. 
 
 ### AWS CloudWatch Logs
 
-Many of the AWS services also save their log information in a central service called **CloudWatch**.  We can access the logs for this specific Lambda function by clicking on the **Monitor** tab. 
+Many of the AWS services save their log information in a central service called **CloudWatch**.  We can access the logs for this specific Lambda function by clicking on the **Monitor** tab. 
 
 <img src="https://i.imgur.com/78oMNUP.png">
 
@@ -249,7 +249,7 @@ Here we can see the log stream that have been captured by **CloudWatch**
 
 <img src="https://i.imgur.com/CjnUqRM.png">
 
-If we click on the first link in the list it will take us to the most recent logs captured for this service. 
+If we click on the first link in the list it will take us to the most recent logs captured for this service.  Here we should see the previous events from testing Lambda. 
 
 <img src="https://i.imgur.com/wtGD30c.png" />
 
@@ -258,7 +258,7 @@ If we click on the first link in the list it will take us to the most recent log
 
 ### Testing Via API Gateway
 
-Let's run another test via the API gateway and confirm that it now returns the id passed via the path params. We should see the following:
+Let's run another test via the API gateway and confirm that passes the id in the path params. We should see the following:
 
 <img src="https://i.imgur.com/lr2dTCg.png">
 
@@ -271,7 +271,6 @@ If we take a look at the Lambda logs we should now see an entry where the consol
 
 HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
-GET     | /projects/:id      | Read a specific _project_ | projects-show | No
 PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
