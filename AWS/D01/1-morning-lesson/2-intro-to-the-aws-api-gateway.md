@@ -70,7 +70,7 @@ The API Gateway is a fully managed service that makes it easy for developers to 
 
 Lets get started with the **API Gateway** by clicking the **Get started with Amazon API Gateway** button.
 
-<img src="https://i.imgur.com/2ys5YaN.png" width=500>
+<img src="https://i.imgur.com/2ys5YaN.png">
 <br>
 
 #### Creating A REST API
@@ -79,17 +79,17 @@ Lets get started with the **API Gateway** by clicking the **Get started with Ama
 API Gateway extends it's versatility by providing the following 4 options to create and API:
 
 
-<img src="https://i.imgur.com/Lu2tDpW.png" width=500>
+<img src="https://i.imgur.com/Lu2tDpW.png" >
 
 We will focus on creating a **REST API** which refers to a collection of resources(routes) and methods that can be invoked through **URL endpoints** and **HTTP methods**. 
 
 Let's create our first **REST API** by clicking on the **Build** button. 
 
-<img src="https://i.imgur.com/vj9nTHx.png" width=500/>
+<img src="https://i.imgur.com/vj9nTHx.png" />
 
 On the next configuration page we will choose **REST** as the **protocol** and **New API** from the list of options provided.
 
-<img src="https://i.imgur.com/lkCRCgW.png" width=500/>
+<img src="https://i.imgur.com/lkCRCgW.png"/>
 
 
 We need to give it an **API name** and **Description** but will leave the **Endpoint Type** as **Regional**.  
