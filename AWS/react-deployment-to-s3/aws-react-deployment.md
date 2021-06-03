@@ -1,5 +1,5 @@
 Title: Intro To IAM<br>
-Duration: 45min <br>
+Duration: 30min <br>
 Creator:  Joe Keohan<br>
 
 ---
