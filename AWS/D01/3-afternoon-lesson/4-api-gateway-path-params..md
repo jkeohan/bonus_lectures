@@ -155,11 +155,11 @@ As with all routes we need to add an HTTP method, in this case it will bee  **GE
 
 Of course we should to test that the route works. The testing page now includes a reference to the path we just created.  Let's add a value that represents the ID of the element and run the test to see what it returns. 
 
-As we can see the test returns our original message, which is expected as we hard coded the message in the response body.  
-
 <!-- <img src="https://i.imgur.com/lvQD1r9.png" /> -->
 
 <img src="https://i.imgur.com/1a40WdD.png" />
+
+As we can see the test returns our original message, which is expected as we hard coded the message in the response body.  
 
 
 #### Updating The Lambda Function 
@@ -179,11 +179,14 @@ exports.handler = async (event) => {
 }
 ```
 
+#### Testing In Lambda
 If we test the function using the Lambda test we should see that it returns the values that have been passed via the test. 
 
 <img src="https://i.imgur.com/1lMlksx.png" />
 
-Let's test the Lambda function via the **GET /projects/:id** route once again.
+#### Testing In API Gateway
+
+Let's test the **GET /projects/:id** route once again and see if it returns the value.
 
 <img src="https://i.imgur.com/soLqTBA.png">
 
@@ -196,7 +199,7 @@ This time we see that it passes back an empty object.  That is because the we mu
 
 In order for the Lambda function to receive the value stored in the path param we need to configure the **Integration Request** to pass this value.  This flow is visible in the pic below where we can clearly see that the **Integration Request** passes data to **Lambda** and then **Lambda** passes it's response to **Integration Response**. 
 
-<img src="https://i.imgur.com/P4CoI8q.png" width=300/>
+<img src="https://i.imgur.com/P4CoI8q.png" >
 
 The **Integration Request** can pass the path param value to the Lambda function using a **Mapping Template**.  
 
