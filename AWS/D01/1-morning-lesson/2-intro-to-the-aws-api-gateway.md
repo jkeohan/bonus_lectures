@@ -104,7 +104,7 @@ Then click **Create API**.
 
 ### Creating Resources (aka Routes)
 
-This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) that is assigned a single forward slash **/**.  
+This will take us to the main API dashboard and highlights the default **Resource** for our newly created API denoted by a single forward slash **/**.  
 
 AWS refers to the **routes** as **resources**, which makes sense as they are meant to provide some type of resource requested by the user.  
 
@@ -112,9 +112,9 @@ AWS refers to the **routes** as **resources**, which makes sense as they are mea
 
 #### RESTful Routes to CRUD Mapping
 
-The API we are building will be used to create/read/update/delete portfolio projects.  That being the use case we will use **/projects** as the resource name and we will make sure to follow the same **RESTful Routes to CRUD Mapping** schema we implemented in the previous unit.  
+The API we are building will be used to Create/Read/Update/Delete (CRUD) portfolio projects.  That being the use case we will use **/projects** as the resource name and we will make sure to follow the standard **RESTful Routes** schema we implemented in the previous unit.  
 
-We will update it slightly to reflect the AWS services. 
+We will update it slightly to reflect the AWS services replacing **Controllers** with **Lambda**.
 
 HTTP  | Resource  | CRUD Operation | Lambda | Has Data
 -----------|------------------|------------------|:---:|:---:
@@ -124,9 +124,11 @@ POST    | /projects          | Create a new _project_ | projects-create | Yes
 PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
-Based on the above RESTful routing table let's create our first **resource** which will be **/projects**.  In order to do that click on the **Action** dropdown and choose **Create Resource**
+Based on the above RESTful routing table let's create our first **resource** which will be **/projects**.  
 
-<img src="https://i.imgur.com/L08bRYl.png" width=200/>
+In order to do that click on the **Action** dropdown and choose **Create Resource**.
+
+<img src="https://i.imgur.com/L08bRYl.png">
 
 Here we will choose **projects** as both the name and path.  Once complete click on **Create Resource** button to create the resource.
 
@@ -146,25 +148,27 @@ HTTP  | URI  | CRUD Operation | Controller | Has Data
 -----------|------------------|------------------|:---:|:---:
 GET     | /projects          | Read all _projects_ | projects-get | No
 
-We add the HTTP method by clicking on the **Actions** dropdown once again and choosing **Create Method**.  This presents a dropdown list of methods to choose from, of which we will choose **GET** and then click on the **checkmark** to assign the method. 
+We add the HTTP method by clicking on the **Actions** dropdown and choosing **Create Method**.  
 
-<img src="https://i.imgur.com/NshdtNF.png" width=300/>
+This presents a dropdown list of methods to choose from, of which we will choose **GET** and then click on the **checkmark** to assign the method. 
+
+<img src="https://i.imgur.com/NshdtNF.png"/>
 
 Now there are several options for us to choose from and, although we will be configuring Lambda for all of the RESTFul routes, we will choose **Mock** for now.  
 
-Mock is only being used temporarily to setup the resource as it doesn't provide any real functionality between the request/response cycle. 
+Mock is only being used temporarily to setup the resource and doesn't provide any real functionality for the API. 
 
-<img src="https://i.imgur.com/HLYiy4S.png" width=700/>
+<img src="https://i.imgur.com/HLYiy4S.png" >
 
 Once the method is in place we will be presented with the following screen.  This follows the **request/response** cycle that you have already worked with in the previous unit. 
 
-<img src="https://i.imgur.com/ZPVnYNy.png" width=700/>
+<img src="https://i.imgur.com/ZPVnYNy.png" >
 
-AWS divides both the request/response into subsets of **Method** and **Integration**. 
+AWS divides an API's **Request/Response** into subsets of **Method** and **Integration**. 
 
 As this is a **Mock** endpoint we will see that the **Integration Request** ends at the **Mock Endpoint**.  The Mock endpoint is unable to pass data from **Integration Requests** to **Integration Response** and they both act independently in this configuration. 
 
-Once **Mock** is replaced with a **Lambda** function we will be able to pass data from the **request** to the **Lambda** function which will then pass data to the **response**. 
+Once **Mock** is replaced with a **Lambda** function we will be able to pass data from the **Request** to the **Lambda** function which will then pass data to the **Response**. 
 
 #### Testing The API
 
@@ -191,25 +195,25 @@ Here we will add the following JSON and click on **Save**
 
 We are presented with some test configuration options, some of which you might be familiar with such as **Path**, **Query Strings** and **Request Body**.  We will leverage some of these testing options later but for now click on the blue **Test** button. 
 
-<img src="https://i.imgur.com/Rv4PAN6.png" width=700/ >
+<img src="https://i.imgur.com/Rv4PAN6.png" >
 
-As mentioned before there really isn't much we can do with the Mock endpoint and testing it return **no data**.  It does however provide us enough to walk through some of the additional requirements for the API, such as deployment. 
+As mentioned before there really isn't much we can do with the Mock endpoint and testing it at this point should return **no data**.  It does however provide us enough to walk through some of the additional requirements for the API, such as deployment. 
 
 ### Deploying The API
 
 If we want the API to be available outside the AWS environment then it needs to be deployed.  We can do that by clicking on the **Actions** button and selecting **Deploy API**.  
 
-<img src="https://i.imgur.com/qSMpOBI.png" width=200/>
+<img src="https://i.imgur.com/qSMpOBI.png" />
 
 Here we will need to add a new **Deployment Stage**.  Stages are used to segment versions of our API such as **production**, **development** or **testing**.  You can think of these as **git branches**.  
 
 In our case we will opt to create a development stage and choose the name of **dev** and then click **Deploy**.
 
-<img src="https://i.imgur.com/gr67gTk.png" width=400/>
+<img src="https://i.imgur.com/gr67gTk.png">
 
 This now takes us to our **Stages** and we should see the following:
 
-<img src="https://i.imgur.com/Rzcn3C5.png" width=500/>
+<img src="https://i.imgur.com/Rzcn3C5.png" >
 
 Let's take a look at the **Deployment History** tab and we should see info about this deployment. This is similar to **git commit** messages. 
 
