@@ -100,17 +100,9 @@ The API we will be building will allow us to get,create,update and delete info a
 
 Then click **Create API**. 
 
-<img src="https://i.imgur.com/2ZDalPx.png"/>
+<img src="https://i.imgur.com/8mpqxbF.png"/>
 
-<!-- The app we will be building will allow us to store info about the projects in our portfolio, including the following:
-
-- project_name	
-- live_url	
-- github_url	
-- image_url	
-- description -->
-
-### Resources
+### Creating Resources (aka Routes)
 
 This will take us to the **Resources** configuration page for our newly created API.  As we can see there is a single default route (aka resource) that is assigned a single forward slash **/**.  
 
