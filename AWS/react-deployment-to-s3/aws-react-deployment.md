@@ -70,21 +70,21 @@ Create a **User name** and choose **Programatic access**.  This access allows th
 
 Once complete click **Next**. 
 
-<img src="https://i.imgur.com/yBsbLQq.png" width=600>
+<img src="https://i.imgur.com/yBsbLQq.png">
 
 Groups are a key part to security in AWS and, by default, there are no predefined groups so we will need to create one. 
 
 Click on **Create group**. 
 
-<img src="https://i.imgur.com/Lx3ah8x.png" width=600>
+<img src="https://i.imgur.com/Lx3ah8x.png">
 
 For this demo we will create a group called **seir-admins** and assign the **AdministratorAccess** policy. 
 
-<img src="https://i.imgur.com/4gsJoZU.png" width=600>
+<img src="https://i.imgur.com/4gsJoZU.png">
 
  We need to add the user to the appropriate group.  For now we will add them to the default **admins** group. Once the group is created it will have already added the user the newly created group.
 
-<img src="https://i.imgur.com/IIg6Ce5.png" width=600>
+<img src="https://i.imgur.com/IIg6Ce5.png" >
 
 We have the option to assign tags to this user but we will not do so at this time so click **Next**. 
 
