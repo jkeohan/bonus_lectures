@@ -46,13 +46,13 @@ Although free, Lambda's free tier of support is limited to the following, none o
   - 1,000,000 requests (then .20C per 1mil additional requests)
   - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
 
-The **compute time** is an important consideration here as the Lambda functions run time is limited and may time out after a certain point.  The other consideration is how many Lambda functions are running with each making use of the 400,000 GB of free tier provided RAM. 
+The **compute time** is an important consideration here as the Lambda functions run time is limited and may time out after a certain point.  The other consideration is how many Lambda functions have been called with each making use of the 400,000 GB of free tier provided RAM. 
 
 ### Lambda Overview
 
 Let's click on the [AWS Lambda](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all&all-free-tier.q=lambda&all-free-tier.q_operator=AND) link and review what the service can do for us. The page provides multiple use cases describing how Lambda can be used.  The pic below is just one example of where it can be placed in the serverless framework.
 
-<img src="https://i.imgur.com/O1Pb0jM.png" width=900>
+<img src="https://i.imgur.com/O1Pb0jM.png">
 
 AWS also provides a [Lambda Simulation](https://console.aws.amazon.com/lambda/home?region=us-east-1#/begin) tool to help visualize how Lambda gets called and processes each request. 
 
@@ -62,41 +62,47 @@ AWS also provides a [Lambda Simulation](https://console.aws.amazon.com/lambda/ho
 
 Lets get started with Lambda by clicking the **Get started with AWS Lambda** button.
 
-<img src="https://i.imgur.com/lLIPK2t.png" width=500>
+<img src="https://i.imgur.com/lLIPK2t.png">
 <br>
 
 
 
 On the left we will see the navigation pane and here let's click on **Functions**. 
 
-<img src="https://i.imgur.com/PyTDHzK.png" width=200>
+<img src="https://i.imgur.com/PyTDHzK.png" >
 
-### Creating A Function
+### Creating A Lambda Function
 
 Now click on **Create Function**.
 
-<img src="https://i.imgur.com/FyvHGTb.png" width=500 />
+<img src="https://i.imgur.com/FyvHGTb.png"  />
 
 There are several options to choose from when creating a function.  We will be choosing **Author from scratch**.
 
 <img src="https://i.imgur.com/CIttKLB.png">
 
-Here we must give the function a **name** and a **runtime environment**.  Since we will be working with JavaScript let's choose the latest version of **Node.js**.  
-
-The naming convention we will use is based on the routing table so let's take a look at what the name assigned in the Lambda column for the very first route. 
+Here we must give the function a **name** and a **runtime environment**.  
+The naming convention we will use is based on the routing table so let's take a look at the name assigned for that route. 
 
 HTTP  | Resource  | CRUD Operation | Lambda | Has Data
 -----------|------------------|------------------|:---:|:---:
 GET     | /projects          | Read all _projects_ | projects-get | No
 
-<img src="https://i.imgur.com/Xzz0yCa.png"/>
+<img src="https://i.imgur.com/DFhf4mB.png">
+
+Since we will be working with JavaScript let's choose the latest version of **Node.js**.  
+
+<img src="https://i.imgur.com/dfvdycF.png">
+
+
+<!-- <img src="https://i.imgur.com/Xzz0yCa.png"/> -->
 
 <!-- <img src="https://i.imgur.com/etHLoft.png" width=500> -->
 
 
 Create the function by clicking on the **Create Function** button. 
 
-<img src="https://i.imgur.com/0bSqU4q.png" width=700>
+<img src="https://i.imgur.com/0bSqU4q.png" >
 
 
 
@@ -104,7 +110,7 @@ Create the function by clicking on the **Create Function** button.
 
 The function provides us a single **index.js** file with some initial starter code,  so click on the file and let's take a look at the code. 
 
-<img src="https://i.imgur.com/fDI6L9D.png" width=500>
+<img src="https://i.imgur.com/oretBOl.png">
 
 Here we can see that the function is exporting a **handler**.  We've worked with the **exports** keyword before, in both Node and React, however  **exports.handler** is unique to Lambda.  
 
@@ -112,19 +118,21 @@ Here we can see that the function is exporting a **handler**.  We've worked with
 
 
 
-When the function is invoked, Lambda runs the function specified in it's **Runtime Settings**, in this case **index.handler**.
+When the function is invoked, Lambda runs the function specified in it's **Runtime Settings**, in this case **index.handler**.  We can verify this by looking over the **Runtime settings**.
 
 <img src="https://i.imgur.com/E4E9LC8.png">
 
 When the handler exits, or returns a response, it then becomes available to be called via the next trigger. 
 
-There is quite a bit for us to cover as it pertains to Lambda so let's leave the defaults for now and configure our AWS Gateway API and replace the MOCK endpoint with this newly created Lambda function.  
+There is quite a bit for us to cover as it pertains to Lambda so let's leave the defaults for now and configure our AWS Gateway API replacing the MOCK endpoint with this newly created Lambda function.  
 
 ### AWS Gateway Integration With Lambda
 
 On the **GET** route let's click on **Integration Request** and change the option from **Mock** to **Lambda**, choosing the Lambda function we just created. 
 
-<img src="https://i.imgur.com/2rAtJHz.png">
+Lambda functions are associated with **Regions** so make sure to choose your region. 
+
+<img src="https://i.imgur.com/xn5KuPw.png">
 
 Click **OK** on the pop up message regarding integration. 
 
@@ -134,7 +142,7 @@ Click **OK** to the additional pop up message regarding providing AWS Gateway pe
 
 <img src="https://i.imgur.com/CNj3GrR.png">
 
-**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to Lambda once we set it up to connect to DynamoDB. 
+**NOTE:** Permissions are very important in AWS and we will be adding additional permissions to the role created for this Lambda function in IAM once we set it up to connect to DynamoDB. 
 
 
 
@@ -142,7 +150,7 @@ There are quite a few new configuration options available after changing the int
 
  They work in the same way as node/express and the routes can be configured to accept data either using **path params (/:id)** or **query strings (?id=1)**.   
 
-<img src="https://i.imgur.com/yskbFNz.png" width=700>
+<img src="https://i.imgur.com/yskbFNz.png">
 
 We will take a look at several of these settings a later point when we configure the remaining routes. 
 
@@ -151,12 +159,12 @@ We will take a look at several of these settings a later point when we configure
 
 Let's click on the **<- Method Execution** link to go back to the main **GET** configuration page.  Once there click on the **TEST** button. 
 
-<img src="https://i.imgur.com/BplYN3q.png" width=500>
+<img src="https://i.imgur.com/BplYN3q.png" >
 
 
 If successful we should see the following message.
 
-<img src="https://i.imgur.com/tEabvg3.png" width=300>
+<img src="https://i.imgur.com/tEabvg3.png" >
 
 ### Redeploy 
 
@@ -164,15 +172,17 @@ Let's redeploy the app and, in line with best practices, provide a description a
 
 <img src="https://i.imgur.com/IwXUZ87.png">
 
-Open the URL and confirm that you receive the following message. 
+Open the URL and confirm that you receive the same message as when tested via the API.
 
 
 
-<img src="https://i.imgur.com/bh9AJYM.png">
+<img src="https://i.imgur.com/MdwHyVn.png">
 
 ### Redeploying Lambda
 
 Let's go back to our Lambda function and try changing the message. The first thing we might notice is that the page has been updated to include **API Gateway** as a new trigger. 
+
+**INSTRUCTOR TO UPDATE THE PIC TO REFEReNCE projects-get**
 
 <img src="https://i.imgur.com/s81bYZk.png">
 
@@ -203,7 +213,7 @@ It seems however that it still shows the previous message. That is because anyti
 
 Click on the **Deploy** button. 
 
-<img src="https://i.imgur.com/fU1riF0.png" width=500>
+<img src="https://i.imgur.com/fU1riF0.png" >
 
 Now run the test again and we should see our changes. 
 
@@ -211,17 +221,17 @@ Now run the test again and we should see our changes.
 
 Of course confirm that testing the API externally also displays the new changes.  Since we didn't make any changes to the API itself there is no need to re-deploy the API. 
 
-<img src="https://i.imgur.com/FN2DpYf.png" width=500> 
+<img src="https://i.imgur.com/FN2DpYf.png"> 
 
 That completes creating our first Lambda function and configuring it to be triggered by the AWS Gateway API. 
 
-## Exercise - Create And Assign A Lambda Functions - 30min
+## Exercise - Create Lambda Functions - 30min
 
 Since our API will require additional routes this means we will need to create additional supporting Lambda functions. 
 
 #### RESTful Routes to CRUD Mapping
 
-Let's revisit the **RESTful Routes to CRUD Mapping** schema we saw in the previous API lecture. The **Lambda** column contains the name of the functions we will need to create to support our API.  
+Let's revisit the **RESTful Routes** table we saw in the previous API lecture. The **Lambda** column contains the name of the functions we will need to create to support our API.  
 
 HTTP  | Resource  | CRUD Operation | Lambda | Has Data
 -----------|------------------|------------------|:---:|:---:
@@ -234,16 +244,16 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 #### Lambda
 
-- Create each of the remaining Lambda functions needed to support the rest of our routes (don't)
-- The functions should only return a body key body with the same message as before but replacing the **GET /projects** text with the method and route name. 
-- Create a new test in Lambda to confirm that each function works as expected
+- Create each of the remaining Lambda functions needed to support the rest of our routes.  **Don't create the routes only the Lambda functions**
+- The functions should only return same message as before however replace the **GET /projects** text with the method and route name, such as **Post /projects**
+- Create a new test for each Lambda function to confirm that each function works as expected
 
 #### API GATEWAY
 
 - Update only the **POST** method for the **/projects** resource and assign the **projects-create** Lambda function
-- Test the new route locally before deployment
-- Deploy the API and add an appropriate deployment message
-- Test the API is working externally using **Postman**
+- Test the new route locally 
+- Deploy the changes made to the API and add an appropriate deployment message
+- Test the API is working externally using **Postman**.  You should only receive receive the following:
 
 <img src="https://i.imgur.com/6ln3Ft5.png">
 
