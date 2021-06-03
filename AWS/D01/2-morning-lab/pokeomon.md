@@ -35,10 +35,10 @@ POST    | /pokemon          | Create a new _project_ | pokemon-create | Yes
 - Create the **GET /pokemon** route and assign it's corresponding Lambda function
 - Test that the route works locally and that you receive the correct message
 - Deploy the API and add an appropriate deployment message
-- Test the API works via Postman
+- Test the route works via Postman
 
 #### POST /projects Route
 - Create the **POST /pokemon** route and assign it's corresponding Lambda function
 - Test that the route works locally and that you receive the correct message
 - Deploy the API and add an appropriate deployment message
-- Test the API works via Postman
+- Test the route works via Postman
