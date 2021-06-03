@@ -17,7 +17,7 @@ DELETE  | /pokemon/:id      | Delete specified _project_ | pokemon-delete | No
 ### Lambda
 
 - Create all Lambda functions based on the following routing table.
-- The functions should only return a message such as **GET /pokemon** text with the method and route name specific to the route it is meant to support. 
+- The functions should only return a message such as **GET /pokemon route working successfully** text with the method and route name specific to the route it is meant to support. 
 - Create a new test for each Lambda function to confirm that each function works as expected
 
 ### API GATEWAY
