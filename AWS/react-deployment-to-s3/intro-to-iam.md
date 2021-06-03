@@ -1,11 +1,16 @@
-his is a mini lecture focused on deploying a React app to an AWS S3 bucket configured as a static web server.
+Title: Intro To IAM<br>
+Duration: 30min <br>
+Creator:  Joe Keohan<br>
 
- We will be covering the following topics:
+---
 
-- using IAM to create users/groups
-- create and configure an S3 bucket
-- connect to the S3 bucket via our terminal
-- add a new startup script to build & push the React app
+# Intro To IAM 
+
+This lecture is focused on working with the IAM service and we will be covering the following topics:
+
+- using IAM to create users
+- using IAM to create groups
+- adding users to groups
 
 ## Prerequisites
 
@@ -13,28 +18,6 @@ his is a mini lecture focused on deploying a React app to an AWS S3 bucket confi
 - A Credit card is required to verify your AWS account.
 
 If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account.
-
-## Intro To The AWS Global Network 
-
-AWS has become the premier cloud service provider and provides companies with a global infrastructure and pay as you go service model helping companies to lower their TCO. 
-
-Their infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.  
-
-
-<img src="https://i.imgur.com/ZVH2bAl.jpg" >
-<br>
-
-The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site. 
-
-### AWS Services
-
-Along with their global infrastructure AWS offers in the range of 175 products and services. We can browse those services via the Products tab on [https://aws.amazon.com/](https://aws.amazon.com/).
-
-**Free Tier**
-
-AWS provides a free tier of support for many of their services.  Its important to mention that if you exceed the limit you will be charged accordingly. 
-
-So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services.
 
 ## Creating User/Groups Using IAM
 
@@ -46,52 +29,65 @@ Creating an account involves the following steps:
 
 - Defining a user name and the type of access
 - Adding the user to a group and assigning group permissions
-- Download the `credentials.csv` file that contains access & secret keys
 
 AWS has made it easy to search for a service by using typing in the service name, in this case **IAM**. 
 
 <img src="https://i.imgur.com/TDjx7Uj.png">
 
-### Adding A User
+### Creating A User
 
 Once the tool opens let's click on **Users** and the **Add User** button. 
 
 <img src="https://i.imgur.com/8R2M1iN.png">
 
-Create a **User name** and choose **Programatic access**.  This access allows the user to connect via the CLI.
+Create a **User name** and choose both **Programatic access** and **AWS Management Console access**.  
 
-Once complete click **Next**. 
+This access allows the user to connect to both the AWS console and from their local terminal. 
 
-<img src="https://i.imgur.com/yBsbLQq.png">
+<img src="https://i.imgur.com/McJzvem.png">
+
+Once complete click **Next: Permissions** to assign the user to a group. 
+
+### Creating A Group
 
 Groups are a key part to security in AWS and, by default, there are no predefined groups so we will need to create one. 
 
-Click on **Create group**. 
+Click on the **Create group** button.
 
 <img src="https://i.imgur.com/Lx3ah8x.png">
 
-For this demo we will create a group called **seir-admins** and assign the **AdministratorAccess** policy. 
+Let's call the group **seir-admins** and assign the the **AdministratorAccess** policy. 
+
+AWS uses policies to define permissions and are used for not only user accounts but for **roles** as well. 
+
+
 
 <img src="https://i.imgur.com/4gsJoZU.png">
 
- We need to add the user to the appropriate group.  For now we will add them to the default **admins** group. Once the group is created it will have already added the user the newly created group.
+Once the group is created AWS will have now automatically add the user the newly created group.
+
 
 <img src="https://i.imgur.com/IIg6Ce5.png" >
 
-We have the option to assign tags to this user but we will not do so at this time so click **Next**. 
+We have the option to assign tags to this user but we will not do so at this time so click **Next**.  Tags are a great way to group resources that have some relationship, such as those used to support a specific app or department. 
 
-On the review page we must make sure to download the security keys as they contain both the **Access key id** and **Secret access key** we will use when we connect via the CLI. 
+### Notify User
+
+On the review page we can see that the user has been assigned an **Access key id** and **Secret access key**, both of which are required to connect to AWS via the terminal.  We will revisit setting up the keys at a later time. 
 
 
-<img src="https://i.imgur.com/3MLmPNM.png" />
+**Send Email**
 
+Now click **Send email** and email your self the confirmation email. This isn't required but you will be creating an admin user accounts for the instructional team as well so it's good practice for now. 
 
-## Creating An S3 Bucket
+<img src="https://i.imgur.com/EMwAWzz.png">
 
-S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage an S3 bucket can also be configured as a static web server. 
+### Exercise - Create Additional Admin Accounts - 10min
 
-We can find the service by using their search option once again and typing in **S3**. 
+- Create additional admin accounts for the instructional team using the naming convention:  **seir-instructor-name**. 
+- Create a new group called **seir-instructors-admin** and add the instructor accounts to the group.
+- Send them a notification email when complete. 
 
-<img src="https://i.imgur.com/aZQH1hG.png" >
+#### References
 
-**NOTE**: accessKeys.csv contains secrets! Do not share them or store them in git. The .gitignore in this repository explicitly ignores this file. Altering the .gitignore file in this repository could result in your AWS credentials (credentials linked to your credit card information) being visible on Github. NEVER COMMIT SECRETS TO GIT
+- [AWS Global Infrastructure](https://jayendrapatil.com/aws-regions-availability-zones-and-edge-locations/)
