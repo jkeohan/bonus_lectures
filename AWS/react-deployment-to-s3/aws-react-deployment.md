@@ -29,7 +29,7 @@ AWS has become the premier cloud service provider and provides companies with a 
 Their infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.  
 
 
-<img src="https://i.imgur.com/ZVH2bAl.jpg" width=600>
+<img src="https://i.imgur.com/ZVH2bAl.jpg" >
 <br>
 
 The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site. 
@@ -91,7 +91,7 @@ We have the option to assign tags to this user but we will not do so at this tim
 On the review page we must make sure to download the security keys as they contain both the **Access key id** and **Secret access key** we will use when we connect via the CLI. 
 
 
-<img src="https://i.imgur.com/3MLmPNM.png" width=600/>
+<img src="https://i.imgur.com/3MLmPNM.png" />
 
 
 ## Creating An S3 Bucket
@@ -100,7 +100,7 @@ S3 stands for **Simple Storage Service** and is the most basic of the storage op
 
 We can find the service by using their search option once again and typing in **S3**. 
 
-<img src="https://i.imgur.com/aZQH1hG.png" width=600>
+<img src="https://i.imgur.com/aZQH1hG.png" >
 
 **NOTE**: accessKeys.csv contains secrets! Do not share them or store them in git. The .gitignore in this repository explicitly ignores this file. Altering the .gitignore file in this repository could result in your AWS credentials (credentials linked to your credit card information) being visible on Github. NEVER COMMIT SECRETS TO GIT
 
@@ -115,23 +115,23 @@ Creating an S3 bucket will involve the following steps:
 
 Let's get started by clicking on the **Create Bucket** button. The first option we will configure is the **Bucket Name** and **Region**.
 
-<img src="https://i.imgur.com/QpUsfzP.png" width=600>
+<img src="https://i.imgur.com/QpUsfzP.png" >
 
 Then we will uncheck the **Block all public access** and then check the **I acknowledge** option. 
 
-<img src="https://i.imgur.com/amttek1.png" width=600>
+<img src="https://i.imgur.com/amttek1.png" >
 
 Once the bucket is created we must now add a custom **Bucket Policy**.  We will do this by clicking on the Bucket and clicking the **Permissions** tab. 
 
-<img src="https://i.imgur.com/XYnVQeP.png" width=600>
+<img src="https://i.imgur.com/XYnVQeP.png" >
 
 Now browse down to **Bucket Policy** and click on **Edit**. 
 
-<img src="https://i.imgur.com/pdK5NXR.png" width=600/>
+<img src="https://i.imgur.com/pdK5NXR.png" />
 
 On the **Edit Policy Page** click on **Policy Generator**
 
-<img src="https://i.imgur.com/zJQfjLa.png" width=600/>
+<img src="https://i.imgur.com/zJQfjLa.png" />
 
 
 #### On the AWS Policy Generator page
@@ -145,11 +145,11 @@ On the **Edit Policy Page** click on **Policy Generator**
 
 Once the info is in place click **Add Statement**
 
-<img src="https://i.imgur.com/fZWru8z.png" width=600>
+<img src="https://i.imgur.com/fZWru8z.png" >
 
 Now click on **Generate Policy**
 
-<img src="https://i.imgur.com/3XtV5Od.png" width=600>
+<img src="https://i.imgur.com/3XtV5Od.png" >
 
 Copy the JSON.  You can use the below JSON as well if you didn't perform the previous steps. The only thing we will need to customize here is the name of the S3 Bucket name you defined. 
 
@@ -171,7 +171,7 @@ Copy the JSON.  You can use the below JSON as well if you didn't perform the pre
 
 Paste the JSON into the **Bucket Policy** and click **Save Changes**
 
-<img src="https://i.imgur.com/9AVi9WY.png" width=600>
+<img src="https://i.imgur.com/9AVi9WY.png" >
 
 <!-- Here is a breakdown of what those options mean. 
 
@@ -193,19 +193,19 @@ As mentioned before S3 buckets can be used as general storage containers or as s
 
 Here we will click **Edit** on the **State webstie hosting** section.
 
-<img src="https://i.imgur.com/VgPFqXN.png" width=600>
+<img src="https://i.imgur.com/VgPFqXN.png" >
 
 Once **Enabled** we will need to type a document name for both **index document** and **error document**.  Since our React app is already configured to render an **index.html** file we will use that. 
 
-<img src="https://i.imgur.com/dhZBLM1.png" width=600>
+<img src="https://i.imgur.com/dhZBLM1.png" >
 
 Once the settings have been saved we can now access the site via the url it provies. 
 
-<img src="https://i.imgur.com/xQIAm7Q.png" width=600>
+<img src="https://i.imgur.com/xQIAm7Q.png" >
 
 However since we haven't yet pushed an index.html file we should receive the following error.
 
-<img src="https://i.imgur.com/lbjVxuO.png" width=600>
+<img src="https://i.imgur.com/lbjVxuO.png" >
 
 ## Setting Up CLI Access
 
@@ -223,7 +223,7 @@ Let's configure our access keys stored in the .csv file we downloaded earlier.
 
 In order to do this we will type: **aws configure** and follow the prompts to provide the **Access** and **Secret Access** keys which you can copy/paste.
 
-<img src="https://i.imgur.com/yV9UDuf.png" width=600>
+<img src="https://i.imgur.com/yV9UDuf.png" >
 
 We can test that our account now has admin access by typing: 
 
