@@ -31,29 +31,43 @@ Many of the world's fastest growing businesses such as Lyft, Airbnb, and Redfin 
 
 <!-- <img src="https://i.imgur.com/ldOTWqq.png"> -->
 
-#### Relational Design Patterns With DynamoDB 
 
-Many developers apply relational design patterns with DynamoDB even though they don’t have the relational tools like the join operation. This means they put their items into different tables according to their type. However, since there are no joins in DynamoDB, they’ll need to make multiple, serial requests to fetch both the Orders and the Customer record.
+### Primary Key = Partition Key
+An **item** in DynamoDB refers to a single entry that is referenced using only a **Partition Key**.
+
+<img src="https://i.imgur.com/AxjGVug.png" >
+
+Creating a table like this would be consistent with the following:
+
+<img src="https://i.imgur.com/iLbf8X6.png">
+
+### Primary Key = Partition Key + Sort Key
+
+
+Many developers apply relational design patterns with DynamoDB even though they don’t have the relational tools like the join operations. This means they put their items into different tables according to their type. However, since there are no joins in DynamoDB, they’ll need to make multiple requests to fetch both the Orders and the Customer record.
 
 <img src="https://i.imgur.com/cXQNw1k.png">
 
-#### Item Collection
+Being that this DB is non relational we can create relationships using an **item collection** which refers to all the items in a table or index that share a partition key. 
 
-An **item collection** in DynamoDB refers to all the items in a table or index that share a partition key. In the example below, we have a DynamoDB table that contains actors and the movies in which they have played. The primary key is a composite primary key where the partition key is the actor’s name and the sort key is the movie name.
+<img src="https://i.imgur.com/BmxMgUS.png">
+
+#### Relational Design Patterns With DynamoDB 
+
+In the example below, we have a DynamoDB table that contains actors and the movies in which they have played. The primary key is a composite primary key where the partition key is the actor’s name and the sort key is the movie name.
 
 <img src="https://i.imgur.com/sSeYYZB.png">
 
-Another example would be to combine a **user** with their **profile** and **orders**,  essentially combining 2 additional data points with a single **primary key**. 
 
-<img src="https://i.imgur.com/InAzbZr.png">
 
-**Free Tier**
+
+### Free Tier
 
 Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page search for Lambda to confirm this is still the case.  
 
 
 
-<img src="https://i.imgur.com/HuIKHvJ.png" width=300/>
+<img src="https://i.imgur.com/HuIKHvJ.png" >
 <br>
 <br>
 
@@ -76,7 +90,7 @@ It should be mentioned that cost is measured across all tables so the more you c
 
 Let's get started with creating our first DynamoDB table by clicking on the big orange button. 
 
-<img src=https://i.imgur.com/lD1OpKf.png width=400/>
+<img src=https://i.imgur.com/lD1OpKf.png >
 
 This takes us to the DynamoDB services page where we can create tables and manage the DynamoDB database. 
 
@@ -84,7 +98,7 @@ This takes us to the DynamoDB services page where we can create tables and manag
 
 Add a **Table Name** and **Primary Key**.  The **Primary Key**, like all databases, will be unique for each entry in the DB.  
 
-<img src="https://i.imgur.com/AxjGVug.png" width=500>
+<!-- <img src="https://i.imgur.com/AxjGVug.png" width=500> -->
 
 <!-- <img src="https://i.imgur.com/BPVzVtf.png"> -->
 
@@ -92,14 +106,14 @@ Here we will assign the **Primary Key** a name of **ProjectId** and of type **St
 
 <img src="https://i.imgur.com/lV90zBp.png">
 
-
+Here we should make note of the Read and Write capacity units.  This allows us to determine assign resources as to how the DB will be used.  This is an important concept in DynamoDB and will need to be calculated for both performance and cost. We will leave the default as they are. 
 
 <img src="https://i.imgur.com/WsmezJD.png">
 
 
 
 
-
+Our table is created and we should be presented with the following: 
 
 
 <img src="https://i.imgur.com/ZvG2nhC.png">

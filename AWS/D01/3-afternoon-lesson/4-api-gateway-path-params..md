@@ -6,7 +6,7 @@ Creator:  Joe Keohan<br>
 
 # API Gateway Path Params
 
-<!-- <img src="https://i.imgur.com/0pExHXm.png" width=200/> -->
+<img src="https://i.imgur.com/0pExHXm.png" width=200/>
 
 
 
