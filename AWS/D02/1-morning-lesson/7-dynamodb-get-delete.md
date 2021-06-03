@@ -25,7 +25,7 @@ In order to access DynamoDB from a Lambda function we will need to make use of t
 
 <img src="https://i.imgur.com/W2k5vY9.png" width=500/>
 
-Because we will be working within Lambda we won't need to install any NPM packages as the SDK is already available in Lambda. 
+Because we will be working within Lambda we won't need to install any NPM packages as the SDK is already available in Lambda environment. 
 
 
 <!-- <img src="https://i.imgur.com/hjJqcuv.png"> -->
@@ -422,12 +422,11 @@ exports.handler = async (event) => {
 
 ### Exercise - Delete A Single Project - 20min
 
-1. Take a moment to review the routing table and confirm the name of the Lambda function to edit
-
 HTTP  | Resource  | CRUD Operation | Lambda | Has Data
 -----------|------------------|------------------|:---:|:---:
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
+1. Take a moment to review the routing table and confirm the name of the Lambda function to edit
 2. Review the [AWS Docs](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html) and find the method used to delete a single item from the DynamoDB database. 
 3. Update the Lambda function to include all the code needed to delete an item
 4. Create a Lambda test to verify this works
