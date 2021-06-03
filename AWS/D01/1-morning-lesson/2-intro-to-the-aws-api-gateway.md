@@ -227,7 +227,7 @@ Located at the very top is the url to the dev version of our API.  If we **copy/
 
 Thats because there is no route configured for **/dev**. Let's append **/projects** to the url.  The error message will be gone and we should now see nothing as the route isn't configured to send any data. 
 
-<img src="https://i.imgur.com/Wye9Sy6.png" >
+<img src="https://i.imgur.com/FLiLLsq.png" >
 
 We can confirm that the request did go through by checking our the **Network** tab in **DevTools**.  Here we should see that we received a status code of **200**. 
 
