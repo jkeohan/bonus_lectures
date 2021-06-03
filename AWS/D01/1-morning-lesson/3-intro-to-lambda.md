@@ -41,7 +41,7 @@ Lambda falls into the **Always Free** tier of services so lets take a look at th
 <br>
 <br>
 
-Although free, Lambda's free tier of support is limited to the following, none of which we will exceed during our configuration. 
+Although free, Lambda's free tier of support is limited to the following, none of which we will exceed during the process of creating and supporting our API. 
 
   - 1,000,000 requests (then .20C per 1mil additional requests)
   - 400,000 GBs of compute time (3,200,000 sec if functions are configured to use 128 MB)
