@@ -36,7 +36,9 @@ Their infrastructure currently contains 24 geographic Regions around the world w
 
 <img src="https://i.imgur.com/ZVH2bAl.jpg" width=800>
 
-Regions are used to aggregate many of the services and provide one or more Availability Zones.  Their network also has Point Of Presence locations that increases the availability of services and reduces latency.  Let's take a closer look at the N.Virginia Region. 
+**Regions** are used to aggregate and/or segment many of the services, as well as provide a level of redundancy using one or more Availability Zones.  Their network also has **Point Of Presence** locations that increase the availability of services and reduces latency by geographically placing those locations in closer proximity to the end users.  
+
+Let's take a closer look at the **N.Virginia Region**. 
 
 <img src="https://i.imgur.com/xZkVBM5.png" width=800>
 
@@ -50,7 +52,7 @@ AWS offers in the range of 175 products and services. We can browse those servic
 
 ### Free Tier
 
-AWS offers 12 months of free tier support for many of their product and services.   It's important to mention that you will be charged accordingly once the 12 months expires OR if you exceed the limits of the tier of support provided by the service. 
+AWS offers **12 months** of free tier support for many of their product and services.   It's important to mention that you will be charged accordingly once the 12 months expires OR if you exceed the limits of the tier of support provided by the service. 
 
 So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services and then search for **api gateway**.
 
@@ -58,7 +60,7 @@ So before we begin lets take a look at their [free tier](https://aws.amazon.com/
 
 ### API Gateway
 
-The API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone **RESTful APIs** that can work with other AWS services such as Lambda in order to provide a full backed infrastructure. 
+The API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone **RESTful APIs** that can integrate with other AWS services, such as Lambda, in order to provide a full backed infrastructure. 
 
 <img src="https://i.imgur.com/ziCSBw7.png" width=700/>
 
@@ -66,7 +68,7 @@ The API Gateway is a fully managed service that makes it easy for developers to 
 
 ### Getting Started
 
-Lets get started with the API Gateway by clicking the **Get started with Amazon API Gateway** button.
+Lets get started with the **API Gateway** by clicking the **Get started with Amazon API Gateway** button.
 
 <img src="https://i.imgur.com/2ys5YaN.png" width=500>
 <br>
@@ -74,7 +76,7 @@ Lets get started with the API Gateway by clicking the **Get started with Amazon 
 #### Creating A REST API
 
 
-API Gateway is fairly versatile and provides the following 4 options to choose from: 
+API Gateway extends it's versatility by providing the following 4 options to create and API:
 
 
 <img src="https://i.imgur.com/Lu2tDpW.png" width=500>
