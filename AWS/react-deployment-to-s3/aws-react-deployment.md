@@ -4,7 +4,7 @@ Creator:  Joe Keohan<br>
 
 ---
 
-# AWS Deployment 
+# Intro To IAM 
 
 This lecture is focused on working with the IAM service and we will be covering the following topics:
 
@@ -40,7 +40,9 @@ Once the tool opens let's click on **Users** and the **Add User** button.
 
 <img src="https://i.imgur.com/8R2M1iN.png">
 
-Create a **User name** and choose both **Programatic access** and **AWS Management Console access**.  This access allows the user to connect to both the AWS console and from their local terminal. 
+Create a **User name** and choose both **Programatic access** and **AWS Management Console access**.  
+
+This access allows the user to connect to both the AWS console and from their local terminal. 
 
 <img src="https://i.imgur.com/McJzvem.png">
 
@@ -50,11 +52,13 @@ Once complete click **Next: Permissions** to assign the user to a group.
 
 Groups are a key part to security in AWS and, by default, there are no predefined groups so we will need to create one. 
 
-Click on **Create group**. 
+Click on the **Create group** button.
 
 <img src="https://i.imgur.com/Lx3ah8x.png">
 
-Let's create a group called **seir-admins** and assign the **AdministratorAccess** policy. 
+Let's call the group **seir-admins** and assign the the **AdministratorAccess** policy. 
+
+AWS uses policies to define permissions and are used for not only user accounts but for **roles** as well. 
 
 
 
@@ -65,11 +69,14 @@ Once the group is created AWS will have now automatically add the user the newly
 
 <img src="https://i.imgur.com/IIg6Ce5.png" >
 
-We have the option to assign tags to this user but we will not do so at this time so click **Next**. 
+We have the option to assign tags to this user but we will not do so at this time so click **Next**.  Tags are a great way to group resources that have some relationship, such as those used to support a specific app or department. 
 
 ### Notify User
 
 On the review page we can see that the user has been assigned an **Access key id** and **Secret access key**, both of which are required to connect to AWS via the terminal.  We will revisit setting up the keys at a later time. 
+
+
+**Send Email**
 
 Now click **Send email** and email your self the confirmation email. This isn't required but you will be creating an admin user accounts for the instructional team as well so it's good practice for now. 
 
