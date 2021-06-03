@@ -56,13 +56,13 @@ AWS offers **12 months** of free tier support for many of their product and serv
 
 So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services and then search for **api gateway**.
 
-<img src="https://i.imgur.com/Gplt0Ma.png" width=500/>
+<img src="https://i.imgur.com/Gplt0Ma.png"/>
 
 ### API Gateway
 
 The API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain and secure APIs.  It allows them to create standalone **RESTful APIs** that can integrate with other AWS services, such as Lambda, in order to provide a full backed infrastructure. 
 
-<img src="https://i.imgur.com/ziCSBw7.png" width=700/>
+<img src="https://i.imgur.com/ziCSBw7.png" />
 
 <!-- Routes, which AWS refers to as **resources**, can accept data either using **path params (/:id)** or **query strings (?id=1)**.   -->
 
