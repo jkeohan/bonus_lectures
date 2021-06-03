@@ -58,13 +58,13 @@ Creating an account involves the following steps:
 
 AWS has made it easy to search for a service by using typing in the service name, in this case **IAM**. 
 
-<img src="https://i.imgur.com/TDjx7Uj.png" width=600>
+<img src="https://i.imgur.com/TDjx7Uj.png">
 
 ### Adding A User
 
 Once the tool opens let's click on **Users** and the **Add User** button. 
 
-<img src="https://i.imgur.com/8R2M1iN.png" width=600>
+<img src="https://i.imgur.com/8R2M1iN.png">
 
 Create a **User name** and choose **Programatic access**.  This access allows the user to connect via the CLI.
 
