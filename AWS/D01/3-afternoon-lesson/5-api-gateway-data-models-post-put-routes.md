@@ -36,7 +36,7 @@ Open the **projects-create** Lambda function and let's make one edit to the inco
 
 #### Test Via Lambda
 
-Let's perform a test against Lambda using the below JSON.  If no test has been configured than let's take a moment to create one called **newItem** and configure it to use the JSON.
+Let's perform a test against **projects-create** using the below JSON.  If no Lambda test has been configured than let's take a moment to create one called **newItem** and configure it to use the JSON.
 
 ```json
 {
@@ -46,11 +46,11 @@ Let's perform a test against Lambda using the below JSON.  If no test has been c
 }
 ```
 
-
+Copy/Paste the above JSON to the body of the test. 
 
 <img src="https://i.imgur.com/fSKRCfH.png">
 
-If the test is successful we should see the following response. We can confirm this by examining the **projectId** which should have a random number appended to **project_**. 
+Run the test and successful we should see the following response. We can confirm this by examining the **projectId** which should have a random number appended to **project_**. 
 
 <img src="https://i.imgur.com/bSub8Yk.png">
 
@@ -289,7 +289,7 @@ Test the **POST** route via the API Gateway for each of the below JSON objects.
 }
 ```
 
-## Exercise - Testing Via Postman
+## Exercise - Testing Via Postman - 5min
 
 - Deploy the API to the **dev** stage leaving an appropriate deployment message
 - Run the same tests via Postman
@@ -306,11 +306,11 @@ PUT     | /projects/:id      | Update specified _project_  | projects-update | Y
 - Assign the existing **Project** model to the **PUT** route
 - Update the existing **Body Mapping** template in the **Integration Request** to include the model
 
-**HINT:** you may need to add quotes around $input.params()
+<!-- **HINT:** you may need to add quotes around $input.params()
 
 ```js
  "id": "$input.params('id')"
-```
+``` -->
 
 #### Lambda
 - Configure the Lambda function to update and return the new element 
