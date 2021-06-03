@@ -235,14 +235,14 @@ We can confirm that the request did go through by checking our the **Network** t
 
 ### Testing The API Using Postman
 
-Open **Postman** and create a new **Collection** for our **Projects** routes.  
+Open **Postman** and create a new **Collection** for our **Projects** routes.  Here we will once again test the **GET** route and save it to our new collection. 
 
-Here we will once again test the **GET** route and save it to our new collection. 
+<img src="https://i.imgur.com/NvuQsAP.png">
 
-## Exercise - Configure a POST Route - 5min
+## Exercise - Configure a POST Route - 15min
 
 
-Let's revisit the **RESTful Routes to CRUD Mapping** schema and focus on just the **POST** route. 
+Let's revisit the **RESTful Routes** table and focus on just the **POST** route. 
 
 HTTP Method | URI (endpoint)  | CRUD Operation | Controller Action | Has Data
 -----------|------------------|------------------|:---:|:---:
@@ -252,7 +252,9 @@ Perform the following:
 
 - Add a new **POST** method to the the **/projects** route. 
 - Set it up as a **Mock Endpoint**
-- Run a test to confirm that it responds with status code 200 in chrome and Postman
+- Run a test to confirm that it responds locally
+- Deploy the API once and leave a good deployment message 
+- Test the route in Postman and confirm that you receive a status code 200 
 
 
 #### References
