@@ -73,13 +73,15 @@ Lets get started with the **API Gateway** by clicking the **Get started with Ama
 <img src="https://i.imgur.com/ZEPfxAC.png">
 <br>
 
-#### Creating A REST API
+#### API Options
 
 
 API Gateway extends it's versatility by providing the following 4 options to create and API:
 
 
 <img src="https://i.imgur.com/Lu2tDpW.png" >
+
+#### Creating A REST API
 
 We will focus on creating a **REST API** which refers to a collection of resources(routes) and methods that can be invoked through **URL endpoints** and **HTTP methods**. 
 
@@ -98,7 +100,7 @@ The API we will be building will allow us to get,create,update and delete info a
 
 Then click **Create API**. 
 
-<img src="https://i.imgur.com/2ZDalPx.png" width=900/>
+<img src="https://i.imgur.com/2ZDalPx.png"/>
 
 <!-- The app we will be building will allow us to store info about the projects in our portfolio, including the following:
 
