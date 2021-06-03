@@ -10,7 +10,7 @@ Creator:  Joe Keohan<br>
 
 
 
-This lecture will focus on creating AWS Lambda functions and configuring them to work with API Gateway. 
+This lecture will focus on creating **AWS Lambda functions** and configuring them to work with the **API Gateway**.  We will perform the following:
 
 - creating and testing Lambda functions
 - editing and deploying Lambda functions
@@ -35,9 +35,9 @@ Here are some of the main benefits of working with Lambda:
 
 ### Free Tier
 
-Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page and search for Lambda to confirm this is still the case.  
+Lambda falls into the **Always Free** tier of services so lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) page, scroll down a bit, and search for Lambda.  
 
-<img src="https://i.imgur.com/lUFJYPL.png" width=300/>
+<img src="https://i.imgur.com/lUFJYPL.png" >
 <br>
 <br>
 
