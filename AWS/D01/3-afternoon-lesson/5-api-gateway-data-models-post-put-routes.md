@@ -306,11 +306,11 @@ PUT     | /projects/:id      | Update specified _project_  | projects-update | Y
 - Assign the existing **Project** model to the **PUT** route
 - Update the existing **Body Mapping** template in the **Integration Request** to include the model
 
-<!-- **HINT:** you may need to add quotes around $input.params()
+**HINT:** you may need to add quotes around $input.params()
 
 ```js
  "id": "$input.params('id')"
-``` -->
+``` 
 
 #### Lambda
 - Configure the Lambda function to update and return the new element 
