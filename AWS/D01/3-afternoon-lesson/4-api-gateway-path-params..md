@@ -26,7 +26,7 @@ This lecture will focus on the following:
 
 #### RESTful Routes to CRUD Mapping
 
-Here is our **RESTful Routes to CRUD Mapping** schema we will usee for **/projects** API. Some of the routes include **path params** which is something we will focus on setting up in this lecture. 
+Here is our **RESTful Routes** table we are using for **/projects** API. Some of the routes include **path params** which are represented by **/:id**. 
 
 HTTP  | Resource  | CRUD Operation | Lambda | Has Data
 -----------|------------------|------------------|:---:|:---:
@@ -36,7 +36,7 @@ POST    | /projects          | Create a new _project_ | projects-create | Yes
 PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
 DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
-### Seed Data
+<!-- ### Seed Data
 
 Let's import some data to use in order to return it via our routes.  The same seed data will be used later to populate the DynamoDB database. 
 
@@ -116,15 +116,11 @@ Let's test the route in AWS Gateway and Postman to confirm that it returns the d
 
 <img src="https://i.imgur.com/3pwTDgF.png" width=500>
 
-<!-- #### Redeploy The API
 
-Let's make sure to redeploy the API so that 
-
-<img src="https://i.imgur.com/88xrRav.png"> -->
 
 **POSTMAN**
 
-<img src="https://i.imgur.com/kLqKSSm.png" width=500/>
+<img src="https://i.imgur.com/kLqKSSm.png" width=500/> -->
 
 <!-- 
 ### Exercise - Import Dataset For All Lambda Functions - 5min
@@ -133,15 +129,7 @@ Let's make sure to redeploy the API so that
 
 ## Working With Route Params 
 
-Let's take a look at the routing table once again.  We will focus on the following routes, all of which make use of a **path params**.  Using a **path param** provides us the ability to send data to the API via a route path instead of the body. 
-
-HTTP  | Resource  | CRUD Operation | Lambda | Has Data
------------|------------------|------------------|:---:|:---:
-GET     | /projects/:id      | Read a specific _project_ | projects-show | No
-PUT     | /projects/:id      | Update specified _project_  | projects-update | Yes
-DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
-
-The intent of using **/:id** as the path param will be to target an item based on a specific database id.  
+The intent of using **/:id** as the path param will be to target an item based on a specific database id.  The name of the param could be anything but should represent the unique property of the item to be targeted. 
 
 ### Creating A Path Param 
 
@@ -165,13 +153,43 @@ As with all routes we need to add an HTTP method, in this case it will bee  **GE
 
 #### Testing The Route
 
-Of course we should to test that the route works. The testing page now includes a reference to the path we just created.  Let's add some value and run the test to see what it returns. 
+Of course we should to test that the route works. The testing page now includes a reference to the path we just created.  Let's add a value that represents the ID of the element and run the test to see what it returns. 
 
 As we can see the test returns our original message, which is expected as we hard coded the message in the response body.  
 
 <!-- <img src="https://i.imgur.com/lvQD1r9.png" /> -->
 
 <img src="https://i.imgur.com/1a40WdD.png" />
+
+
+#### Updating The Lambda Function 
+
+Let's update the **projects-show** Lambda function to pass the event back that it receives. 
+
+As we can see the async function is configured to accept a single **event** argument so let's **console.log** the event and return it in the response. 
+
+```js
+exports.handler = async (event) => {
+    console.log('event', event)
+    const response = {
+        statusCode: 200,
+        body: event,
+    };
+    return response;
+}
+```
+
+If we test the function using the Lambda test we should see that it returns the values that have been passed via the test. 
+
+<img src="https://i.imgur.com/1lMlksx.png" />
+
+Let's test the Lambda function via the **GET /projects/:id** route once again.
+
+<img src="https://i.imgur.com/soLqTBA.png">
+
+This time we see that it passes back an empty object.  That is because the we must configure the route to examine the incoming data and pass the path param value to the function. 
+
+
 
 
 ### Passing Path Params To Lambda
@@ -209,7 +227,7 @@ In the template section let's add the following:
 
 **NOTE:** A mapping template is a script expressed in [Velocity Template Language (VTL)](https://docs.amazonaws.cn/en_us/apigateway/latest/developerguide/models-mappings.html).  We won't delve into this language any more than whats in the AWS documentation. 
 
-### Updating Lambda Function
+<!-- ### Updating Lambda Function
 
 Back in our Lambda function let's update it to access the values that are now being passed to it from the API Gateway via the **Integration Request**.  
 
@@ -226,13 +244,21 @@ exports.handler = async (event) => {
 }
 ```
 
-If we test the function using the Lambda test we should see that it returns the values that have been passed via the test. 
 
-<img src="https://i.imgur.com/1lMlksx.png" />
 
-In order for Lambda to console.log the **path param** value we will need the API Gateway to trigger the Lambda function as it will pass the path param value as the event.  
+In order for Lambda to console.log the **path param** value we will need the API Gateway to trigger the Lambda function as it will pass the path param value as the event.   -->
 
 Before we do so let's take a moment to look at the **AWS CloudWatch** service to see how it creates logs fo each triggered event. 
+
+
+
+<!-- <img src="https://i.imgur.com/hedrwrW.png" /> -->
+
+### Testing Via API Gateway
+
+Let's run another test via the API gateway and confirm that the id in the path params is being passed to the Lambda function. If the test is successful then we should see the results below:
+
+<img src="https://i.imgur.com/lr2dTCg.png">
 
 ### AWS CloudWatch Logs
 
@@ -248,18 +274,7 @@ If we click on the first link in the list it will take us to the most recent log
 
 <img src="https://i.imgur.com/wtGD30c.png" />
 
-
-<!-- <img src="https://i.imgur.com/hedrwrW.png" /> -->
-
-### Testing Via API Gateway
-
-Let's run another test via the API gateway and confirm that the id in the path params is being passed to the Lambda function. If the test is successful then we should see the results below:
-
-<img src="https://i.imgur.com/lr2dTCg.png">
-
-**CloudWatch Logs**
-
-If we take a look at the CloudWatch logs for our Lambda function we should now see the console log for the event containing the id and value. 
+The CloudWatch logs should now also contain the console log message for the event containing the id and value. 
 
 <img src="https://i.imgur.com/f0hQpvo.png" /> 
 
@@ -279,7 +294,7 @@ DELETE  | /projects/:id      | Delete specified _project_ | projects-delete | No
 
 #### Lambda
 
-- Configure the Lambda function to return the id value
+- Configure each Lambda function to return the id value
 
 
 #### Testing
