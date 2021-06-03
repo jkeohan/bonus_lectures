@@ -70,7 +70,7 @@ The API Gateway is a fully managed service that makes it easy for developers to 
 
 Lets get started with the **API Gateway** by clicking the **Get started with Amazon API Gateway** button.
 
-<img src="https://i.imgur.com/2ys5YaN.png">
+<img src="https://i.imgur.com/ZEPfxAC.png">
 <br>
 
 #### Creating A REST API
