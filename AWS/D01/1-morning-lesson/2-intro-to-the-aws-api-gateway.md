@@ -27,7 +27,7 @@ This lecture is focused on introducing the AWS API Gateway service and will be c
 
 If you do not have an account, open AWS and click Create a Free Account. Amazon provides a free tier for twelve months,with some limitations,  after you sign-up for an AWS account.
 
-## Intro To The AWS Global Network 
+<!-- ## Intro To The AWS Global Network 
 
 AWS has become the premier cloud service provider and provides companies with a global infrastructure and pay as you go service model helping companies to lower their TCO. 
 
@@ -43,7 +43,7 @@ Let's take a closer look at the **N.Virginia Region**.
 <img src="https://i.imgur.com/xZkVBM5.png" width=800>
 
 
-<br>
+<br> -->
 
 
 ### AWS Services
