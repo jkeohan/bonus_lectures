@@ -1,8 +1,12 @@
-# Intro To AWS And Thee Cloud
+# Intro To AWS And The Cloud
 
 The adoption of cloud computing has quickly become a key driving force for businesses today, as applications are moved out of on-premise data centres in a bid to innovate, cut costs and increase agility.
 
-AWS is the premier **Infrastructure-as-a-service (IaaS)** provider where they host and maintain the core infrastructure, including hardware, software, servers and storage on behalf of a customer and provide all needed services, all highly available and scalable, where customers are only charged for the infrastructure and services they use.
+AWS is the premier **Infrastructure-as-a-service (IaaS)** provider and leads the market for cloud computing.
+
+<img src="https://i.imgur.com/7LuDq6U.png">
+
+ AWS can host and maintain the core infrastructure, including hardware, software, servers and storage on behalf of a customer and provide all needed services, all highly available and scalable, where customers are only charged for the infrastructure and services they use.
 
 
 
