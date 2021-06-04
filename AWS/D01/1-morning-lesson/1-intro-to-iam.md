@@ -6,6 +6,8 @@ Creator:  Joe Keohan<br>
 
 # Intro To IAM 
 
+<img src="https://i.imgur.com/CpFS8vo.png" >
+
 This lecture is focused on working with the IAM service and we will be covering the following topics:
 
 - using IAM to create users
