@@ -1,0 +1,280 @@
+Title: AWS-React-Deployment<br>
+Duration: 1 - 1.5 hrs+ <br>
+Creator:  Joe Keohan<br>
+
+---
+
+# AWS Deployment To S3 Bucket
+
+This lecture is focused on deploying a React app to an AWS S3 bucket configured as a static web server.
+
+ We will be covering the following topics:
+
+- using IAM to create users/groups
+- create and configure an S3 bucket
+- connect to the S3 bucket via our terminal
+- add a new startup script to build & push the React app
+
+<!-- ## Prerequisites
+
+- An AWS (Amazon Web Services) account
+- A Credit card is required to verify your AWS account.
+
+If you do not have an account, open AWS and click **Create a Free Account**. Amazon provides a free tier, with some limitations, for twelve months after you sign-up for an AWS account. -->
+
+<!-- ## Intro To The AWS Global Network 
+
+AWS has become the premier cloud service provider and provides companies with a global infrastructure and pay as you go service model helping companies to lower their TCO. 
+
+Their infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.   -->
+
+
+<!-- <img src="https://i.imgur.com/ZVH2bAl.jpg" width=600>
+<br> -->
+
+<!-- The best way to convey their global network is through their [AWS Infrastructure](https://infrastructure.aws/) web site.  -->
+
+### The S3 Service
+
+Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. 
+
+Amazon S3 provides easy-to-use management features and is designed for 99.999999999% (11 9's) of durability, and stores data for millions of applications for companies all around the world.
+
+AWS provides several uses cases for where S3 can be used to support the an application. 
+
+<img src="https://i.imgur.com/CkMVGhj.png">
+
+
+### Free Tier
+
+AWS offers **12 months** of free tier support for many of their product and services.   It's important to mention that you will be charged accordingly once the 12 months expires OR if you exceed the limits of the tier of support provided by the service. 
+
+So before we begin lets take a look at their [free tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) of services and search for **S3**.
+
+<!-- <img src="https://i.imgur.com/kZbpEfH.png"> -->
+<img src="https://i.imgur.com/c26hFGL.png">
+
+
+
+## Creating An S3 Bucket
+
+S3 stands for **Simple Storage Service** and is the most basic of the storage options in AWS. It is used for general purpose and frequent access to data. Besides simple storage an **S3 bucket** can also be configured as a **static web server**. 
+
+<!-- We can find the service by using their search option once again and typing in **S3**.  -->
+
+
+Let's get started with S3 by clicking on the big orange button. 
+
+<img src="https://i.imgur.com/IiXSrIP.png">
+
+One thing to note about **S3** is that is a **Global Service** and is not limited to individual **Regions**.  
+
+<img src="https://i.imgur.com/nuek4M5.png">
+
+On the **S3** service page we will see any **S3 buckets** that have been created for every account in this organizatio with the orgnaization being represented by the **root** account. 
+
+A **bucket** is essentially a folder that is used to store content. 
+
+<img src="https://i.imgur.com/aZQH1hG.png">
+
+
+
+### Creating An S3 Bucket 
+
+Creating an S3 bucket will involve the following steps:
+
+- Define a Bucket name and assigning it a region
+- Define Bucket Access permissions
+
+#### Assign A Name 
+
+Let's get started by clicking on the **Create Bucket** button. The first options we will configure are the **Bucket Name** and **Region**.  
+
+
+<img src="https://i.imgur.com/MBWd5Za.png">
+
+The **Bucket Name** must be unique and the rules for this are available clicking on the [See rules for bucket naming](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). 
+
+ One thing to note about unique names is the following:
+
+```Bucket names must be unique within a partition. A partition is a grouping of Regions. AWS currently has three partitions: aws (Standard Regions), aws-cn (China Regions), and aws-us-gov (AWS GovCloud [US] Regions).```
+
+<img src="https://i.imgur.com/EmQgHyP.png">
+
+
+#### Assign A Region
+
+
+Although the S3 service is a global services we still must assign each bucket to a specific region.
+
+<img src="https://i.imgur.com/EgdgKvG.png">
+
+#### Assing Bucket Permissions
+
+Uncheck the **Block all public access** and then check the **I acknowledge** option. This is required as we need to make the files in this bucket accessible to the general public. 
+
+This will however require that we assign our own custom bucket policy. 
+
+<img src="https://i.imgur.com/amttek1.png">
+
+#### Assigning A Custom Bucket Policy
+
+Before we assign the policy we will need one piece of info from the existing bucket and that is its resource name.  You can find that by clicking on **Properties**
+
+<img src="https://i.imgur.com/96pt6jj.png">
+
+
+Now let's add a custom **Bucket Policy**.  We will do this by clicking on the **Bucket** and clicking the **Permissions** tab. 
+
+<img src="https://i.imgur.com/XYnVQeP.png" >
+
+
+
+Now browse down to **Bucket Policy** and click on **Edit**. 
+
+<img src="https://i.imgur.com/pdK5NXR.png" />
+
+On the **Edit Policy Page** click on **Policy Generator**
+
+<img src="https://i.imgur.com/zJQfjLa.png" />
+
+
+#### On the AWS Policy Generator page
+
+- For **Select Type of Policy** use **S3 Bucket Policy**.
+- Under **Add Statement(s)**:
+    - Select `Allow` for `Effect`.
+    - In the `Principal` box type `*`
+    - Select `GetObject` for `Actions`.
+    - Enter `arn:aws:s3:::bucket_name/*` into the `Amazon Resource Name (ARN)` box.
+
+Once the info is in place click **Add Statement**
+
+<img src="https://i.imgur.com/S8H4VXe.pngv">
+
+Now click on **Generate Policy**
+
+<img src="https://i.imgur.com/fVuFUwD.png">
+
+Copy the JSON provided or you can use the below JSON as well if you didn't perform the previous steps. 
+
+**NOTE**: The only thing we will need to customize here is the name of the **S3 Bucket** name you defined. 
+
+
+```json
+{
+  "Id": "Policy1623006859623",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1623006761442",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::react-app-joek-seir-329",
+      "Principal": "*"
+    }
+  ]
+}
+```
+
+Paste the JSON into the **Bucket Policy** and click **Save Changes**
+
+<img src="https://i.imgur.com/9AVi9WY.png" width=600>
+
+<!-- Here is a breakdown of what those options mean. 
+
+|Configurration| Description|
+|-----|------|
+|Version | Defines the type of policy
+| Statement | An array of key:values that define the permissions
+| Sid | Defines the level of permissions
+| Effect | Set to Allow or Deny
+| Principle | Acecss the entire object
+| Action | Defines the type of action that can be performed
+| Resource | Defines the resource that you are providing access
+ -->
+
+
+### Configure S3 As A Static Website
+
+As mentioned before S3 buckets can be used as **general storage containers** or as **static web servers**.  We can configure the S3 bucket to be a **static web server** by clicking on the **Properites** tab and scrolling to the very bottom of the page. 
+
+Here we will click **Edit** on the **State webstie hosting** section.
+
+<img src="https://i.imgur.com/VgPFqXN.png" >
+
+Once **Enabled** we will need to type a document name for both **index document** and **error document**.  Since our React app is already configured to render an **index.html** file we will use that and use **errorr.html** for the error document. 
+
+<img src="https://i.imgur.com/dhZBLM1.png" >
+
+Once the settings have been saved we can now access the site via the url it provies. 
+
+<img src="https://i.imgur.com/xQIAm7Q.png" width=600>
+
+However since we haven't yet pushed an index.html file we should receive the following error.
+
+<img src="https://i.imgur.com/lbjVxuO.png" width=600>
+
+## Setting Up CLI Access
+
+Let's now install the Install the **AWS CLI** tool.  AWS provides installers for either [Mac, Windows or Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html). 
+
+<img src="">
+
+Once it's installed open a **terminal** and type the following to confirm the cli was successfully installed. 
+
+```
+aws -- version
+
+=> aws-cli/2.0.7 Python/3.8.2 Darwin/19.5.0 botocore/2.0.0dev11
+```
+
+### Access Keys
+Let's configure our **access keys** stored in the **download.csv** file we downloaded when we created this user account. 
+
+**NOTE**: If you didn't download the file then we will need to re-create the keys using **IAM** before moving on. 
+
+### Configure Access Keys Via Terminal
+In order to do this we will type: **aws configure** and follow the prompts to provide the **Access** and **Secret Access** keys which you can copy/paste from the **csv** file. 
+
+<img src="https://i.imgur.com/PStpfP9.png" width=600>
+
+We can test that our account now has admin access by typing: 
+
+```
+aws iam list-users
+```
+
+If successful you should see something similar to the following output.
+
+<img src="https://i.imgur.com/FAjneMe.png" width=400>
+
+## Deploying The React App
+
+Now that AWS is configured all we have to do is edit **package.json** and add a new **deploy** startup script. Make sure to change the s3 bucket name to that which you created earlier.
+
+```
+"deploy": "aws s3 sync build/ s3://react-app-joek-seir-329"
+```
+
+Now run the **build** script which transpiles and stores the React app in a **build** folder. 
+
+```js
+npm run build
+```
+
+
+
+Once that is complete we can then run **deploy**.
+
+```js
+npm run deploy
+```
+
+Confirm that your site has been pushed up and is accessible by refreshing the page. 
+
+#### References
+
+- [AWS Global Infrastructure](https://jayendrapatil.com/aws-regions-availability-zones-and-edge-locations/)
