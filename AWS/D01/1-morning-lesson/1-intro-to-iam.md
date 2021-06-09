@@ -6,8 +6,6 @@ Creator:  Joe Keohan<br>
 
 # Intro To IAM 
 
-<img src="https://i.imgur.com/CpFS8vo.png" >
-
 This lecture is focused on working with the IAM service and we will be covering the following topics:
 
 - using IAM to create users
@@ -79,14 +77,44 @@ Verify user account and click on **Create user**.
 
 ### Notify User
 
-On the review page we can see that the user has been assigned an **Access key id** and **Secret access key**, both of which are required to connect to AWS via the terminal.  We will revisit setting up the keys at a later time. 
+On the review page we can see that the user has been assigned an **Access key id**, **Secret access key** and a **Password**.  
 
+There is also a **Download.csv** button which contains some of this info so **click** the button to download the file. 
 
 **Send Email**
 
 Now click **Send email** and email your self the confirmation email. This isn't required but you will be creating an admin user accounts for the instructional team as well so it's good practice for now. 
 
+Include the **Download.csv** file as an attachment in the email. 
+
 <img src="https://i.imgur.com/EMwAWzz.png">
+
+
+
+Open the csv file and confirm that it includes the **user name**, **password** and **console login link**. 
+
+<img src="https://i.imgur.com/ilPb92B.png"> 
+
+One piece of info we will need for the user to login in the **12 digit** account number associated with the root account.  You can find this in AWS by clicking the drop down for your account on the top right side of the nav. 
+
+<img src="https://i.imgur.com/e4TGgzU.png">
+
+#### Login As An IAM User
+
+Once you have copied that number and/or written it down click on the **Console login link** in the csv file and this will take you to the login page. 
+
+<img src="https://i.imgur.com/FuZuspS.png" width=500>
+
+Since we want to sign in as the new **IAM user** we just created click on that box.  
+
+<img src="https://i.imgur.com/D3EkkBN.png" width=500>
+
+Enter the **12 digit account number** and click next.  Here you will be be able to login as the **IAM user**.  Login with the account name and the password provided in the csv file. 
+
+<img src="https://i.imgur.com/tX8xBql.png" width=500>
+
+
+
 
 ### Exercise - Create Additional Admin Accounts - 10min
 

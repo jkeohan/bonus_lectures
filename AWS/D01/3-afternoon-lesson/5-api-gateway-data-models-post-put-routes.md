@@ -93,26 +93,28 @@ Lets test this out in the API Gateway using JSON snippets.
 
 
 
-Although we could add some form of validation to the Lambda function this would require require the Lambda to do more than it needs to do.  We also must keep in mind the cost of executing a Lambda function, including time and RAM. Anything we can offload from the Lambda to another service would help reduce those costs.    
+Although we could add some form of validation to the Lambda function this would require Lambda to do more than it needs to do.  We also must keep in mind the cost of executing a Lambda function, including time and RAM. 
 
-Feel free to play with the [Lambda Simulation](https://console.aws.amazon.com/lambda/home?region=us-east-1#/begin) to see how the costs can add up. 
+Anything we can offload from the Lambda to another service would help reduce those costs.  Feel free to play with the [Lambda Simulation](https://console.aws.amazon.com/lambda/home?region=us-east-1#/begin) again to see how the costs can add up. 
 
 
-### Standardize Data Using Models and Body Mapping Templates
-It just so happens that this type of validation can be done in the API Gateway using **Model** and **Mapping Templates**.
+### Standardize Data Using Models
+It just so happens that this type of validation can be done in the API Gateway using **Model** and applying them in **Mapping Templates**.
 
-**Model** are used to accept a standardize schema that represents the data, both keys and values.  Once the Model has been created it is then applied via a **Body Mapping** template.  
+**Model** are used to define a standardize schema that represents the data.  This include key names, value data types and which keys are required.  Once the Model has been created it is then applied via a **Mapping Template** 
 
  Let's create a new **Model** by clicking on **Model** from the left navigation and then **Create**. 
 
 <img src="https://i.imgur.com/Zuh0bJI.png" width=300>
 
-Since this model will be used for project data let's name the model **Project** and give it a **Content type** of **application/json**. 
+Since this model will be used to define incoming project data let's name the model **Project** and give it a **Content type** of **application/json**. 
 
 <img src="https://i.imgur.com/TwZCupt.png" width=600>
 
 
 Below is the format we will use to define the **Model**.  One thing to make note of here is that we have included a **required** key that denotes the keys required for the data to be validated before being passed to the Lambda function. 
+
+It uses the [JSON Schema](https://json-schema.org/draft-04/json-schema-core.html#json-reference) structure.  Below is the schema we will uss for the project data which requires all the keys be present in the object in order to meet the requirements of this model. 
 
 
 <img src="https://i.imgur.com/FBSmjFq.png">
@@ -140,7 +142,7 @@ No need to write all this out just copy/paste the code snippet below.
 
 ### Apply Model Via Method Request
 
-We will apply this Model to the **Method Request** associated with the **POST** route.  Here we will add the **Model** by clicking on **Add Model** and choosing **Project** from the drown down. 
+We will apply this Model to the **Method Request** associated with the **POST** route.  Here we will add the **Model** by clicking on **Add Model** and chose **Project** from the drown down. 
 
 <img src="https://i.imgur.com/K8l61hL.png">
 
@@ -193,14 +195,14 @@ Let's confirm this by sending JSON that includes a new key.
 }
 ```
 
-We should see the entire JSON returned including the additional key. 
+We should see the entire JSON returned including the additional **hackerAttempt** key. 
 
-**ADD IMAGE HERE OF RETURNED DATA**
+<img src="https://i.imgur.com/RRsx8Yh.png" >
 
 
-### Apply A Body Mapping Template
+### Apply A Mapping Template
 
-In order for the API to ignore additional keys we can apply this same model as a **Body Mapping Template** in the **Integration Request**.  
+In order for the API to ignore additional keys we can apply this same model as a **Mapping Template** in the **Integration Request**.  
 
 Creating the template is done exactly as it was done for path params. 
 
@@ -239,6 +241,8 @@ $input.params("id")
 ```
 
 If we take a look at the [AWS Documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) we will see they are both included in the same section on **$input variables**.  
+
+<img src='https://i.imgur.com/vBweOMf.png'>
 
 The description states that it is used to access and manipulate elements of the payload.
 
@@ -279,6 +283,12 @@ Test the **POST** route via the API Gateway for each of the below JSON objects.
 }
 ```
 
+You should see the follow message in Postman with **400 Bad Request** status code. 
+
+
+<img src="https://i.imgur.com/DJ1V74y.png">
+
+
 **Unexpected New Key**
 ```json
 {
@@ -304,7 +314,7 @@ PUT     | /projects/:id      | Update specified _project_  | projects-update | Y
 #### API GATEWAY
 
 - Assign the existing **Project** model to the **PUT** route
-- Update the existing **Body Mapping** template in the **Integration Request** to include the model
+- Update the existing **Mapping Template** in the PUT **Integration Request** to include the model
 
 **HINT:** you may need to add quotes around $input.params()
 
