@@ -2,7 +2,7 @@
 
 The adoption of cloud computing has quickly become a key driving force for businesses today, as applications are moved out of on-premise data centres in a bid to innovate, cut costs and increase agility.
 
-AWS is the premier **Infrastructure-as-a-service (IaaS)** provider and leads the market for cloud computing.
+AWS is the premier **Infrastructure-as-a-service (IaaS)** provider and leads the market for cloud computing. As of Q4 2019 it has captured 33% of the market. 
 
 <img src="https://i.imgur.com/7LuDq6U.png">
 
@@ -14,7 +14,7 @@ AWS is the premier **Infrastructure-as-a-service (IaaS)** provider and leads the
 
 AWS has become the premier cloud service provider and provides companies with a global infrastructure and pay as you go service model helping companies to lower their TCO. 
 
-Their infrastructure currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.  
+Their [global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/?p=ngi&loc=1) currently contains 24 geographic Regions around the world with a total of 77 Availability Zones. They have also announced plans for 6 more AWS Regions in Australia, India, Indonesia, Japan, Spain, and Switzerland which will includes 18 Availability Zones.  
 
 
 <img src="https://i.imgur.com/ZVH2bAl.jpg" width=800>
@@ -57,3 +57,18 @@ Amazon DynamoDB is a key-value and document database that delivers single-digit 
 #### Amazon CloudWatch
 
 CloudWatch collects monitoring and operational data in the form of logs, metrics, and events, providing you with a unified view of AWS resources, applications, and services that run on AWS and on-premises servers. 
+
+### AWS Certification
+
+One way to establish yourself as someone specializing in AWS is to obtain one or more of their certifications
+
+<img src="https://i.imgur.com/S8WpNAY.png">
+
+### Resources
+
+
+- [AWS Home Page](https://aws.amazon.com/)
+- [Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/?p=ngi&loc=1)
+- [AWS Certification](https://aws.amazon.com/certification/?trk=ps_a134p000006gXRtAAM&trkCampaign=GLBL-FY21-TrainCert-Certification_PaidSearch&sc_channel=PS&sc_campaign=FY21-TrainCert-Certification_PaidSearch&sc_publisher=Google&sc_category=Training%20and%20Certification&sc_country=US&sc_geo=NAMER&sc_outcome=acq&sc_detail=aws%20certification&sc_content=General_exact&sc_matchtype=e&sc_segment=464830920922&sc_medium=TC-P|PS-GO|Brand|Desktop|AW|Training%20and%20Certification|Certification|US|EN|Text|xx|B2I&s_kwcid=AL!4422!3!464830920922!e!!g!!aws%20certification&ef_id=Cj0KCQjwnueFBhChARIsAPu3YkQ6EbElU7y5r4yDjXi98G45uWYlsbWddPZirsY9FwDG0ywtASuvze8aAqjXEALw_wcB:G:s&s_kwcid=AL!4422!3!464830920922!e!!g!!aws%20certification)
+- [Udemy Cloud Course](https://www.udemy.com/course/aws-certified-cloud-practitioner-new/)
+- [Udemy Cloud Cert Practice Exams](https://www.udemy.com/course/aws-certified-cloud-practitioner-practice-test/learn/quiz/4426386/results?expanded=435894016#overview)
