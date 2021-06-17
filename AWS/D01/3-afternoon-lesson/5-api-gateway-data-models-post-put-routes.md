@@ -8,6 +8,16 @@ Creator:  Joe Keohan<br>
 
 # API Gateway Data Models For Post & Put Routes
 
+
+This lecture will focus on the following: 
+
+- creating a **Data Model** that requires all keys needed to create the item
+- applying the **Data Model** to **Method Request**
+- creating a **Mapping Template** to standardize the data
+- applying the **Mapping Template** to the **Integration Request**
+
+### Routing Table
+
 If we examine the routing table we can see that both the **POST** and **PUT** routes accept data.  This makes sense as  **POST** is used to create new items and **PUT** to updated an existing item. 
 
 
@@ -330,3 +340,8 @@ PUT     | /projects/:id      | Update specified _project_  | projects-update | Y
 
 - Test using **API Gateway**
 - Test using using **Postman**
+
+### Resources
+
+- [Working With Models And Mapping Templates](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html)
+- [Mapping Template Examples](https://docs.aws.amazon.com/apigateway/latest/developerguide/example-photos.html#example-photos-output-mapping)

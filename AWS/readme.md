@@ -29,14 +29,21 @@ Let's take a closer look at the **N.Virginia Region**. **Regions** are used to a
 <br>
 
 
-### AWS Services
+### Exploring AWS Services
 
-AWS offers in the range of 175 products and services. We can browse those services via the **Products** tab on [https://aws.amazon.com/](https://aws.amazon.com/).
+AWS offers in the range of 175 products and services. On their [https://aws.amazon.com/](https://aws.amazon.com/) home page we they have done a good job categorizing the services. 
 
+Scroll down a bit on the site and let's take a minute to review the **Explort Our Products** section. 
+
+<img src="https://i.imgur.com/Ws4vTxL.png">
+
+### Services Used In Our Build
+
+The diagram below displays the core AWS services that we will be using over the next few days. It also coveys where they will be used in building out our backend infrastructure. 
 
 <img src="https://i.imgur.com/6JQeohz.png" >
 
-The image above depicts a small scale implementation.  These are the services we will touch on during  of AWS where the following services are being used: 
+Here is a breakdown of thosse services:
 
 #### AWS IAM - Identity and Access Management
 
@@ -58,7 +65,7 @@ Amazon DynamoDB is a key-value and document database that delivers single-digit 
 
 CloudWatch collects monitoring and operational data in the form of logs, metrics, and events, providing you with a unified view of AWS resources, applications, and services that run on AWS and on-premises servers. 
 
-### AWS Certification
+## AWS Certification
 
 One way to establish yourself as someone specializing in AWS is to obtain one or more of their certifications
 

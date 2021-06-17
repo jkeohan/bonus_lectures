@@ -210,5 +210,6 @@ The SDK however is already available in Lambda so no need to install it.
 ### References 
 
 - [DynamoDB Single Table Design](https://www.alexdebrie.com/posts/dynamodb-single-table/)
+- [NoSQL Design for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-general-nosql-design.html)
 - [The DynamoDB Paper](https://www.dynamodbguide.com/the-dynamo-paper/)
 - [DynamoDB & Node.js](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.html)

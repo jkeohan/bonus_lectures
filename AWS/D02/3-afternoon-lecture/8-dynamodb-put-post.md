@@ -8,6 +8,7 @@ This lecture will focus on posting new items and update existing items in Dynamo
 
 - updating the **project-create** Lambda function to create new items in DynamoDB
 - updating the **project-update** Lambda function to update existing items in DynamoDB
+- creating a **model** and 
 
 ### POST Route
 
@@ -179,7 +180,7 @@ Let's also take a moment to test via the **POST** route in the API Gateway.  Pas
 
 ### Formating Response Data
 
-This isn't the best format to return via the API so let's reformat it in the **Integration Response** using a **Mapping Template**.  
+This isn't the best format data that is returned via the API so let's reformat it in the **Integration Response** using a **Mapping Template**.  
 
 Create a new **Mapping Template** and assign it a **Content Type** of **application/json**. 
 
