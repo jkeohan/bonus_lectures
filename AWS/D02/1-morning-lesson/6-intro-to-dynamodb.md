@@ -73,7 +73,7 @@ DynamoDB falls into the **Always Free** tier of services so lets take a look at 
 
 
 
-<img src="https://i.imgur.com/HuIKHvJ.png" >
+<img src="https://i.imgur.com/3JijYXO.png" >
 <br>
 <br>
 
