@@ -27,10 +27,16 @@ Here are a few examples:
 
 **Starter Repl**
 
-
-Fork this [Starter Repl](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3)
 <!-- untouched starter code -->
 <!-- Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
+
+Fork this [Starter Repl](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3)
+
+<!-- This contains the most recent walkthrough
+https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3#index.js
+ -->
+
+
 
 <!-- Solutions 
  https://replit.com/@jkeohan/intro-to-sorting#index.js
