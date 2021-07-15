@@ -31,12 +31,11 @@ Here are a few examples:
 Fork this [Starter Repl](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3)
 <!-- untouched starter code -->
 <!-- Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
-<!-- Fork this [Solution Repl](https://replit.com/@jkeohan/intro-to-sorting-starter) -->
 
 <!-- Solutions 
-
  https://replit.com/@jkeohan/intro-to-sorting#index.js
  https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-seir-1207#index.js
+ https://replit.com/@jkeohan/intro-to-sorting-starter
 -->
 
 
