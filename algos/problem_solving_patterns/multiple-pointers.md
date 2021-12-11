@@ -24,7 +24,7 @@ The multiple pointers approach uses separate pointers that correspond to index p
 
 Here is the [Starter Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Starter#index.js).
 
-<!-- [Solution Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Starter-1#index.js) -->
+<!-- [Solution Code](https://replit.com/@jkeohan/Algo-Multiple-Pointers-Solution-Final) -->
 
 
 ### Looping Approaches
