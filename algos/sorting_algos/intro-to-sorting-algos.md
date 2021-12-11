@@ -202,20 +202,6 @@ Let's take a look at the console logs and see if anything stands out.
 // [ 1, 2, 3 ]
 ```
 
-
-
-<hr>
-
-### :alarm_clock: Activity
-
-Review the console output and look for any possible inefficiencies in its design.  
-
-Then ask yourself how you might update the code to improve it's performance. 
-
-When asked slack your answer(s) in the thread. 
-
-<hr>
-
 #### Things That Stand Out
 
 So it seems like the following things stand stand out. 
@@ -223,6 +209,17 @@ So it seems like the following things stand stand out.
 - it tries to sort an element that isn't there (undefined)
 - it continues to sort all values even though the ones at the end are in the right position
 - it continues to sort even though by the end of the second loop the array is already sorted
+
+<!-- <hr>
+
+### :alarm_clock: Activity
+
+Review the console output and look for any possible inefficiencies in its design.  
+
+Then ask yourself how you might update the code to improve it's performance. 
+
+When asked slack your answer(s) in the thread.  -->
+
 
 <hr>
 
