@@ -371,7 +371,7 @@ bubbleSort([3,2,1])
 ```
 <br>
 
-Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Bubble-Sort#index.js)
+Here is the working [Bubble Sort Solution](https://repl.it/@jkeohan/Algo-Bubble-Sort#index.js)
 
 
 ## Selection Sort
@@ -517,7 +517,7 @@ function selectionSort(arr) {
 selectionSort([3,2,1])
 ```
 
-Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Selection-Sort-Solution#index.js)
+Here is the working [Selection Sort Solution](https://repl.it/@jkeohan/Algo-Selection-Sort-Solution#index.js)
 
 
 ## BONUS: Insertion Sort
@@ -660,7 +660,7 @@ SWAPPING HAPPENED IN i:
 ##########################
 ```
 
-Here is the working [Repl Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
+Here is the working [Insertion Sort Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
 
 
 ### :alarm_clock: Activity - Bubble Sort Refactor Challenges
