@@ -30,7 +30,7 @@ Here are a few examples:
 <!-- untouched starter code -->
 <!-- Fork this [Starter Repl](https://repl.it/@jkeohan/Algo-into-to-sorting-lecture#index.js) -->
 
-Fork this [Starter Repl](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3)
+Fork this [Starter Repl](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-12-11-21#index.js)
 
 <!-- This contains the most recent walkthrough
 https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3#index.js
