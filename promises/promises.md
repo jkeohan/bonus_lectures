@@ -24,6 +24,12 @@ While the promise is active it is in a `pending` state and at some point will be
 
 ### Creating A Promise
 
+#### Starter Code
+
+Fork a copy of the [Starter Repl](https://replit.com/@jkeohan/Algo-Promises-Starter#index.js)
+
+<!-- [Solution Code](https://replit.com/@jkeohan/seair-831-promises-lecture#index.js) -->
+
 Creating a promise involves instantiating a new instance of the ES6 `Promise class`.  The Promise takes in a callback with 2 arguments: 
 
 - `resolve`
