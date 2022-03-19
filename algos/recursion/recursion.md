@@ -52,10 +52,10 @@ for(let i = string.length-1; i > -1; i -= 1) {
 }
 ```
 
-The cases are as follows:
+The **cases** are as follows:
 
-- Base: if i is > i 
-- Recursive: newString += string[i]
+- **Base:** if i > i 
+- **Recursive:** newString += string[i]
 
 How about we change it up a bit and use a `while` loop:
 
