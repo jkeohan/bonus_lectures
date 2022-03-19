@@ -63,8 +63,8 @@ How about we change it up a bit and use a `while` loop:
 let string = "hello";
 let newString = "";
 let i = string.length-1
-let rerun = true;
-while(rerun) {
+let loop = true;
+while(loop) {
   if(i === 0) { rerun = false }
   newString += string[i];
   i -= 1;
@@ -72,10 +72,10 @@ while(rerun) {
 ```
 
 The cases are as follows:
-- Base: if rerun is true
-- newString += string[i]
+- **Base:** if loop === true
+- **Recursive:** newString += string[i]
 
-Packaging either of these solutions for reusability leads us to nest them inside `functions` which one of the key elements in recursion:
+Packaging either of these solutions for reusability leads us to nest them inside **functions**, which is one of the key elements in recursion:
 
 ```
 function reverse(string) {
@@ -87,7 +87,7 @@ function reverse(string) {
 }
 ```
 
-Now let's refactor this into a recursive function.  Doing so requires that we define both the base and recursive cases:
+Now let's refactor this into a **recursive function**.  Doing so requires that we define both the **Base** and **Recursive** cases:
 
 ```
 function reverse(s) {
@@ -100,8 +100,8 @@ function reverse(s) {
 ```
 
 The cases are as follows:
-- Base: if rerun is true
-- newString += string[i]
+- **Base:** if s === ""
+- **Recursive:** return reverse(s.substr(1)) + reversedWord 
 
 The last refactor is to make this code look a bit more elegant using a ternary operator:
 
@@ -127,7 +127,7 @@ A good working example of this is the algorithmic problem of **Flatten an Array*
 
 #### LAB: 30min
 
-1. Create a new ``repl`` for each of the following problems and convert them into recursive functions.  
+1. Create a new **repl** for each of the following problems and convert them into recursive functions.  
 2. Define the **Base** and **Recursive** case statements.
 5. Add the code needed to fulfill these requirements. 
 
