@@ -33,9 +33,9 @@ While the promise is active it is in a `pending` state and at some point will be
 
 ### Creating A Promise
 
-#### Starter Code
+<!-- #### Starter Code
 
-Fork a copy of the [Starter Repl](https://replit.com/@jkeohan/Algo-Promises-Starter#index.js)
+Fork a copy of the [Starter Repl](https://replit.com/@jkeohan/Algo-Promises-Starter#index.js) -->
 
 <!-- [Solution Code](https://replit.com/@jkeohan/promises-72120#index.js) -->
 <!-- [Solution Code](https://replit.com/@jkeohan/seair-831-promises-lecture#index.js) -->
