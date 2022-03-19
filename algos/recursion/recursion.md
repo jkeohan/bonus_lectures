@@ -94,24 +94,30 @@ function reverse(string) {
 Now let's refactor this into a **recursive function**.  Doing so requires that we define both the **Base** and **Recursive** cases:
 
 ```
-function reverse(s) {
-  let reversedWord = s[0]
-  // base case...stop looping when the string is empty
-  if(s === "") { return reversedWord }
-  // recursive case...do this while the base case if false
-  else { return reverse(s.substr(1)) + reversedWord } 
+function reverse(string) {
+  let char= string[0];
+  // base case...stop looking when...the string is empty
+  if (string.length === 1) {
+    return char;
+  }
+  // recursive case...call the function and pass in the string stripped of it's first char
+  else {
+    return reverse(string.substr(1)) + char;
+  }
 }
+
+console.log("reverse", reverse("hello"));
 ```
 
 The cases are as follows:
-- **Base:** when s === "" return the value
-- **Recursive:** return reverse(s.substr(1)) + reversedWord 
+- **Base:** when string === "" return the value
+- **Recursive:** return reverse(string.substr(1)) + reversedWord 
 
 The last refactor is to make this code look a bit more elegant using a ternary operator:
 
 ```
-function reverse(s) {
-	return s === "" ? "" : reverse(s.substr(1)) + s[0]
+function reverse(string) {
+	return string === "" ? "" : reverse(string.substr(1)) + s[0]
 }
 ```
 
@@ -119,9 +125,13 @@ One thing to note about both examples is the order of the returned items. This w
 
 ### The Call Stack
 
-One way to convey the inner workings of recursion is to view the `call stack` which is used by the computer to store the sequence of procedures or functions in the order in which they were called.  Adding a `debugger` in your code will provide you the opportunity to see the functions as they are pushed into the call stack as well as the current returned value. 
+One way to convey the inner workings of recursion is to view the `call stack` which is used by the computer to store the sequence of procedures or functions in the order in which they were called.  
+
+Adding a `debugger` in your code will provide you the opportunity to see the functions as they are pushed into the call stack as well as the current returned value. 
 
 Show the call stack for reverse a string using a for loop and compare that to a recursive function. 
+
+<img src="https://i.imgur.com/Zj8j125.png" />
 
 ### When is Recursion Necessary? 
 
