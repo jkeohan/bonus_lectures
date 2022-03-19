@@ -128,11 +128,8 @@ A good working example of this is the algorithmic problem of **Flatten an Array*
 #### LAB: 30min
 
 1. Create a new ``repl`` for each of the following problems and convert them into recursive functions.  
-2. Define the ``Base`` and ``Recursive`` case statements.
-3. Determine if the order of the returned elements is important. 
-4. On your table draw a visual representation of the returned functions.
+2. Define the **Base** and **Recursive** case statements.
 5. Add the code needed to fulfill these requirements. 
-4. Add a debugger to confirm that the returned elements meet your expectations. 
 
 
 **sumOfArrayIntegers**
