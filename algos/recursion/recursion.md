@@ -37,10 +37,14 @@ The answer to the previous question can take two forms:
 
 So every loop implements one form of the above conditional logic and then executes a code block if that condition is true.  Writing a recursive function operates the same way in that it also evaluates a **base** condition, which if true, then calls itself. 
 
-In a recursive function these conditionas are refereced to as `cases` and are defined as follows: 
+In a recursive function these conditions are referenced to as `cases` and are defined as follows: 
 
-- **Base case:** When this condition is true the function stops calling itself.
-- **Recursive case:** Call the function again.
+- **Base case:** if true the function returns a value and stops calling itself
+- **Recursive case:** do something and call the function again
+
+#### Starter CodeSandbox
+
+Fork this [CodePen](https://codepen.io/jkeohan/pen/vYpGQrv?editors=0010)
 
 Let's break down a classic algo problem **Reverse A String** and define what are it's base and recursive cases.
 
@@ -54,8 +58,8 @@ for(let i = string.length-1; i > -1; i -= 1) {
 
 The **cases** are as follows:
 
-- **Base:** if i > i 
-- **Recursive:** newString += string[i]
+- **Base:** when i === -1 the loop stops
+- **Recursive:** do the thing which in this case is: newString += string[i]
 
 How about we change it up a bit and use a `while` loop:
 
@@ -72,8 +76,8 @@ while(loop) {
 ```
 
 The cases are as follows:
-- **Base:** if loop === true
-- **Recursive:** newString += string[i]
+- **Base:** stop if loop is not true
+- **Recursive:** do the thing which in this case is: newString += string[i]
 
 Packaging either of these solutions for reusability leads us to nest them inside **functions**, which is one of the key elements in recursion:
 
@@ -100,7 +104,7 @@ function reverse(s) {
 ```
 
 The cases are as follows:
-- **Base:** if s === ""
+- **Base:** when s === "" return the value
 - **Recursive:** return reverse(s.substr(1)) + reversedWord 
 
 The last refactor is to make this code look a bit more elegant using a ternary operator:
@@ -162,6 +166,3 @@ function isPalindrome(s) {
 
 isPalindrome('hello') => 'olleh'
 ```
-
-
-
