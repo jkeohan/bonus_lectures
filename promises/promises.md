@@ -12,7 +12,7 @@ JavaScript is single threaded. This means that two bits of script cannot run at 
 
 #### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - 1min
 
-Let's take a look at the [ES6 Promise class](https://www.w3schools.com/js/js_es6.asp#mark_promise
+Let's take a look at the [ES6 Promise class](https://www.w3schools.com/js/js_es6.asp#mark_promise)
 
 <hr>
 
