@@ -160,6 +160,8 @@ function sum(arr){
 sumOfArrayIntegers([1,2,3]) => 6
 ```
 
+<!-- [sumOfArraySolution](<https://replit.com/@jkeohan/Algo-Sum-Of-Array-Solution#index.js>) -->
+
 **isPalindrome**
 
 ```

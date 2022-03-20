@@ -245,6 +245,9 @@ stack: Stack {
 }
 */
 ```
+
+[Stack Solution](https://replit.com/@jkeohan/Algo-Stack#index.js)
+
 <hr>
 
 ##### <g-emoji class="g-emoji" alias="alarm_clock" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/23f0.png">⏰</g-emoji> Activity - Add Additional Methods
@@ -284,6 +287,7 @@ Output: false
 Input: '(){'
 Output: false
 
+[Valid Openers To Closer Solution](https://replit.com/@jkeohan/Algo-OpensToClosers#index.js)
 
 <hr>
 
