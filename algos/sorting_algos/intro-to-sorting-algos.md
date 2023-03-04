@@ -137,6 +137,22 @@ Hmmm...that didn't work as expected.
 :question: How would you go about resolving this? 
 
 
+<details>
+<summary>Solution</summary>
+ 
+ ```js
+ function sortNamesAsc(a,b){
+  const stringA = a.toLowerCase() 
+  const stringB = b.toLowerCase() 
+  if(stringA  < stringB) { return -1}
+  else if(stringA  > stringB) {return 1}
+  
+  return 0
+}
+ ```
+ </details>
+
+
 ## Bubble Sort
 
 We will kick off sorting algos with `Bubble Sort`.  
