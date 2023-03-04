@@ -17,13 +17,15 @@ By the end of this lesson, you will be able to:
 
 ## What is Sorting?
 
-Sorting is the process or rearranging the items in a collection (e.g. an array) so that the items are in some kind of order. 
+Sorting is the process or rearranging the items in a collection (e.g. an array) so that the items are in some kind of order.
 
 Here are a few examples:
 
 - sorting numbers from smallest to largest
 - sorting names alphabetically
 - sorting movies based on release year
+
+And here are those [algos and some additional algos](https://visualgo.net/en) in action.
 
 **Starter Repl**
 
