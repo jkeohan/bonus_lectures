@@ -386,6 +386,8 @@ bubbleSort([3,2,1])
 ```
 <br>
 
+Here are the [lecture notes](https://replit.com/@jkeohan/Algo-into-to-sorting-lecture-3-19-22#index.js)
+ 
 Here is the working [Bubble Sort Solution](https://repl.it/@jkeohan/Algo-Bubble-Sort#index.js)
 
 
@@ -676,6 +678,7 @@ SWAPPING HAPPENED IN i:
 ```
 
 Here is the working [Insertion Sort Solution](https://repl.it/@jkeohan/Algo-Insertion-Sort#index.js)
+
 
 
 ### :alarm_clock: Activity - Bubble Sort Refactor Challenges
